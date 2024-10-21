@@ -178,10 +178,10 @@ header .nav-container {
 
 /* Cart and Wishlist Count */
 .nav-icons span {
-    background-color: rgb(85, 85, 85);
+    background-color: #000;
     color: white;
     border-radius: 50%;
-    padding: 2px 8px;
+    padding: 4px 8px;
     font-size: 12px;
     position: relative;
     top: -10px;
@@ -1067,8 +1067,46 @@ a:hover {
     background-color: #000;
 }
 
-.cart-item-image, .wishlist-item-image{
+.cart-items img, .wishlist-items img{
     width: 20%;
+    height: 20%;
+}
+
+.cart-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.carts-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.carts-container-child{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+}
+.cart-items button, .wishlist-items button{
+    background: none;
+    border: none;
+    color: red;
+    font: 45px;
+}
+.cart-items button:hover{
+    background: none;
+}
+.wishlist-items button:hover{
+    background: none;
+}
+.checkout-button-container{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .side-cart-header {

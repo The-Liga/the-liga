@@ -31,35 +31,25 @@ function updateWishlistCount() {
     document.getElementById("wishlist-count").innerText = wishlist.length;
 }
 
-function updateCartItems() {
-    const cartItemsContainer = document.getElementById("cart-items");
-    cartItemsContainer.innerHTML = ''; // Clear existing items
-    let total = 0;
-
-    cart.forEach((item) => {
-        const cartItem = document.createElement("div");
-        cartItem.innerHTML = `
-            <img src="${item.image}" alt="${item.name}">
-            <div>${item.name}</div>
-            <div>R${item.price.toFixed(2)}</div>
-        `;
-        cartItemsContainer.appendChild(cartItem);
-        total += item.price;
-    });
-
-    document.getElementById("total-price").innerText = `R${total.toFixed(2)}`;
-}
 
 function updateWishlistItems() {
     const wishlistItemsContainer = document.getElementById("wishlist-items");
     wishlistItemsContainer.innerHTML = ''; // Clear existing items
 
-    wishlist.forEach((item) => {
+    wishlist.forEach((item, index) => {
         const wishlistItem = document.createElement("div");
         wishlistItem.innerHTML = `
-            <img src="${item.image}" alt="${item.name}">
-            <div>${item.name}</div>
-            <div>R${item.price.toFixed(2)}</div>
+            <div class="carts-container">
+                <div class="carts-container-child">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="carts-prices">
+                     <div>${item.name}</div>
+                    <div>R${item.price.toFixed(2)}</div>
+                </div>
+                </div>
+                <button onclick="removeFromWishlist(${index})"><i class="fa-solid fa-trash"></i></button> 
+            </div>
+            <hr/>
         `;
         wishlistItemsContainer.appendChild(wishlistItem);
     });
@@ -96,38 +86,48 @@ window.onclick = function(event) {
     if (event.target.classList.contains("modal")) {
         event.target.style.display = "none";
     }
-};function updateCartItems() {
+};
+
+function updateCartItems() {
     const cartItemsContainer = document.getElementById("cart-items");
-    cartItemsContainer.innerHTML = ''; // Clear existing items
+    cartItemsContainer.innerHTML = ''; 
     let total = 0;
 
     cart.forEach((item, index) => {
         const cartItem = document.createElement("div");
         cartItem.innerHTML = `
-            <img src="${item.image}" alt="${item.name}">
-            <div>${item.name}</div>
-            <div>R${item.price.toFixed(2)}</div>
-            <button onclick="removeFromCart(${index})">Remove</button>
+            <div class="carts-container">
+                <div class="carts-container-child">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="carts-prices">
+                        <div>${item.name}</div>
+                        <div>R${item.price.toFixed(2)}</div>
+                    </div>
+                </div>
+                <button class="remove-btn" onclick="removeFromCart(${index})"><i class="fa-solid fa-trash"></i></button>
+            </div>
+            <hr/>
         `;
         cartItemsContainer.appendChild(cartItem);
         total += item.price;
     });
 
     document.getElementById("total-price").innerText = `R${total.toFixed(2)}`;
-    // Add checkout button
-    const checkoutButton = document.createElement("button");
-    checkoutButton.innerText = "Checkout";
-    checkoutButton.onclick = function() {
-        alert("Proceeding to checkout...");
-        // Implement checkout functionality here
-    };
-    cartItemsContainer.appendChild(checkoutButton);
+    
+
+
 }
 
 function removeFromCart(index) {
-    cart.splice(index, 1); // Remove item from cart
-    updateCartItems(); // Update cart display
-    updateCartCount(); // Update cart count
+    cart.splice(index, 1);
+    updateCartItems(); 
+    updateCartCount(); 
+}
+
+function removeFromWishlist(index) {
+    wishlist.splice(index, 1); 
+    updateWislistItems(); 
+    updateWishlistCount(); 
 }
 
 
@@ -142,6 +142,7 @@ function openQuickView(product) {
     document.getElementById('quick-view-price').innerText = `Price: R${parseFloat(price).toFixed(2)}`;
     document.getElementById('quick-view-image').src = image;
     document.getElementById('quick-view-description').innerText = "Description for " + title; // Add a suitable description here
+    
     
     // Show the modal
     document.getElementById('quick-view-modal').style.display = 'block';
@@ -178,4 +179,4 @@ document.getElementById('add-to-cart-btn').onclick = function() {
     
     // Close the quick view modal
     document.getElementById('quick-view-modal').style.display = 'none';
-};
+}; 
