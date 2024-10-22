@@ -1,3 +1,9 @@
+<?php
+session_start();
+include("config.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,47 +18,7 @@
 </head>
 <body>
 
-    <header>
-        <div class="nav-container">
-            <!-- Logo -->
-            <div class="logo">
-                <a href="index.html"><img src="assets/log2.jpg" alt="TL"></a>
-            </div>
-            <!-- Navigation Menu -->
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="./pages/men.html">Men</a></li>
-                    <li><a href="./pages/women.html">Women</a></li>
-                    <li><a href="./pages/new_arrivals.html">New Arrivals</a></li>
-                    <li><a href="./pages/new_arrivals.html">Fashion</a></li>
-                    <li><a href="./pages/accessories.html">Accessories</a></li>
-                    <li><a href="./pages/shoes.html">Shoes</a></li>
-                    <li><a href="./pages/shop.html">Shop</a></li>
-                </ul>
-            </nav>
-            <!-- Icons and Profile -->
-            <div class="nav-icons">
-                <a href="#" id="search-icon"><i class="fa fa-search"></i></a>
-                <a href="#" id="cart-icon"><i class="fa fa-shopping-cart"></i><span id="cart-count">0</span></a>
-                <a href="#" id="wishlist-icon"><i class="fa fa-heart"></i><span id="wishlist-count">0</span></a>
-                <!-- Profile Dropdown -->
-                <div class="profile-dropdown">
-                    <a href="" id="profile-link">Username <i class="fa fa-caret-down"></i></a>
-                    <div class="dropdown-menu" id="dropdown-menu">
-                        <a><i class="fa fa-user"></i> Profile</a>
-                        <a><i class="fa fa-list"></i> My Orders</a>
-                        <a><i class="fa-solid fa-bag-shopping"></i>Checkout</a>
-                        <a><i class="fa fa-sign-out"></i> Logout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Search Bar (Initially hidden) -->
-        <div class="search-bar" id="search-bar" style="display:none;">
-            <input type="text" placeholder="Search for products..." />
-            <button type="button" id="search-btn">Search</button>
-        </div>
-    </header>
+    <?php include('./components/navbar.php'); ?>
     
     
     
@@ -104,7 +70,7 @@
         </div>
         <div class="inner-text">
             <h1>DON'T WASTE YOUR MONEY, SHOP FOR QUALITY OVER QUANTITY.</h1>
-            <a class="shop-btn" href="products.html">Shop</a>
+            <a class="shop-btn" href="./pages/register.php">Shop</a>
         </div>
     
         <!-- NEW ARRIVALS -->
@@ -381,90 +347,20 @@
             </div>
         </div>
     </div>
-<!-- Quick View Modal -->
-<div id="quick-view-modal" class="modal">
-    <div class="modal-content">
-        <span class="close" id="close-quick-view">&times;</span>
-        <h2 id="quick-view-title">Product Title</h2>
-        <img id="quick-view-image" src="" alt="Product Image" />
-        <div id="quick-view-description">Product description goes here.</div>
-        <div id="quick-view-price">Price: R0.00</div>
-        <button id="add-to-cart-btn">Add to Cart</button>
-    </div>
-</div>
-    <div class="footer">
-        <hr/>
-        <div class="upper-footer">
-            <div class="newsletter">
-                <h6>Subscribe to our Newsletter</h6>
-                <div class="signup-newsletter"><input placeholder="Enter your Email Address"/><button class="footer-signup-btn">Sign Up</button></div>
-            </div>
-            <div class="footer-socials">
-                <h6>Follow Us</h6>
-                <div class="footer-icon">
-                    <li class="fa fa-facebook"></li>
-                </div>
-                <div class="footer-icon">
-                    <li class="fa fa-twitter"></li>
-                </div>
-                <div class="footer-icon">
-                    <li class="fa fa-instagram"></li>
-                </div>
-                <div class="footer-icon">
-                    <li class="fa fa-linkedin"></li>
-                </div>
-          
-            </div>
-        </div>
-        <hr/>
-        <div class="middle-footer">
-            <div class="inner-footer-links">
-               <ul>
-                    <li>Shopping online</li>
-                    <li>Delivery & Returns</li>
-                    <li>Size Guide</li>
-                   
-                </ul>
-            </div>
 
-            <div class="inner-footer-links">
-                <ul>
-                    <li>Customer Services</li>
-                    <li>Contact Us</li>
-                    <li>Track Your Order</li>
-                    <li>FAQ's</li>
-                </ul>
-            </div>
-
-            <div class="inner-footer-links">
-                <ul>
-                    <li>About Us</li>
-                    <li>Careers</li>
-                    <li>Brand Information</li>
-                    <li>Counterfeit</li>
-                </ul>
-            </div>
-
-            <div class="inner-footer-links">
-                <ul>
-                    <li>Stores & Loyalty Club</li>
-                    <li>Find a Store</li>
-                    <li>Rewards and Benefits</li>
-                 
-                </ul>
-            </div>
-            
-        </div>
-        <hr/>
-        <div class="lower-footer">
-            <a>© 2024 The Liga. All Rights Reserved</a>
-            <div class="footer-payments">
-                <h6>Pay securely with </h6>
-                <li class="fa fa-cc-mastercard"></li>
-                <li class="fa fa-cc-visa"></li>
-            </div>
+    <!-- Quick View Modal -->
+    <div id="quick-view-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-quick-view">&times;</span>
+            <h2 id="quick-view-title">Product Title</h2>
+            <img id="quick-view-image" src="" alt="Product Image" />
+            <div id="quick-view-description">Product description goes here.</div>
+            <div id="quick-view-price">Price: R0.00</div>
+            <button id="add-to-cart-btn">Add to Cart</button>
         </div>
     </div>
+    
+    <?php include('./components/footer.php'); ?>
 
 
     <!-- Link to external JavaScript -->

@@ -19,7 +19,10 @@ header {
     width: 100%;
     z-index: 1000;
 }
-
+.username{
+    font-size: 20px;
+    font-weight: 500;
+}
 .nav-container {
     width: 100%;
     display: flex;
@@ -69,7 +72,7 @@ header {
 .profile-dropdown {
     display: inline-block;
     position: relative;
-    margin-left: 20px;
+    
 }
 
 .profile-dropdown i {

@@ -1,3 +1,5 @@
+<? include '../config.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
          <header>
          <div class="nav-container">
              <!-- Logo -->
@@ -32,14 +33,31 @@
                  <a href="#" id="wishlist-icon"><i class="fa fa-heart"></i><span id="wishlist-count">0</span></a>
                  <!-- Profile Dropdown -->
                  <div class="profile-dropdown">
-                     <a href="" id="profile-link">Username <i class="fa fa-caret-down"></i></a>
-                     <div class="dropdown-menu" id="dropdown-menu">
-                         <a><i class="fa fa-user"></i> Profile</a>
-                         <a><i class="fa fa-list"></i> My Orders</a>
-                         <a><i class="fa-solid fa-bag-shopping"></i>Checkout</a>
-                         <a><i class="fa fa-sign-out"></i> Logout</a>
-                     </div>
-                 </div>
+                    <a href="#" id="profile-link">
+                        <?php 
+                        // Check if the user is logged in
+                        if (isset($_SESSION['email'])) {
+                            $email = $_SESSION['email'];
+                            $query = mysqli_query($conn, "SELECT users.* FROM `users` WHERE users.email='$email'");
+                            if ($row = mysqli_fetch_array($query)) {
+                                // Display the first name
+                                echo $row['firstName'];
+                            }
+                        } else {
+                            // Display "Username" if not logged in
+                            echo '<p class="username">Username</p>';
+                        }
+                        ?>
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-menu" id="dropdown-menu">
+                        <a href="./pages/registrations.php"><i class="fa fa-user"></i> Profile</a>
+                        <a><i class="fa fa-list"></i> My Orders</a>
+                        <a><i class="fa-solid fa-bag-shopping"></i> Checkout</a>
+                        <a href="./pages/logout.php"> <i class="fa fa-sign-out"></i> Logout</a>
+                    </div>
+                </div>
+
              </div>
          </div>
          <!-- Search Bar (Initially hidden) -->
@@ -48,8 +66,5 @@
              <button type="button" id="search-btn">Search</button>
          </div>
      </header>
-
-    ?>
-    
 </body>
 </html>
