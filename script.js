@@ -64,6 +64,12 @@ document.getElementById("close-wishlist").onclick = function() {
     document.getElementById("wishlist-modal").style.display = "none";
 };
 
+window.onclick = function(event) {
+    if (event.target.classList.contains("modal")) {
+        event.target.style.display = "none";
+    }
+};
+
 document.getElementById("close-search").onclick = function() {
     document.getElementById("search-modal").style.display = "none";
 };
@@ -180,3 +186,9 @@ document.getElementById('add-to-cart-btn').onclick = function() {
     // Close the quick view modal
     document.getElementById('quick-view-modal').style.display = 'none';
 }; 
+
+function redirectToNextPage(nextPageUrl) {
+    window.location.href = nextPageUrl;
+}
+
+

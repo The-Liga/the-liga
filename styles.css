@@ -1094,7 +1094,7 @@ a:hover {
     background: none;
     border: none;
     color: red;
-    font: 45px;
+    font-size: 20px;
 }
 .cart-items button:hover{
     background: none;
