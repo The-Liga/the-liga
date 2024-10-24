@@ -47,7 +47,7 @@ function updateWishlistItems() {
                     <div>R${item.price.toFixed(2)}</div>
                 </div>
                 </div>
-                <button onclick="removeFromWishlist(${index})"><i class="fa-solid fa-trash"></i></button> 
+                <button class="remove-btn"  onclick="removeFromCart(${index})"><i class="fa-solid fa-trash"></i></button> 
             </div>
             <hr/>
         `;

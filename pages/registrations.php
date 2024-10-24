@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../styles/registration.css">
 </head>
 <body>
-    <div class="container" id="signup" style="display:none;">
+    <div class="container" id="signup" >
       <h1 class="form-title">Register</h1>
       <form method="post" action="register.php">
         <div class="input-group">

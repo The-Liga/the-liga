@@ -45,7 +45,7 @@
                             }
                         } else {
                             // Display "Username" if not logged in
-                            echo '<p class="username">Username</p>';
+                            echo '<p style="margin-top: 12px;" class="username">Username</p>';
                         }
                         ?>
                         <i class="fa fa-caret-down"></i>
