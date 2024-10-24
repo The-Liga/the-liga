@@ -191,18 +191,28 @@ function redirectToNextPage(nextPageUrl) {
     window.location.href = nextPageUrl;
 }
 
-const signUpButton=document.getElementById('signUpButton');
-const signInButton=document.getElementById('signInButton');
-const signInForm=document.getElementById('signIn');
-const signUpForm=document.getElementById('signup');
+document.addEventListener('DOMContentLoaded', function() {
+    const signUpButton = document.getElementById('signUpButton');
+    const signInButton = document.getElementById('signInButton');
+    const signInForm = document.getElementById('signIn');
+    const signUpForm = document.getElementById('signup');
 
-signUpButton.addEventListener('click',function(){
-    signInForm.style.display="none";
-    signUpForm.style.display="block";
-})
-signInButton.addEventListener('click', function(){
-    signInForm.style.display="block";
-    signUpForm.style.display="none";
-})
+    // Ensure default visibility
+    signUpForm.style.display = 'none'; // Initially hide sign-up form
+    signInForm.style.display = 'block'; // Initially show sign-in form
+
+    // Event listener for switching to Sign Up
+    signUpButton.addEventListener('click', function() {
+        signInForm.style.display = "none";
+        signUpForm.style.display = "block";
+    });
+
+    // Event listener for switching to Sign In
+    signInButton.addEventListener('click', function() {
+        signInForm.style.display = "block";
+        signUpForm.style.display = "none";
+    });
+});
+
 
 
