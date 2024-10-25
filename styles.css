@@ -226,6 +226,7 @@ header .nav-container {
     cursor: pointer;
 }
 
+
 .close:hover,
 .close:focus {
     color: #000;
@@ -516,6 +517,7 @@ header .nav-container {
     padding-bottom: 10px;
     width: 100%;
     height: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
     position: relative;
 }
 .product-grid:hover{
@@ -1415,29 +1417,58 @@ a:hover {
 
 
 .quickview-modal {
-    display: none; /* Hidden by default */
+    display: none; 
     position: fixed;
-    z-index: 2000; /* On top */
+    z-index: 2000; 
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.5); /* Black with opacity */
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.5); 
+    flex-direction: column;
+}
+.quickview-modal-content .close{
+    color: #aaa;
+    position: absolute;
+    top: 125px;
+    right: 140px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.quickview-body{
+    display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.view-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 50px
+}
+.view-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 50px
 }
 .quickview-modal-content{
-    background-color: red;
-    margin: 10% auto; /* 10% from top and centered */
+    background-color: #fff;
+    margin: 10% auto; 
     padding: 5px;
     border: 1px solid #888;
     width: 80%;
     border-radius: 8px;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
+
 .quickview-modal-content h2{
     margin-bottom: 5px;
     color: #000;
@@ -1463,7 +1494,8 @@ a:hover {
 
 .quickview-modal img {
   width: 290px;
-  margin-top: 47px;
+  height: 300px;
+ 
 }
 
 .slideshow-buttons {
@@ -1512,7 +1544,7 @@ a:hover {
 }
 
 .quickview-modal button {
-  background: darken(#fff, 10%);
+  background: #000;
   padding: 10px;
   display: inline-block;
   outline: 0;
@@ -1524,11 +1556,39 @@ a:hover {
   color: #fff;
   cursor: pointer;
   &:hover {
-    background: #000;
+    background: #888;
     transition: all .4s ease-in-out;
   }
 }
-
+.delivery-info {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+  
+  .delivery-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .delivery-info h3 {
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+  
+  .delivery-info ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .delivery-info p {
+    margin-bottom: 10px;
+  }
 .quickview-modal .add {
   width: 67%;
 }
@@ -1561,11 +1621,19 @@ a:hover {
   border: 1px solid #000;
   font-size: 0.7em;
   text-align: center;
-  /* &:hover{
-    background: $rose;
-    color: $white;
-    transition: all .4s ease-in-out;
-  } */
+}
+.view-left{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.size{
+    border-radius: 5px;
+}
+.color{
+    border-radius: 50%;
+    border: 1px solid #000;
+    background-color: red;
 }
 
 .quickview-modal .focus{

@@ -147,9 +147,32 @@ function openQuickView(product) {
     document.getElementById('quick-view-title').innerText = title;
     document.getElementById('quick-view-price').innerText = `Price: R${parseFloat(price).toFixed(2)}`;
     document.getElementById('quick-view-image').src = image;
-    document.getElementById('quick-view-description').innerText = "Description for " + title; // Add a suitable description here
-    
-    
+    document.getElementById('quick-view-description').innerHTML = `
+  <strong>Classic Leather Jacket</strong><br><br>
+  <strong>Overview:</strong> Elevate your wardrobe with our Classic Leather Jacket, a timeless piece that seamlessly blends style, comfort, and durability. Crafted from high-quality, supple leather, this jacket is designed to provide both a chic look and lasting wear.<br><br>
+  <strong>Sizing:</strong> Available in sizes XS to XXL. Refer to our sizing chart for the perfect fit.<br><br>
+  <strong>Conclusion:</strong> Embrace the timeless appeal of our Classic Leather Jacket, a must-have addition to any wardrobe. With its blend of functionality and style, it’s designed to be a staple piece for years to come. Experience the confidence and edge that only a premium leather jacket can provide!
+`;
+
+document.getElementById('quick-view-design').innerHTML = `
+  <strong>Material:</strong> Premium genuine leather that ages beautifully, developing a unique patina over time.<br>
+  <strong>Fit:</strong> Tailored fit that flatters all body types, providing enough room for layering without compromising style.<br>
+  <strong>Color Options:</strong> Available in classic black, deep brown, and rich burgundy to suit various tastes and occasions.<br>
+  <strong>Closure:</strong> Features a sturdy front zipper for easy wear and an elegant snap-button closure for added style.<br>
+  <strong>Care Instructions:</strong> To maintain the leather's natural beauty, wipe clean with a damp cloth and apply a leather conditioner periodically. Avoid exposure to excessive moisture and direct heat.
+`;
+
+document.getElementById('quick-view-details').innerHTML = `
+  <strong>Details:</strong><br>
+  <ul>
+    <li><strong>Lining:</strong> Soft polyester lining for comfort and warmth, making it ideal for cooler days.</li>
+    <li><strong>Pockets:</strong> Equipped with two side zip pockets for secure storage and two interior pockets for your essentials.</li>
+    <li><strong>Collar:</strong> Classic notch collar with snap buttons, adding a touch of sophistication.</li>
+    <li><strong>Cuffs:</strong> Zippered cuffs for a customizable fit and added flair.</li>
+  </ul>
+  <strong>Versatility:</strong> This leather jacket is perfect for any occasion, whether you're dressing up for a night out or keeping it casual for a weekend adventure. Pair it with jeans and a tee for a relaxed look or layer it over a dress for an edgy vibe.
+`;
+
     // Show the modal
     document.getElementById('quick-view-modal').style.display = 'block';
 }
