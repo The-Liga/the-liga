@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../styles/registration.css">
 </head>
 <body>
-    <div class="container" id="signup" >
+    <div class="container" id="signup" style="display: none">
       <h1 class="form-title">Register</h1>
       <form method="post" action="register.php">
         <div class="input-group">
@@ -76,6 +76,6 @@
           <button id="signUpButton">Sign Up</button>
         </div>
       </div>
-      <script src="script.js"></script>
+      <script src="../../../script.js"></script>
 </body>
 </html>

@@ -38,7 +38,7 @@ input{
 input:focus{
     background-color: transparent;
     outline:transparent;
-    border-bottom:2px solid hsl(327,90%,28%);
+    border-bottom:2px solid hsl(320, 9%, 7%);
 }
 input::placeholder{
     color:transparent;
