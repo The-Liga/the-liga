@@ -9,7 +9,7 @@ include("config.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Liga</title>
+    <title>The Liga | Home </title>
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Link to external CSS -->
@@ -32,38 +32,37 @@ include("config.php");
         </div>
     </div>
     
-    <!-- Cart Modal -->
-    <div id="cart-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="close-cart" style="color: red;">&times;</span>
-            <h1 style="text-align: center;">Your Cart</h1>
-            <hr style="border: 1px solid #000; margin-bottom: 15px;" />
-            <div id="cart-items" class="cart-items"></div>
-            <div class="checkout-button-container">
-                <button onclick="">Checkout<i style="margin-left: 10px;" class="fa-solid fa-cart-shopping"></i></button>
-                <div id="total-price" style="font-weight: bold; margin-top: 10px;"><bold>Total: </bold>R0.00</div>
-            </div>
-            <!-- Checkout Button will be dynamically added here -->
+   <!-- Cart Modal -->
+<div id="cart-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="close-cart" style="color: red;">&times;</span>
+        <h1 style="text-align: center;">Your Cart</h1>
+        <hr style="border: 1px solid #000; margin-bottom: 15px;" />
+        <div id="cart-items" class="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="checkout-button-container">
+            <button onclick="checkout()">Checkout<i style="margin-left: 10px;" class="fa-solid fa-cart-shopping"></i></button>
+            <div id="total-price" style="font-weight: bold; margin-top: 10px;"><strong>Total: </strong>R0.00</div>
         </div>
     </div>
+</div>
+    
+<!-- Wishlist Modal -->
+<div id="wishlist-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="close-wishlist" style="color: red;">&times;</span>
+        <h1 style="text-align: center;">Your Wishlist</h1>
+        <hr style="border: 1px solid #000; margin-bottom: 15px;" />
+        <div id="wishlist-items" class="wishlist-items">
+            <!-- Wishlist items will be dynamically added here -->
+        </div>
+        <div style="align-items: center; margin-top: 20px; display: flex; justify-content: center;">
+            <button onclick="moveWishlistToCart()">Add to Cart</button>
+        </div>
+    </div>
+</div>
 
-    
-    <!-- Wishlist Modal -->
-    <div id="wishlist-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="close-wishlist"  style="color: red;">&times;</span>
-            <h1 style="text-align: center;">Your Wishlist</h1>
-            <hr style="border: 1px solid #000; margin-bottom: 15px;"/>
-            <div id="wishlist-items" class="wishlist-items">
-                <!-- Wishlist items will be dynamically added here -->
-                <button class="remove-btn" onclick="removeFromCart(index)"><i class="fa-solid fa-trash"></i></button>
-            </div>
-            <div style="align-items: center; margin-top: 20px; display: flex; justify-content: center;">
-                <button>Add to Cart</button>
-            </div>
-        </div>
-    </div>
-    
     <div class="home">
         <div class="inner-container">
             <!-- <h1>Welcome</h1> -->
@@ -94,7 +93,7 @@ include("config.php");
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R661.99 <span>R779.11</span></div>
+                                <div class="price">R661.99</div>
                                 <h3 class="title"><a href="#">For Men</a></h3>
                             </div>
                         </div>
@@ -113,7 +112,7 @@ include("config.php");
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R799.99 <span>R899.99</span></div>
+                                <div class="price">R799.99</div>
                                 <h3 class="title"><a href="#">For Women</a></h3>
                             </div>
                         </div>
@@ -132,7 +131,7 @@ include("config.php");
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R499.99 <span>R599.99</span></div>
+                                <div class="price">R499.99</div>
                                 <h3 class="title"><a href="#">Summer Dress</a></h3>
                             </div>
                         </div>
@@ -151,7 +150,7 @@ include("config.php");
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R599.99 <span>R899.99</span></div>
+                                <div class="price">R599.99</div>
                                 <h3 class="title"><a href="#">Bucket Hat</a></h3>
                             </div>
                         </div>
@@ -185,7 +184,7 @@ include("config.php");
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R661.99 <span>R779.11</span></div>
+                                <div class="price">R661.99</div>
                                 <h3 class="title"><a href="#">For Men</a></h3>
                             </div>
                         </div>
@@ -204,7 +203,7 @@ include("config.php");
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R799.99 <span>R899.99</span></div>
+                                <div class="price">R799.99</div>
                                 <h3 class="title"><a href="#">Summer Dress</a></h3>
                             </div>
                         </div>
@@ -223,7 +222,7 @@ include("config.php");
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R499.99 <span>R599.99</span></div>
+                                <div class="price">R499.99</div>
                                 <h3 class="title"><a href="#">Crop Top</a></h3>
                             </div>
                         </div>
@@ -242,7 +241,7 @@ include("config.php");
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R1299.99 <span>R1499.99</span></div>
+                                <div class="price">R1299.99</div>
                                 <h3 class="title"><a href="#">Two Pieces</a></h3>
                             </div>
                         </div>
@@ -252,6 +251,32 @@ include("config.php");
     
                 </div>
                 <button class="scroll-btn next-btn"><li style="color: white" class="fa fa-angle-right"></li></button>
+            </div>
+        </div>
+
+        <!--Why-Us section -->
+        <h1 style="text-align: center; font-weight: bold;">Why Choose Us?</h1>
+        <div class="why-choose-us">
+        
+            <div class="why-card">
+                <li class="fa fa-car" style="font-size: 50px; margin-bottom: 15px;"></li>
+                <h3>Fast & Reliable Delivery</h3>
+                <p>We ensure your orders are delivered on time, every time, with real-time tracking available.</p>
+            </div>
+            <div class="why-card">
+                <i class="fa-solid fa-shirt" style="font-size: 50px; margin-bottom: 15px;"></i>
+                <h3>Quality Products</h3>
+                <p>All our products undergo strict quality control to ensure you receive only the best.</p>
+            </div>
+            <div class="why-card">
+                <i class="fa-solid fa-phone" style="font-size: 50px; margin-bottom: 15px;"></i>
+                <h3>Excellent Customer Support</h3>
+                <p>Our dedicated support team is here to assist you with any questions or concerns.</p>
+            </div>
+            <div class="why-card">
+                <i class="fa-solid fa-rotate" style="font-size: 50px; margin-bottom: 15px;"></i>
+                <h3>Easy Returns</h3>
+                <p>If you're not satisfied, our hassle-free return policy makes it easy to exchange or return items.</p>
             </div>
         </div>
 
@@ -276,7 +301,7 @@ include("config.php");
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R661.99 <span>R779.11</span></div>
+                                <div class="price" style="color: red;">R661.99 <span>R779.11</span></div>
                                 <h3 class="title"><a href="#">For Men</a></h3>
                             </div>
                         </div>
@@ -295,7 +320,7 @@ include("config.php");
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R1299.99 <span>R1499.99</span></div>
+                                <div class="price" style="color: red;">R1299.99 <span>R1499.99</span></div>
                                 <h3 class="title"><a href="#">Leather Jacket</a></h3>
                             </div>
                         </div>
@@ -315,7 +340,7 @@ include("config.php");
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R499.99 <span>R599.99</span></div>
+                                <div class="price" style="color: red;">R499.99 <span>R599.99</span></div>
                                 <h3 class="title"><a href="#">Sneakers</a></h3>
                             </div>
                         </div>
@@ -334,7 +359,7 @@ include("config.php");
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R1200.00 <span>R1499.99</span></div>
+                                <div class="price" style="color: red;">R1200.00 <span>R1499.99</span></div>
                                 <h3 class="title"><a href="#">Duffle Bag</a></h3>
                             </div>
                         </div>
@@ -347,6 +372,21 @@ include("config.php");
             </div>
         </div>
     </div>
+
+    <!-- Newletter -->
+    <div class="body-newsletter">
+        <div class="newsletter-card">
+            <h1 class="newsletter-card-title">Subscribe</h1>
+            <p class="newsletter-card-content">Get fresh web design resources delivered straight to your inbox every week.
+            </p>
+            <div class="newsletter-card-form">
+                <input placeholder="Your Email" type="text">
+                <button class="sign-up"> Sign up</button>
+            </div>
+        </div>
+        </div>
+        </div>
+
 
     <!-- Quick View Modal -->
     <div id="quick-view-modal" class="modal">

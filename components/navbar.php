@@ -5,14 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Navbar </title>
 </head>
 <body>
          <header>
          <div class="nav-container">
              <!-- Logo -->
              <div class="logo">
-                 <a href="index.html"><img src="assets/log2.jpg" alt="TL"></a>
+                 <a href="../index.php"><img src="assets/log2.jpg" alt="TL"></a>
              </div>
              <!-- Navigation Menu -->
              <nav class="main-nav">
