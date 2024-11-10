@@ -292,32 +292,6 @@ include("config.php");
             </div>
         </div>
 
-        <!--Why-Us section -->
-        <h1 style="text-align: center; font-weight: bold;">Why Choose Us?</h1>
-        <div class="why-choose-us">
-        
-            <div class="why-card">
-                <li class="fa fa-car" style="font-size: 50px; margin-bottom: 15px;"></li>
-                <h3>Fast & Reliable Delivery</h3>
-                <p>We ensure your orders are delivered on time, every time, with real-time tracking available.</p>
-            </div>
-            <div class="why-card">
-                <i class="fa-solid fa-shirt" style="font-size: 50px; margin-bottom: 15px;"></i>
-                <h3>Quality Products</h3>
-                <p>All our products undergo strict quality control to ensure you receive only the best.</p>
-            </div>
-            <div class="why-card">
-                <i class="fa-solid fa-phone" style="font-size: 50px; margin-bottom: 15px;"></i>
-                <h3>Excellent Customer Support</h3>
-                <p>Our dedicated support team is here to assist you with any questions or concerns.</p>
-            </div>
-            <div class="why-card">
-                <i class="fa-solid fa-rotate" style="font-size: 50px; margin-bottom: 15px;"></i>
-                <h3>Easy Returns</h3>
-                <p>If you're not satisfied, our hassle-free return policy makes it easy to exchange or return items.</p>
-            </div>
-        </div>
-
         <!-- SALES -->
         <div>
             <h1 class="products-list">SALES</h1>
@@ -413,19 +387,6 @@ include("config.php");
                 </button>
             </div>
         </div>
-
-        <!-- Newletter -->
-        <!-- <div class="body-newsletter">
-        <div class="newsletter-card">
-            <h1 class="newsletter-card-title">Subscribe</h1>
-            <p class="newsletter-card-content">Get fresh web design resources delivered straight to your inbox every week.
-            </p>
-            <div class="newsletter-card-form">
-                <input placeholder="Your Email" type="text">
-                <button class="sign-up"> Sign up</button>
-            </div>
-        </div>
-    </div>
 
         <!-- Quick View Modal -->
         <div id="quick-view-modal" class="quickview-modal">
