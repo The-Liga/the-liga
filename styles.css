@@ -226,14 +226,15 @@ header .nav-container {
     cursor: pointer;
 }
 
+
 .close:hover,
 .close:focus {
     color: #000;
 }
 
 .modal-content h2 {
-    margin-bottom: 20px;
-    color: #333;
+    margin-bottom: 5px;
+    color: #000;
 }
 
 .modal-content input[type="text"] {
@@ -270,7 +271,110 @@ header .nav-container {
     background-position: center;
     background-size: cover;
 }
+/* Why choose us section */
+.why-choose-us {
+    padding: 50px;
+    gap: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+/* newsletter section*/
+.body-newsletter{
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.newsletter-card {
+    width: 80%;
+    height: 300px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    float: center;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px #212121;
+  }
+  
+  
+  
+  .newsletter-card-title {
+    font-size: 23px;
+    font-weight: 900;
+    color: #333;
+  }
+  
+  .newsletter-card-content {
+    font-size: 13px;
+    line-height: 18px;
+    color: #333;
+  }
+  
+  .newsletter-card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .newsletter-card-form input {
+    margin-top: 10px;
+    outline: 0;
+    background: rgb(255, 255, 255);
+    box-shadow: transparent 0px 0px 0px 1px inset;
+    border-radius: 14px;
+    border: 1px solid #333;
+    color: black;
+    width: 500px;
+    height: 40px;
+  }
+  .newsletter-card-form button::placeholder{
+    margin-left: 15px;
+  }
+  
+  .newsletter-card-form button {
+    border: 0;
+    background: #111;
+    color: #fff;
+    padding: 10px;
+    border-radius: 14px;
+    font-weight: bold;
+  }
+  
+  .sign-up:hover {
+    background: #999;
+  } 
+  
+/* Why-Us Section*/
+.why-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
+.why-card:hover {
+    background-color: #f0f0f0;
+}
+
+.details {
+    display: none;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
 .inner-container h1{
     color: #fff;
     font-size: 100px;
@@ -509,6 +613,7 @@ header .nav-container {
     padding-bottom: 10px;
     width: 100%;
     height: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
     position: relative;
 }
 .product-grid:hover{
@@ -790,11 +895,13 @@ header .nav-container {
 }
 
 .shop-btn{
-    padding: 10px 25px;
+    padding: 15px 60px;
     border: none;
     border-radius: 25px;
     background-color: #000;
     color: #FFF;
+    font-weight: 600;
+    font-size: 20px;
 }
 
 /* FOOTER SECTION */
@@ -1192,11 +1299,22 @@ a:hover {
 .cart-items button, .wishlist-items button{
     background: none;
     border: none;
-    color: red;
+    color: lightgray;
     font-size: 20px;
 }
 .cart-items button:hover{
+    color: #000;
     background: none;
+}
+.wishlist-items button:hover{
+    color: #000;
+    background: none;
+}
+.modal-content .close{
+    color: lightgray;
+}
+.modal-content .close:hover{
+    color: #000;
 }
 .wishlist-items button:hover{
     background: none;
@@ -1221,7 +1339,7 @@ a:hover {
     float: right;
     margin-top: 20px;
     font-size: 20px;
-    color: #ff4d4d; 
+    color: lightgray; 
     cursor: pointer;
     transition: color 0.2s ease-in-out;
     border: none;
@@ -1390,4 +1508,231 @@ a:hover {
     background-color: #444444;
     transform: translateY(-50%);
 }
+/* Quick-View Styles */
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
+
+.quickview-modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.5); 
+    flex-direction: column;
+}
+.quickview-modal-content .close{
+    color: #aaa;
+    position: absolute;
+    top: 125px;
+    right: 140px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.quickview-body{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.view-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 50px
+}
+.view-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 50px
+}
+.quickview-modal-content{
+    background-color: #fff;
+    margin: 10% auto; 
+    padding: 5px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.quickview-modal-content h2{
+    margin-bottom: 5px;
+    color: #000;
+    text-align: center;
+}
+
+.quickview-modal p {
+  font-size: 0.6em;
+  color: #000;
+  letter-spacing: 1px;
+}
+
+.quickview-modal h1 {
+  font-size: 1.2em;
+  color: #000;
+  margin-top: -5px;
+}
+
+.quickview-modal h2 {
+  color: #fff;
+  margin-top: -5px;
+}
+
+.quickview-modal img {
+  width: 290px;
+  height: 300px;
+ 
+}
+
+.slideshow-buttons {
+  top: 70%;
+  display: none;
+}
+
+.one, .two, .three, .four {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.slideshow-buttons .one {
+  left: 22%;
+}
+.slideshow-buttons .two {
+  left: 27%;
+}
+.slideshow-buttons .three {
+  left: 32%;
+}
+.slideshow-buttons .four {
+  left: 37%;
+}
+
+.slideshow-buttons .product {
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  top: 10%;
+  left: 60%;
+}
+
+.quickview-modal .desc {
+  text-transform: none;
+  letter-spacing: 0;
+  margin-bottom: 17px;
+  color: #000;
+  font-size: .7em;
+  line-height: 1.6em;
+  margin-right: 25px;
+  text-align: justify;
+}
+
+.quickview-modal button {
+  background: #000;
+  padding: 10px;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  margin: -1px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  cursor: pointer;
+  &:hover {
+    background: #888;
+    transition: all .4s ease-in-out;
+  }
+}
+.delivery-info {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+  
+  .delivery-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .delivery-info h3 {
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+  
+  .delivery-info ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .delivery-info p {
+    margin-bottom: 10px;
+  }
+.quickview-modal .add {
+  width: 67%;
+}
+
+.quickview-modal .like {
+  width: 22%;
+}
+
+.quickview-modal .sizes {
+  display: grid;
+  color: #fff;
+  grid-template-columns: repeat(auto-fill, 30px);
+  width: 60%;
+  grid-gap: 4px;
+  margin-left: 20px;
+  margin-top: 5px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.quickview-modal .pick {
+  margin-top: 11px;
+  margin-bottom:0;
+  margin-left: 20px;
+}
+
+.quickview-modal .size {
+  padding: 9px;
+  border: 1px solid #000;
+  font-size: 0.7em;
+  text-align: center;
+}
+.view-left{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.size{
+    border-radius: 5px;
+}
+.color{
+    border-radius: 50%;
+    border: 1px solid #000;
+    background-color: red;
+}
+
+.quickview-modal .focus{
+  background: #000;
+  color: #fff;
+}

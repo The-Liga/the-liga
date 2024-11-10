@@ -1,0 +1,64 @@
+/* Navbar styles */
+.admin-navbar {
+    width: 100%;
+    height: 60px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+/* Main container for sidebar and content */
+.admin-main {
+    display: flex;
+    margin-top: 100px; /* Offset for navbar height */
+}
+
+/* Sidebar styles */
+.admin-sidenav {
+    background-color: #444;
+    color: white;
+    height: calc(100vh - 60px); /* Full viewport height minus navbar height */
+    position: fixed;
+    top: 80px; /* Start directly under navbar */
+    margin-bottom: 10px;
+    
+}
+
+/* Main content styles */
+.admin-content {
+    margin-left: 100px; /* Leave space for sidebar */
+    padding: 20px;
+    width: calc(100% - 250px); /* Take remaining width after sidebar */
+    box-sizing: border-box;
+}
+
+/* Admin card styling */
+.admin-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .admin-sidenav {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+    }
+
+    .admin-content {
+        margin-left: 0;
+        width: 100%;
+    }
+}

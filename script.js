@@ -66,7 +66,7 @@ function updateWishlistItems() {
                         <div>R${item.price.toFixed(2)}</div>
                     </div>
                 </div>
-                <button onclick="removeFromWishlist(${index})"><i class="fa-solid fa-trash"></i></button>
+                <button onclick="removeFromWishlist(${index})"><i class="fa-solid fa-trash"></i></button> 
             </div>
             <hr/>
         `;
@@ -116,22 +116,27 @@ function removeFromWishlist(index) {
     updateWishlistCount(); 
 }
 
-// Modal close functionality
-document.getElementById("close-cart").onclick = function() {
-    document.getElementById("cart-modal").style.display = "none";
-};
 
-document.getElementById("close-wishlist").onclick = function() {
-    document.getElementById("wishlist-modal").style.display = "none";
-};
 
-// Open modal functions
-document.getElementById("cart-icon").onclick = function() {
-    document.getElementById("cart-modal").style.display = "block";
-};
+function openQuickView(product) {
+    const title = product.getAttribute('data-name');
+    const price = product.getAttribute('data-price');
+    const image = product.getAttribute('data-image');
+    
+    // Set the product details in the modal
+    document.getElementById('quick-view-title').innerText = title;
+    document.getElementById('quick-view-price').innerText = `Price: R${parseFloat(price).toFixed(2)}`;
+    document.getElementById('quick-view-image').src = image;
+    document.getElementById('quick-view-description').innerText = "Description for " + title; // Add a suitable description here
+    
+    
+    // Show the modal
+    document.getElementById('quick-view-modal').style.display = 'block';
+}
 
-document.getElementById("wishlist-icon").onclick = function() {
-    document.getElementById("wishlist-modal").style.display = "block";
+// Close modal functionality
+document.getElementById('close-quick-view').onclick = function() {
+    document.getElementById('quick-view-modal').style.display = 'none';
 };
 
 // Close modal when clicking outside of it
@@ -146,18 +151,54 @@ function redirectToNextPage(nextPageUrl) {
     window.location.href = nextPageUrl;
 }
 
-const signUpButton=document.getElementById('signUpButton');
-const signInButton=document.getElementById('signInButton');
-const signInForm=document.getElementById('signIn');
-const signUpForm=document.getElementById('signup');
+document.addEventListener('DOMContentLoaded', function() {
+    const signUpButton = document.getElementById('signUpButton');
+    const signInButton = document.getElementById('signInButton');
+    const signInForm = document.getElementById('signIn');
+    const signUpForm = document.getElementById('signup');
 
-signUpButton.addEventListener('click',function(){
-    signInForm.style.display="none";
-    signUpForm.style.display="block";
-})
-signInButton.addEventListener('click', function(){
-    signInForm.style.display="block";
-    signUpForm.style.display="none";
-})
+    // Ensure default visibility
+    signUpForm.style.display = 'none'; // Initially hide sign-up form
+    signInForm.style.display = 'block'; // Initially show sign-in form
+
+    // Event listener for switching to Sign Up
+    signUpButton.addEventListener('click', function() {
+        signInForm.style.display = "none";
+        signUpForm.style.display = "block";
+    });
+
+    // Event listener for switching to Sign In
+    signInButton.addEventListener('click', function() {
+        signInForm.style.display = "block";
+        signUpForm.style.display = "none";
+    });
+});
+
+
+/* ADMIN */
+document.addEventListener('DOMContentLoaded', function () {
+    const notificationIcon = document.querySelector('.notification-icon');
+    const notificationContainer = document.querySelector('.notification-container');
+    const notificationDropdown = document.querySelector('.notification-dropdown');
+  
+    // Toggle dropdown and unread status on icon click
+    notificationIcon.addEventListener('click', function (event) {
+      event.stopPropagation(); // Prevent event from bubbling to document
+      notificationContainer.classList.toggle('active');
+  
+      // Mark notifications as read and hide the red dot
+      if (notificationIcon.classList.contains('unread')) {
+        notificationIcon.classList.remove('unread');
+      }
+    });
+  
+    // Close the dropdown if clicking outside of it
+    document.addEventListener('click', function (event) {
+      if (!notificationContainer.contains(event.target)) {
+        notificationContainer.classList.remove('active');
+      }
+    });
+  });
+  
 
 
