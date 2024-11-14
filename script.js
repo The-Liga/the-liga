@@ -313,6 +313,56 @@ function redirectToNextPage(nextPageUrl) {
     window.location.href = nextPageUrl;
 }
 
+//Add the quick view functionality//
+document.addEventListener('DOMContentLoaded', function() {
+    const images = [
+        '/assets/blackcap1.png',
+        '/assets/Cap_Front_And_Back_View_UV1.png',
+        '/assets/beanie-on-table-with-accessories-mockup-005.png',
+        '/assets/hat.png'
+    ];
+    
+    let currentImageIndex = 0;
+    const mainImage = document.getElementById('quick-view-image');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const prevBtn = document.querySelector('.carousel-arrow.prev');
+    const nextBtn = document.querySelector('.carousel-arrow.next');
+
+    // Function to update the main image and active thumbnail
+    function updateImage(index) {
+        mainImage.src = images[index];
+        // Update active thumbnail
+        thumbnails.forEach((thumb, i) => {
+            if (i === index) {
+                thumb.classList.add('active');
+            } else {
+                thumb.classList.remove('active');
+            }
+        });
+    }
+
+    // Previous button click
+    prevBtn.addEventListener('click', () => {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        updateImage(currentImageIndex);
+    });
+
+    // Next button click
+    nextBtn.addEventListener('click', () => {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        updateImage(currentImageIndex);
+    });
+
+    // Thumbnail clicks
+    thumbnails.forEach((thumbnail, index) => {
+        thumbnail.addEventListener('click', () => {
+            currentImageIndex = index;
+            updateImage(currentImageIndex);
+        });
+    });
+});
+
+//Registrations functionality//
 document.addEventListener('DOMContentLoaded', function() {
     const signUpButton = document.getElementById('signUpButton');
     const signInButton = document.getElementById('signInButton');
