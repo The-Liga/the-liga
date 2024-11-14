@@ -25,14 +25,14 @@ include("config.php");
 
 
     <!-- Search Modal -->
-    <div id="search-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="close-search">&times;</span>
-            <h2>Search Products</h2>
-            <input type="text" placeholder="Search for products..." id="search-input">
-            <button type="button">Search</button>
-        </div>
+<div id="search-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="close-search" style="color: red;">&times;</span>
+        <h2>Search Products</h2>
+        <input type="text" placeholder="Search for products..." id="modal-search-input">
+        <button type="button" id="modal-search-btn">Search</button>
     </div>
+</div>
     
     <!-- Cart Modal -->
     <div id="cart-modal" class="modal">
@@ -59,9 +59,6 @@ include("config.php");
             <div id="wishlist-items" class="wishlist-items">
                 <!-- Wishlist items will be dynamically added here -->
                 <button class="remove-btn" onclick="removeFromCart(index)"><i class="fa-solid fa-trash"></i></button>
-            </div>
-            <div style="align-items: center; margin-top: 20px; display: flex; justify-content: center;">
-                <button>Add to Cart</button>
             </div>
         </div>
     </div>
