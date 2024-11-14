@@ -45,12 +45,26 @@
                 <div class="profile-container">
                     <img src="../../assets/profile.jpg" alt="Profile Image">
                 </div>
-                <!-- <div class="dropdown-menu" id="dropdown-menu">
-                    <a href="./pages/registrations.php"><i class="fa fa-user"></i>Profile</a>
-                    <a><i class="fa fa-list"></i>Feedbacks</a>
-                    <a><i class="fa fa-gear"></i>Settings</a>
-                    <a href="./pages/logout.php"> <i class="fa fa-sign-out"></i>Logout</a>
-                </div> -->
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <?php
+                    // Check if the user is logged in
+                    if (isset($_SESSION['email'])) {
+                        $email = $_SESSION['email'];
+                        $query = mysqli_query($conn, "SELECT users.* FROM `users` WHERE users.email='$email'");
+                        if ($row = mysqli_fetch_array($query)) {
+                            // Display the first name
+                            $name = $row['firstName'];
+                            echo "<div class='profile mt-4'>";
+                            echo "<h3>Welcome</h3>";
+                            echo "<h3>$name</h3>";
+                            echo "</div>";
+                        }
+                    } else {
+                        // Display "Username" if not logged in
+                        echo '<p style="margin-top: 12px;" class="username">Login</p>';
+                    }
+                    ?>
+                </div>
             </div>
 
         </div>

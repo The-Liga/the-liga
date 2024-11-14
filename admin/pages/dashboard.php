@@ -1,10 +1,4 @@
-<?php
-session_start();
-if (!isset($_SESSION['email']) || $_SESSION['userType'] !== 'admin') {
-    header("Location: ../login.php");
-    exit();
-}
-?>
+<?php include('../../config.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,9 +24,51 @@ if (!isset($_SESSION['email']) || $_SESSION['userType'] !== 'admin') {
         </aside>
 
         <section class="admin-content">
-            <div class="admin-card">Card 1</div>
-            <div class="admin-card">Card 2</div>
-            <div class="admin-card">Card 3</div>
+            <div class="admin-card1">
+                <a href="./categories.php">
+                    <div class="admin-child-card">
+                        <?php
+                        $sql = "SELECT COUNT(*) AS total_categories FROM categories";
+                        $result = $conn->query($sql);
+
+                        if ($result) {
+                            $row = $result->fetch_assoc();
+                            $categoryCount = $row['total_categories'];
+                        } else {
+                            $userCount = 0; // Handle errors or empty result
+                        }
+
+                        ?> <span>Categories: <?php echo $categoryCount; ?></span>
+                    </div>
+                </a>
+                <a href="./products.php">
+                    <div class="admin-child-card">
+                        <?php
+                        $sql = "SELECT COUNT(*) AS total_users FROM users";
+                        $result = $conn->query($sql);
+
+                        if ($result) {
+                            $row = $result->fetch_assoc();
+                            $userCount = $row['total_users'];
+                        } else {
+                            $userCount = 0; // Handle errors or empty result
+                        }
+
+                        $conn->close();
+                        ?> <span>Users: <?php echo $userCount; ?></span>
+                    </div>
+                </a>
+                <div class="admin-child-card">Orders</div>
+                <div class="admin-child-card">Sales</div>
+            </div>
+            <div class="admin-card">
+                <h1>Products</h1>
+                <a href="./addProduct.php"><button class="btn bg-black text-white">Add Product</button></a>
+            </div>
+            <div class="admin-card">
+                <h1>Categories</h1>
+                <a href="./addCategory.php"><button class="btn bg-black text-white">Add Category</button></a>
+            </div>
             <div class="admin-card">Card 4</div>
         </section>
     </main>

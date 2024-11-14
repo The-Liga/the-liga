@@ -31,7 +31,7 @@ if (isset($_POST['signUp'])) {
             header("Location: ../index.php");
             exit();
         } else {
-            echo "Error: " . $conn->error;
+            echo "Error: ";
         }
     }
 }

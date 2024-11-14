@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,14 +9,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="../../styles/admin/sidenav.css">
 </head>
-
 <body>
-
-
     <nav class="main-menu">
         <ul>
             <li>
-                <a href="https://jbfarrow.com">
+                <a href="../../admin/pages/dashboard.php">
                     <i class="fa fa-home fa-2x"></i>
                     <span class="nav-text">
                         Home
@@ -26,7 +22,7 @@
 
             </li>
             <li class="has-subnav">
-                <a href="#">
+                <a href="../../admin/pages/products.php">
                     <i class="fa fa-shopping-cart fa-2x"></i>
                     <span class="nav-text">
                         Products
@@ -35,7 +31,7 @@
 
             </li>
             <li class="has-subnav">
-                <a href="#">
+                <a href="../../admin/pages/categories.php">
                     <i class="fa fa-comments fa-2x"></i>
                     <span class="nav-text">
                         Categories
@@ -66,7 +62,5 @@
             </li>
         </ul>
     </nav>
-
 </body>
-
 </html>

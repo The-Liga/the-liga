@@ -198,7 +198,12 @@ document.addEventListener('DOMContentLoaded', function () {
         notificationContainer.classList.remove('active');
       }
     });
+
+
+    
   });
+
+  
   
 
 

@@ -1,0 +1,96 @@
+.product-table {
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-left: 80px;
+    width: calc(100% - 100px);
+    max-height:100%;
+}
+
+.admin-sidenav {
+    background-color: #444;
+    color: white;
+    height: calc(100vh - 60px); /* Full viewport height minus navbar height */
+    position: fixed;
+    top: 80px; /* Start directly under navbar */
+    margin-bottom: 10px;
+    
+}
+.category-image {
+    width: 100px;
+    margin-left: 25px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 5px; 
+    border: 1px solid #ccc;
+}
+  
+.category-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 5px; 
+}
+.admin-main {
+    display: flex;
+    margin-top: 100px; /* Offset for navbar height */
+}
+
+
+.product-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+.product-table td{
+    width: 100px;
+    border: 1px solid #ddd;
+   text-align: center;
+   padding: 8px;
+}
+.buttons{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+    align-items: center;
+}
+
+.product-table th {
+    background-color: #f2f2f2;
+}
+
+.product-table .delete-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.product-table .edit-button{
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.product-table .edit-button:hover, .product-table .delete-button:hover{
+    background-color: #444;
+}
+
+.sizes ul {
+    list-style-type: none;
+    display: inline-block;
+}
+
+.sizes li {
+    display: inline-block;
+    margin-right: 5px;
+}
