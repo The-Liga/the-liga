@@ -29,7 +29,7 @@ include("config.php");
     <div class="modal-content">
         <span class="close" id="close-search" style="color: red;">&times;</span>
         <h2>Search Products</h2>
-        <input type="text" placeholder="Search for products..." id="modal-search-input">
+        <input type="text" placeholder="What are you looking for?" id="modal-search-input">
         <button type="button" id="modal-search-btn">Search</button>
     </div>
 </div>

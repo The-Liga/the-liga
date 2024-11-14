@@ -809,6 +809,11 @@ header .nav-container {
     font-size: 20px;
 }
 
+.shop-btn:hover{
+    background-color: #757474;
+    color: #000000;
+}
+
 /* FOOTER SECTION */
 .footer{
     background-color: #eee;

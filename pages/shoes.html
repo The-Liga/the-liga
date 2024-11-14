@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Link to external CSS -->
     <link rel="stylesheet" href="../styles.css">
-    <link rel="icon" href="assets/white TL logo.png" type="image/x-icon">
+    <link rel="icon" href="../assets/white TL logo.png" type="image/x-icon">
 </head>
 <body>
 
@@ -17,7 +17,7 @@
         <div class="nav-container">
             <!-- Logo -->
             <div class="logo">
-                <a href="../index.php"><img src="assets/log2.jpg" alt="TL"></a>
+                <a href="../index.php"><img src="../assets/log2.jpg" alt="TL"></a>
             </div>
     
             <!-- Navigation Menu -->
@@ -60,34 +60,40 @@
     </header>
     
     <!-- Search Modal -->
-    <div id="search-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="close-search">&times;</span>
-            <h2>Search Products</h2>
-            <input type="text" placeholder="Search for products..." id="search-input">
-            <button type="button">Search</button>
-        </div>
-    </div>
-    
-    <!-- Cart Modal -->
-<div id="cart-modal" class="modal">
+<div id="search-modal" class="modal">
     <div class="modal-content">
-        <span class="close" id="close-cart">&times;</span>
-        <h2>Cart</h2>
-        <div id="cart-items"></div>
-        <div id="total-price">R0.00</div>
-        <!-- Checkout Button will be dynamically added here -->
+        <span class="close" id="close-search" style="color: red;">&times;</span>
+        <h2>Search Products</h2>
+        <input type="text" placeholder="Search for products..." id="modal-search-input">
+        <button type="button" id="modal-search-btn">Search</button>
     </div>
 </div>
+    
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-cart" style="color: red;">&times;</span>
+            <h1 style="text-align: center;">Your Cart</h1>
+            <hr style="border: 1px solid #000; margin-bottom: 15px;" />
+            <div id="cart-items" class="cart-items"></div>
+            <div class="checkout-button-container">
+                <button onclick="">Checkout<i style="margin-left: 10px;" class="fa-solid fa-cart-shopping"></i></button>
+                <div id="total-price" style="font-weight: bold; margin-top: 10px;"><bold>Total: </bold>R0.00</div>
+            </div>
+            <!-- Checkout Button will be dynamically added here -->
+        </div>
+    </div>
 
     
     <!-- Wishlist Modal -->
     <div id="wishlist-modal" class="modal">
         <div class="modal-content">
-            <span class="close" id="close-wishlist">&times;</span>
-            <h2>Your Wishlist</h2>
-            <div id="wishlist-items">
+            <span class="close" id="close-wishlist"  style="color: red;">&times;</span>
+            <h1 style="text-align: center;">Your Wishlist</h1>
+            <hr style="border: 1px solid #000; margin-bottom: 15px;"/>
+            <div id="wishlist-items" class="wishlist-items">
                 <!-- Wishlist items will be dynamically added here -->
+                <button class="remove-btn" onclick="removeFromCart(index)"><i class="fa-solid fa-trash"></i></button>
             </div>
         </div>
     </div>
@@ -113,7 +119,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/hoodie.jpg">
+                                    <img class="img-1" src="../assets/hoodie.jpg">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -132,7 +138,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/women.jpg">
+                                    <img class="img-1" src="../assets/women.jpg">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -151,7 +157,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/bag.png">
+                                    <img class="img-1" src="../assets/bag.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -170,7 +176,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/home1.png">
+                                    <img class="img-1" src="../assets/home1.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -204,7 +210,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/hoodie.jpg">
+                                    <img class="img-1" src="../assets/hoodie.jpg">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -223,7 +229,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/women.jpg">
+                                    <img class="img-1" src="../assets/women.jpg">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -242,7 +248,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/bag.png">
+                                    <img class="img-1" src="../assets/bag.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -261,7 +267,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/home1.png">
+                                    <img class="img-1" src="../assets/home1.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -295,7 +301,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/hoodie.jpg">
+                                    <img class="img-1" src="../assets/hoodie.jpg">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -314,7 +320,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/women.jpg">
+                                    <img class="img-1" src="../assets/women.jpg">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -333,7 +339,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/bag.png">
+                                    <img class="img-1" src="../assets/bag.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -352,7 +358,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/home1.png">
+                                    <img class="img-1" src="../assets/home1.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -461,6 +467,6 @@
 
 
     <!-- Link to external JavaScript -->
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>
