@@ -484,6 +484,7 @@ include("config.php");
             </div>
         </div>
 
+        <!-- Quick-view -->
         <div id="quick-view-modal" class="quickview-modal">
     <div class="quickview-modal-content">
         <span class="close" id="close-quick-view">&times;</span>
@@ -499,13 +500,6 @@ include("config.php");
                     <button class="carousel-arrow next">&gt;</button>
                 </div>
                 
-                <!-- Thumbnail grid -->
-                <div class="thumbnail-grid">
-                    <img src="/assets/blackcap1.png" class="thumbnail active" alt="Thumbnail 1" />
-                    <img src="/assets/Cap_Front_And_Back_View_UV1.png" class="thumbnail" alt="Thumbnail 2" />
-                    <img src="/assets/beanie-on-table-with-accessories-mockup-005.png" class="thumbnail" alt="Thumbnail 3" />
-                    <img src="/assets/hat.png" class="thumbnail" alt="Thumbnail 4" />
-                </div>
             </div>
 
             <!-- Right side with product info -->

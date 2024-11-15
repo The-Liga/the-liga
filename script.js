@@ -324,42 +324,39 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let currentImageIndex = 0;
     const mainImage = document.getElementById('quick-view-image');
-    const thumbnails = document.querySelectorAll('.thumbnail');
-    const prevBtn = document.querySelector('.carousel-arrow.prev');
-    const nextBtn = document.querySelector('.carousel-arrow.next');
+    const dots = document.querySelectorAll('.nav-dot');
 
-    // Function to update the main image and active thumbnail
+    // Function to update the main image and active dot
     function updateImage(index) {
+        currentImageIndex = index;
         mainImage.src = images[index];
-        // Update active thumbnail
-        thumbnails.forEach((thumb, i) => {
+        
+        // Update active dot
+        dots.forEach((dot, i) => {
             if (i === index) {
-                thumb.classList.add('active');
+                dot.classList.add('active');
             } else {
-                thumb.classList.remove('active');
+                dot.classList.remove('active');
             }
         });
     }
 
-    // Previous button click
-    prevBtn.addEventListener('click', () => {
-        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-        updateImage(currentImageIndex);
-    });
+    // Navigation functions
+    window.plusDivs = function(n) {
+        let newIndex = (currentImageIndex + n + images.length) % images.length;
+        updateImage(newIndex);
+    }
 
-    // Next button click
-    nextBtn.addEventListener('click', () => {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        updateImage(currentImageIndex);
-    });
+    window.currentDiv = function(n) {
+        updateImage(n - 1);
+    }
 
-    // Thumbnail clicks
-    thumbnails.forEach((thumbnail, index) => {
-        thumbnail.addEventListener('click', () => {
-            currentImageIndex = index;
-            updateImage(currentImageIndex);
-        });
-    });
+    // Initialize first image and dot
+    updateImage(0);
+
+    // Add click handlers for carousel arrows
+    document.querySelector('.carousel-arrow.prev').addEventListener('click', () => plusDivs(-1));
+    document.querySelector('.carousel-arrow.next').addEventListener('click', () => plusDivs(1));
 });
 
 //Registrations functionality//
@@ -386,6 +383,48 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+/* Inner-container */
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the inner container
+    const innerContainer = document.querySelector('.inner-container');
+    
+    // Get the current page URL
+    const currentPage = window.location.pathname;
+    
+    // Function to set background based on page
+    function setBackgroundImage() {
+        // Default background for home page
+        let backgroundImage = 'url("assets/logo1.jpg")';
+        
+        // Check current page and set appropriate background
+        if (currentPage.includes('men.html')) {
+            backgroundImage = 'url("../assets/Men_page.png")';
+        } else if (currentPage.includes('women.html')) {
+            backgroundImage = 'url("../assets/Women_page.png")';
+        } else if (currentPage.includes('new_arrivals.html')) {
+            backgroundImage = 'url("../assets/New_Arr._page.png")';
+        } else if (currentPage.includes('fashion.html')) {
+            backgroundImage = 'url("../assets/Fashion_page.png")';
+        } else if (currentPage.includes('accessories.html')) {
+            backgroundImage = 'url("../assets/Access_page.png")';
+        } else if (currentPage.includes('shoes.html')) {
+            backgroundImage = 'url("../assets/Shoes_page.png")';
+        }
+        
+        // Set the background image
+        if (innerContainer) {
+            innerContainer.style.backgroundImage = backgroundImage;
+            
+            // Log for debugging
+            console.log('Current page:', currentPage);
+            console.log('Setting background:', backgroundImage);
+        }
+    }
+    
+    // Call the function when page loads
+    setBackgroundImage();
+});
+/*End Inner-container */
 
 /* ADMIN */
 document.addEventListener('DOMContentLoaded', function () {
