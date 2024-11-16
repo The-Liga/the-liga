@@ -423,7 +423,7 @@ include("config.php");
                 <div class="product-grid">
                     <div class="product-image">
                         <a href="./pages/products.html" class="image">
-                            <img class="img-1" src="assets/sneakers.png">
+                            <img class="img-1" src="assets/Sneakers1.png">
                         </a>
                         <ul class="product-links">
                             <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)"

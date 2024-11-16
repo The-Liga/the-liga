@@ -388,36 +388,49 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get the inner container
     const innerContainer = document.querySelector('.inner-container');
     
-    // Get the current page URL
-    const currentPage = window.location.pathname;
+    // Get the current page URL and convert to lowercase for consistent comparison
+    const currentPage = window.location.pathname.toLowerCase();
     
     // Function to set background based on page
     function setBackgroundImage() {
         // Default background for home page
         let backgroundImage = 'url("assets/logo1.jpg")';
         
+        // Debug: Log the current pathname
+        console.log('Current pathname:', currentPage);
+        
         // Check current page and set appropriate background
-        if (currentPage.includes('men.html')) {
+        // Using includes() with more specific checks to avoid partial matches
+        if (currentPage.endsWith('men.html')) {
             backgroundImage = 'url("../assets/Men_page.png")';
-        } else if (currentPage.includes('women.html')) {
+        } else if (currentPage.endsWith('Women.html')) {
             backgroundImage = 'url("../assets/Women_page.png")';
-        } else if (currentPage.includes('new_arrivals.html')) {
+        } else if (currentPage.endsWith('new_arrivals.html')) {
             backgroundImage = 'url("../assets/New_Arr._page.png")';
-        } else if (currentPage.includes('fashion.html')) {
+        } else if (currentPage.endsWith('fashion.html')) {
             backgroundImage = 'url("../assets/Fashion_page.png")';
-        } else if (currentPage.includes('accessories.html')) {
+        } else if (currentPage.endsWith('accessories.html')) {
             backgroundImage = 'url("../assets/Access_page.png")';
-        } else if (currentPage.includes('shoes.html')) {
+        } else if (currentPage.endsWith('shoes.html')) {
             backgroundImage = 'url("../assets/Shoes_page.png")';
         }
         
-        // Set the background image
+        // Set the background image if inner container exists
         if (innerContainer) {
             innerContainer.style.backgroundImage = backgroundImage;
             
-            // Log for debugging
-            console.log('Current page:', currentPage);
+            // Debug: Log the background being set
             console.log('Setting background:', backgroundImage);
+            
+            // Verify the background was set correctly
+            console.log('Applied background:', innerContainer.style.backgroundImage);
+            
+            // Add error handling for image loading
+            const img = new Image();
+            img.onerror = function() {
+                console.error('Failed to load image:', backgroundImage);
+            };
+            img.src = backgroundImage.replace('url("', '').replace('")', '');
         }
     }
     

@@ -260,9 +260,10 @@ header .nav-container {
 
 /*Home section*/
 .inner-container {
-    height: 70vh;
+    height: 100vh;
     width: 100%;
     display: flex;
+    top: 20px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -846,6 +847,11 @@ header .nav-container {
     color: #fff;
     border-radius: 4px;
     box-shadow: 1px 0 55px rgb(200, 200, 200);
+}
+
+.footer-signup-btn:hover{
+    background-color: #fff;
+    color: #000;
 }
 
 .newsletter input{
