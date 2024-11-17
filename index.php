@@ -50,19 +50,18 @@ include("config.php");
     </div>
 
     
-    <!-- Wishlist Modal -->
+    <!-- Wishlist Modal -->  
     <div id="wishlist-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="close-wishlist"  style="color: red;">&times;</span>
-            <h1 style="text-align: center;">Your Wishlist</h1>
-            <hr style="border: 1px solid #000; margin-bottom: 15px;"/>
-            <div id="wishlist-items" class="wishlist-items">
-                <!-- Wishlist items will be dynamically added here -->
-                <button class="remove-btn" onclick="removeFromCart(index)"><i class="fa-solid fa-trash"></i></button>
-            </div>
+    <div class="modal-content">
+        <span class="close" id="close-wishlist" style="color: red;">&times;</span>
+        <h1 style="text-align: center;">Your Wishlist</h1>
+        <hr style="border: 1px solid #000; margin-bottom: 15px;"/>
+        <div id="wishlist-items" class="wishlist-items">
+            <!-- Items will be dynamically added here -->
+            <button class="remove-btn" onclick="removeFromCart(index)"><i class="fa-solid fa-trash"></i></button>
         </div>
     </div>
-    
+</div>
     <div class="home">
         <div class="inner-container">
             <!-- <h1>Welcome</h1> -->
@@ -94,9 +93,10 @@ include("config.php");
                                 data-price="661.99" 
                                 data-image="assets/hoodie.jpg"></a></li>
                             <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" 
-                                data-name="Men's Hoodie" 
-                                data-price="661.99" 
-                                data-image="assets/hoodie.jpg"></a></li>
+                                data-name="Men's Shirt" 
+                                data-price="661.99"
+                                data-image="assets/hoodie.jpg"
+                                style="color: black;"></a></li>                 
                             <li><a href="#" class="fa fa-eye" onclick="openQuickView(this)" 
                                 data-name="Men's Hoodie" 
                                 data-price="661.99" 
@@ -213,7 +213,7 @@ include("config.php");
                 <div class="product-grid">
                     <div class="product-image">
                         <a href="./pages/products.html" class="image">
-                            <img class="img-1" src="assets/hat.png">
+                            <img class="img-1" src="assets/White_Cap1.png">
                         </a>
                         <ul class="product-links">
                             <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" 
@@ -231,8 +231,8 @@ include("config.php");
                         </ul>
                     </div>
                     <div class="product-content">
-                        <div class="price">R661.99</div>
-                        <h3 class="title"><a href="#">For Men</a></h3>
+                        <div class="price">R350.00</div>
+                        <h3 class="title"><a href="#">Caps</a></h3>
                     </div>
                 </div>
             </div>
@@ -385,8 +385,8 @@ include("config.php");
                         </ul>
                     </div>
                     <div class="product-content">
-                        <div class="price" style="color: red;">R661.99 <span>R779.11</span></div>
-                        <h3 class="title"><a href="#">For Men</a></h3>
+                        <div class="price" style="color: red;">R250.00 <span>R300.00</span></div>
+                        <h3 class="title"><a href="#">Shirt</a></h3>
                     </div>
                 </div>
             </div>
@@ -414,7 +414,7 @@ include("config.php");
                     </div>
                     <div class="product-content">
                         <div class="price" style="color: red;">R661.99 <span>R779.11</span></div>
-                        <h3 class="title"><a href="#">For Men</a></h3>
+                        <h3 class="title"><a href="#">Leather Jacket</a></h3>
                     </div>
                 </div>
             </div>
@@ -442,7 +442,7 @@ include("config.php");
                     </div>
                     <div class="product-content">
                         <div class="price" style="color: red;">R661.99 <span>R779.11</span></div>
-                        <h3 class="title"><a href="#">For Men</a></h3>
+                        <h3 class="title"><a href="#">Sneakers</a></h3>
                     </div>
                 </div>
             </div>
@@ -451,7 +451,7 @@ include("config.php");
                 <div class="product-grid">
                     <div class="product-image">
                         <a href="./pages/products.html" class="image">
-                            <img class="img-1" src="assets/sport bag_cleanup.png">
+                            <img class="img-1" src="assets/Daffle_Bag1.png">
                         </a>
                         <ul class="product-links">
                             <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)"
@@ -469,8 +469,8 @@ include("config.php");
                         </ul>
                     </div>
                     <div class="product-content">
-                        <div class="price" style="color: red;">R661.99 <span>R779.11</span></div>
-                        <h3 class="title"><a href="#">For Men</a></h3>
+                        <div class="price" style="color: red;">R649.95 <span>R1099.95</span></div>
+                        <h3 class="title"><a href="#">Daffle Bag</a></h3>
                     </div>
                 </div>
             </div>
@@ -495,7 +495,7 @@ include("config.php");
                 <div class="carousel-container">
                     <button class="carousel-arrow prev">&lt;</button>
                     <div class="main-image-container">
-                        <img id="quick-view-image" src="/api/placeholder/400/400" alt="Product Image" />
+                        <img id="quick-view-image" src="./assets/" alt="Product Image" />
                     </div>
                     <button class="carousel-arrow next">&gt;</button>
                 </div>

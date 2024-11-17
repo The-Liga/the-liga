@@ -14,14 +14,30 @@ function addToCart(button) {
     updateCartItems();
 }
 
-// Add to Wishlist functionality
+// Add to Wishlist functionality with toggle
 function addToWishlist(button) {
     const product = {
         name: button.getAttribute("data-name"),
         price: parseFloat(button.getAttribute("data-price")),
         image: button.getAttribute("data-image"),
     };
-    wishlist.push(product);
+
+    // Check if item is already in wishlist
+    const existingItemIndex = wishlist.findIndex(item => 
+        item.name === product.name && 
+        item.price === product.price
+    );
+
+    if (existingItemIndex === -1) {
+        // Item not in wishlist - add it and make heart red
+        wishlist.push(product);
+        button.style.color = "red";
+    } else {
+        // Item already in wishlist - remove it and make heart black
+        wishlist.splice(existingItemIndex, 1);
+        button.style.color = "black";
+    }
+
     updateWishlistCount();
     updateWishlistItems();
 }
@@ -52,10 +68,12 @@ function updateWishlistItems() {
                         <div>R${item.price.toFixed(2)}</div>
                     </div>
                 </div>
-                <button class="remove-btn" onclick="removeFromWishlist(${index})">
-                    <i class="fa-solid fa-trash"></i>
-                </button> 
-                <button class="add-to-cart-btn" onclick="moveToCart(${index})">Add to Cart</button>
+                <div class="button-group">
+                    <button class="remove-btn" onclick="removeFromWishlist(${index})">
+                        <i class="fa-solid fa-trash"></i>
+                    </button> 
+                    <button class="add-to-cart-btn" onclick="moveToCart(${index})">Add to Cart</button>
+                </div>
             </div>
             <hr/>
         `;
@@ -95,24 +113,23 @@ function updateCartItems() {
 
 // Move item from Wishlist to Cart
 function moveToCart(index) {
-    // Get the item from wishlist
     const item = wishlist[index];
     
-    // Add to cart
     cart.push({
         name: item.name,
         price: item.price,
         image: item.image
     });
     
-    // Remove from wishlist
-    wishlist.splice(index, 1);
+    // Find and reset the heart color for this item
+    const heartButton = document.querySelector(`a[data-name="${item.name}"][data-price="${item.price}"]`);
+    if (heartButton) {
+        heartButton.style.color = "black";
+    }
     
-    // Update both displays
+    wishlist.splice(index, 1);
     updateWishlistItems();
     updateCartItems();
-    
-    // Update counts
     updateWishlistCount();
     updateCartCount();
 }
@@ -126,6 +143,13 @@ function removeFromCart(index) {
 
 // Remove item from Wishlist
 function removeFromWishlist(index) {
+    const item = wishlist[index];
+    // Find and reset the heart color for this item
+    const heartButton = document.querySelector(`a[data-name="${item.name}"][data-price="${item.price}"]`);
+    if (heartButton) {
+        heartButton.style.color = "black";
+    }
+    
     wishlist.splice(index, 1);
     updateWishlistItems();
     updateWishlistCount();
@@ -359,29 +383,36 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.carousel-arrow.next').addEventListener('click', () => plusDivs(1));
 });
 
-//Registrations functionality//
+//Registrations functionality// 
 document.addEventListener('DOMContentLoaded', function() {
-    const signUpButton = document.getElementById('signUpButton');
-    const signInButton = document.getElementById('signInButton');
-    const signInForm = document.getElementById('signIn');
-    const signUpForm = document.getElementById('signup');
+            const signUpButton = document.getElementById('signUpButton');
+            const signInButton = document.getElementById('signInButton');
+            const flipContainer = document.querySelector('.flip-container');
 
-    // Ensure default visibility
-    signUpForm.style.display = 'none'; // Initially hide sign-up form
-    signInForm.style.display = 'block'; // Initially show sign-in form
+            // Set initial heights
+            function setContainerHeights() {
+                const signIn = document.getElementById('signIn');
+                const signUp = document.getElementById('signup');
+                const flipper = document.querySelector('.flipper');
+                const maxHeight = Math.max(signIn.offsetHeight, signUp.offsetHeight);
+                flipper.style.height = maxHeight + 'px';
+                flipContainer.style.height = maxHeight + 'px';
+            }
 
-    // Event listener for switching to Sign Up
-    signUpButton.addEventListener('click', function() {
-        signInForm.style.display = "none";
-        signUpForm.style.display = "block";
-    });
+            // Set heights on load and window resize
+            window.addEventListener('load', setContainerHeights);
+            window.addEventListener('resize', setContainerHeights);
 
-    // Event listener for switching to Sign In
-    signInButton.addEventListener('click', function() {
-        signInForm.style.display = "block";
-        signUpForm.style.display = "none";
-    });
-});
+            signUpButton.addEventListener('click', function() {
+                flipContainer.classList.add('flipped');
+            });
+
+            signInButton.addEventListener('click', function() {
+                flipContainer.classList.remove('flipped');
+            });
+        });
+
+/*End Registrations */
 
 /* Inner-container */
 document.addEventListener('DOMContentLoaded', function() {
