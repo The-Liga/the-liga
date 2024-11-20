@@ -47,18 +47,26 @@
                 <?php while ($row = $result->fetch_assoc()):
                     $imagePath = $row['categoryImage'];
                     $imageFullPath = "../../assets/uploads/categories" . $imagePath;
+                    $categoryID = $row['id'];
                     ?>
                     <tr>
                         <td>
-                            <dv class="category-image"><img src="<?php echo $imageFullPath; ?>"></dv>
+                            <div class="category-image"><img src="<?php echo $imageFullPath; ?>"></div>
                         </td>
                         <td><?php echo $row['categoryName']; ?></td>
                         <td><?php echo $row['numProducts']; ?></td>
 
                         <td>
                             <div class="buttons">
-                                <button class="edit-button">Edit</button>
-                                <button class="delete-button">Delete</button>
+                                <form method="post" action="../components/editCategory.php" style="display:inline;">
+                                    <input type="hidden" name="categoryID" value="<?php echo $row['id']; ?>">
+                                    <button type="submit" class="edit-button">Edit</button>
+                                </form>
+                                <form method="post" action="../components/delete.php" style="display:inline;">
+                                    <input type="hidden" name="categoryID" value="<?php echo $categoryID; ?>">
+                                    <button type="submit" class="delete-button"
+                                        onclick="return confirm('Are you sure you want to delete this category?');">Delete</button>
+                                </form>
                             </div>
                         </td>
                     </tr>

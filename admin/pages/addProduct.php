@@ -23,7 +23,7 @@
             <?php include('../../components/adminSidenav.php'); ?>
         </aside>
 
-        <form method="post" action="./upload.php" class="product-card" enctype='multipart/form-data'>
+        <form method="post" action="../components//upload.php" class="product-card" enctype='multipart/form-data'>
             <div class="product-image">
                 <input type="file" name="image">
                 <label for="product-image" for="productImage">Upload Image</label>

@@ -50,10 +50,52 @@ if ($_POST["updateProduct"]) {
               WHERE id = '$productID'";
 
     if (mysqli_query($conn, $query)) {
-        header("Location: products.php");
+        header("Location: ../pages/products.php");
     } else {
         echo "Something went wrong during the update.";
     }
 }
-?>
+
+
+
+
+if ($_POST["updateCategory"]) {
+    $categoryID = $_POST['categoryID'];
+    $categoryName = mysqli_real_escape_string($conn, $_POST['categoryName']);
+    $numProducts = mysqli_real_escape_string($conn, $_POST['numProducts']);
+
+
+    // Handle image upload or keep the existing image
+    if (!empty($_FILES["image"]["name"])) {
+        $categoryImage = $_FILES["image"]["name"];
+        $ext = pathinfo($categoryImage, PATHINFO_EXTENSION);
+        $allowedTypes = array("jpg", "jpeg", "png", "gif");
+        $tempName = $_FILES["image"]["tmp_name"];
+        $targetPath = "../../assets/uploads/products/" . $categoryImage;
+
+        if (in_array($ext, $allowedTypes)) {
+            move_uploaded_file($tempName, $targetPath);
+        } else {
+            echo "Your files are not allowed";
+            exit;
+        }
+    } else {
+        $categoryImage = mysqli_real_escape_string($conn, $_POST['existingImage']);
+    }
+
+    // Update the product instead of inserting a new one
+    $query = "UPDATE categories SET 
+                categoryName = '$categoryName', 
+                numProducts = '$numProducts', 
+                categoryImage = '$categoryImage' 
+              WHERE id = '$categoryID'";
+
+    if (mysqli_query($conn, $query)) {
+        header("Location: ../pages/categories.php");
+    } else {
+        echo "Something went wrong during the update.";
+    }
+}
+
+
 

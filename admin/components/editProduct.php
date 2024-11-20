@@ -54,11 +54,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['productID'])) {
             <?php include('../../components/adminSidenav.php'); ?>
         </aside>
 
-        <form method="post" action="./update.php" class="product-card" enctype='multipart/form-data'>
+        <form method="post" action="../components/update.php" class="product-card" enctype='multipart/form-data'>
             <input type="hidden" name="productID" value="<?php echo $productID; ?>">
             <input type="hidden" name="existingImage" value="<?php echo $productImage; ?>">
 
-
+            <div class="productImage">
+                <input type="file" name="image" value="<?php echo $productImage; ?>">
+                <label for="productImage" for="productImage">Upload New Image</label>
+            </div>
             <div class="product-info">
                 <label for="product-name">Product Name:</label>
                 <input type="text" id="product-name" name="productName" placeholder="Enter product name"

@@ -41,7 +41,7 @@
                         ?> <span>Categories: <?php echo $categoryCount; ?></span>
                     </div>
                 </a>
-                <a href="./products.php">
+                <a href="#">
                     <div class="admin-child-card">
                         <?php
                         $sql = "SELECT COUNT(*) AS total_users FROM users";
@@ -58,8 +58,16 @@
                         ?> <span>Users: <?php echo $userCount; ?></span>
                     </div>
                 </a>
-                <div class="admin-child-card">Orders</div>
-                <div class="admin-child-card">Sales</div>
+                <a href="#">
+                    <div class="admin-child-card">
+                        <span>Orders: </span>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="admin-child-card">
+                        <span>Sales: </span>
+                    </div>
+                </a>
             </div>
             <div class="admin-card">
                 <h1>Products</h1>
@@ -69,7 +77,7 @@
                 <h1>Categories</h1>
                 <a href="./addCategory.php"><button class="btn bg-black text-white">Add Category</button></a>
             </div>
-            <div class="admin-card">Card 4</div>
+
         </section>
     </main>
 </body>

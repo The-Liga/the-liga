@@ -25,7 +25,7 @@
             <?php include('../../components/adminSidenav.php'); ?>
         </aside>
 
-        <form method="post" action="./upload.php" class="product-card" enctype='multipart/form-data'>
+        <form method="post" action="../components/upload.php" class="product-card" enctype='multipart/form-data'>
             <div class="categoryImage">
                 <input type="file" name="image">
                 <label for="categoryImage" for="categoryImage">Upload Image</label>
@@ -36,25 +36,6 @@
 
                 <label for="numProducts">No. of products:</label>
                 <input type="number" id="numProducts" name="numProducts" placeholder="Enter number of products">
-
-                <!-- <label for="product-size">Size:</label>
-                <input type="text" id="product-size" name="productSize" placeholder="Enter size">
-
-                <label for="product-category">Category:</label>
-                <input type="text" id="product-category" name="productCategory" placeholder="Enter category">
-
-                <label for="product-description">Description:</label>
-                <textarea id="product-description" name="productDescription" placeholder="Enter description"></textarea>
-
-                <label for="product-material">Material:</label>
-                <input type="text" id="product-material" name="productMaterial" placeholder="Enter material">
-
-                <label for="product-delivery">Delivery Info:</label>
-                <textarea id="product-delivery" name="productDelivery"
-                    placeholder="Enter delivery information"></textarea>
-
-                <label for="product-return">Return Info:</label>
-                <textarea id="product-return" name="productReturn" placeholder="Enter return information"></textarea> -->
 
                 <input type="submit" class="btn bg-black text-white w-50" value="Add Category" name="addCategory" />
             </div>

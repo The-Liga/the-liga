@@ -42,48 +42,43 @@ if ($_POST["addProduct"]) {
               VALUES ('$sale', '$productCategory', '$productName', '$productPrice', '$productDescription', '$productReturn', '$productDelivery', '$productMaterial', '$productSizeJson', '$productColorJson', '$productImage')";
 
     if (mysqli_query($conn, $query)) {
-        header("Location: products.php");
+        header("Location: ../pages/products.php");
     } else {
         echo "Something went wrong during the upload.";
     }
 }
 
-
-
 if ($_POST["addCategory"]) {
-    $categoryName = $_POST['categoryName'];
-    $numProducts = $_POST['numProducts'];
-    $categoryImage = $_FILES["image"]["name"];
+    $categoryName = mysqli_real_escape_string($conn, $_POST['categoryName']);
+    $numProducts = mysqli_real_escape_string($conn, $_POST['numProducts']);
+    $productDescription = mysqli_real_escape_string($conn, $_POST['productDescription']);
 
+    if (!empty($_FILES["image"]["name"])) {
+        $categoryImage = $_FILES["image"]["name"];
+        $ext = pathinfo($categoryImage, PATHINFO_EXTENSION);
+        $allowedTypes = array("jpg", "jpeg", "png", "gif");
+        $tempName = $_FILES["image"]["tmp_name"];
+        $targetPath = "../../assets/uploads/products/" . $categoryImage;
 
-    $ext = pathinfo($categoryImage, PATHINFO_EXTENSION);
-    $allowedTypes = array("jpg", "jpeg", "png", "gif");
-    $tempName = $_FILES["image"]["tmp_name"];
-    $targetPath = "../../assets/uploads/categories" . $categoryImage;
-
-    if (in_array($ext, $allowedTypes)) {
-        if (move_uploaded_file($tempName, $targetPath)) {
-            $query = "INSERT INTO categories (categoryName, numProducts, categoryImage) VALUES ('$categoryName', '$numProducts', '$categoryImage')";
-            if (mysqli_query($conn, $query)) {
-                header("Location: dashboard.php");
-            } else {
-                echo "Something is wrong";
-            }
+        if (in_array($ext, $allowedTypes)) {
+            move_uploaded_file($tempName, $targetPath);
         } else {
-            echo "File is not uploaded";
+            echo "Your file type is not allowed";
+            exit;
         }
     } else {
-        echo "Your files are not allowed";
+        echo "Image is required";
+        exit;
+    }
+
+    // Insert the new product data into the database
+    $query = "INSERT INTO categories (categoryName, numProducts, categoryImage) 
+              VALUES ('$categoryName', '$numProducts', '$categoryImage')";
+
+    if (mysqli_query($conn, $query)) {
+        header("Location: ../pages/categories.php");
+    } else {
+        echo "Something went wrong during the upload.";
     }
 }
 
-if (isset($_POST['id'])) {
-    $productId = $_POST['id'];
-    $sql = "DELETE FROM products WHERE id = $productId";
-
-        if (mysqli_query($conn, $sql)) {
-        echo "Record deleted successfully";
-        } else {
-        echo "Error deleting record: " . mysqli_error($conn);
-        }
-}

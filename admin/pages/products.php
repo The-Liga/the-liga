@@ -20,7 +20,6 @@
     include('../../components/adminNavbar.php');
     include('../../config.php');
 
-    // SQL query to fetch products
     $sql = "SELECT * FROM products";
     $result = $conn->query($sql);
     ?>
@@ -77,11 +76,11 @@
                         <td><?php echo ($row['sale'] == 1) ? 'Yes' : 'No'; ?></td>
                         <td>
                             <div class="buttons">
-                                <form method="post" action="edit.php" style="display:inline;">
+                                <form method="post" action="../components/editProduct.php" style="display:inline;">
                                     <input type="hidden" name="productID" value="<?php echo $row['id']; ?>">
                                     <button type="submit" class="edit-button">Edit</button>
                                 </form>
-                                <form method="post" action="./delete.php" style="display:inline;">
+                                <form method="post" action="../components/delete.php" style="display:inline;">
                                     <input type="hidden" name="productID" value="<?php echo $productID; ?>">
                                     <button type="submit" class="delete-button"
                                         onclick="return confirm('Are you sure you want to delete this product?');">Delete</button>
