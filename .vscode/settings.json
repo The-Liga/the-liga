@@ -1,7 +1,4 @@
 {
     "git.ignoreLimitWarning": true,
-    "liveServer.settings.port": 5503,
-    "cSpell.words": [
-        "Liga"
-    ]
+    "liveServer.settings.port": 5503
 }
