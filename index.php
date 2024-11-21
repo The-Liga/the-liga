@@ -22,8 +22,6 @@ include("config.php");
 
     <?php include('./components/navbar.php'); ?>
 
-
-
     <!-- Search Modal -->
 <div id="search-modal" class="modal">
     <div class="modal-content">
@@ -413,7 +411,7 @@ include("config.php");
                         </ul>
                     </div>
                     <div class="product-content">
-                        <div class="price" style="color: red;">R661.99 <span>R779.11</span></div>
+                        <div class="price" style="color: red;">R1299.99 <span>R1500.00</span></div>
                         <h3 class="title"><a href="#">Leather Jacket</a></h3>
                     </div>
                 </div>
@@ -441,7 +439,7 @@ include("config.php");
                         </ul>
                     </div>
                     <div class="product-content">
-                        <div class="price" style="color: red;">R661.99 <span>R779.11</span></div>
+                        <div class="price" style="color: red;">R1499.99 <span>R1800.00</span></div>
                         <h3 class="title"><a href="#">Sneakers</a></h3>
                     </div>
                 </div>

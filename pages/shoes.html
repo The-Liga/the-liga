@@ -102,14 +102,9 @@
         <div class="inner-container">
             <!-- <h1>Welcome</h1> -->
         </div>
-        <div class="inner-text">
-            <h1>DON'T WASTE YOUR MONEY, SHOP FOR QUALITY OVER QUANTITY.</h1>
-            <a class="shop-btn" href="products.html">Shop</a>
-        </div>
-    
-        <!-- BEST SELLERS -->
+        <!-- New Arrivals -->
         <div>
-            <h1 class="products-list">Best Sellers</h1>
+            <h1 class="products-list">New Arrivals</h1>
             <hr class="horizontal-line" />
             <div class="scroll-container">
                 <button class="scroll-btn prev-btn"><li style="color: white" class="fa fa-angle-left"></li></button>
@@ -148,7 +143,7 @@
                             </div>
                             <div class="product-content">
                                 <div class="price">R799.99 <span>R899.99</span></div>
-                                <h3 class="title"><a href="#">Running Shoes</a></h3>
+                                <h3 class="title"><a href="#">Women Jumpsuit</a></h3>
                             </div>
                         </div>
                     </div>
@@ -167,7 +162,7 @@
                             </div>
                             <div class="product-content">
                                 <div class="price">R499.99 <span>R599.99</span></div>
-                                <h3 class="title"><a href="#">Summer Dress</a></h3>
+                                <h3 class="title"><a href="#">Bag</a></h3>
                             </div>
                         </div>
                     </div>
@@ -176,7 +171,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="../assets/home1.png">
+                                    <img class="img-1" src="../assets/Beanie.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -186,7 +181,7 @@
                             </div>
                             <div class="product-content">
                                 <div class="price">R1299.99 <span>R1499.99</span></div>
-                                <h3 class="title"><a href="#">Leather Jacket</a></h3>
+                                <h3 class="title"><a href="#">Beanie</a></h3>
                             </div>
                         </div>
                     </div>
@@ -289,9 +284,9 @@
             </div>
         </div>
 
-          <!-- BEST SELLERS -->
+          <!-- SALES -->
           <div>
-            <h1 class="products-list">Best Sellers</h1>
+            <h1 class="products-list">Sales</h1>
             <hr class="horizontal-line" />
             <div class="scroll-container">
                 <button class="scroll-btn prev-btn"><li style="color: white" class="fa fa-angle-left"></li></button>
@@ -310,7 +305,7 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R661.99 <span>R779.11</span></div>
+                                <div class="price" style="color: red;">R661.99 <span>R779.11</span></div>
                                 <h3 class="title"><a href="#">For Men</a></h3>
                             </div>
                         </div>
@@ -329,7 +324,7 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R799.99 <span>R899.99</span></div>
+                                <div class="price" style="color: red;">R799.99 <span>R899.99</span></div>
                                 <h3 class="title"><a href="#">Running Shoes</a></h3>
                             </div>
                         </div>
@@ -348,7 +343,7 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R499.99 <span>R599.99</span></div>
+                                <div class="price" style="color: red;">R499.99 <span>R599.99</span></div>
                                 <h3 class="title"><a href="#">Summer Dress</a></h3>
                             </div>
                         </div>
@@ -367,7 +362,7 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R1299.99 <span>R1499.99</span></div>
+                                <div class="price" style="color: red;">R1299.99 <span>R1499.99</span></div>
                                 <h3 class="title"><a href="#">Leather Jacket</a></h3>
                             </div>
                         </div>
@@ -380,17 +375,44 @@
             </div>
         </div>
     </div>
-<!-- Quick View Modal -->
-<div id="quick-view-modal" class="modal">
-    <div class="modal-content">
+
+<!-- Quick-view -->
+<div id="quick-view-modal" class="quickview-modal">
+    <div class="quickview-modal-content">
         <span class="close" id="close-quick-view">&times;</span>
-        <h2 id="quick-view-title">Product Title</h2>
-        <img id="quick-view-image" src="" alt="Product Image" />
-        <div id="quick-view-description">Product description goes here.</div>
-        <div id="quick-view-price">Price: R0.00</div>
-        <button id="add-to-cart-btn">Add to Cart</button>
+        
+        <div class="quickview-body">
+            <!-- Left side with green background and image carousel -->
+            <div class="view-left">
+                <div class="carousel-container">
+                    <button class="carousel-arrow prev">&lt;</button>
+                    <div class="main-image-container">
+                        <img id="quick-view-image" src="./assets/" alt="Product Image" />
+                    </div>
+                    <button class="carousel-arrow next">&gt;</button>
+                </div>
+                
+            </div>
+
+            <!-- Right side with product info -->
+            <div class="view-right">
+                <div class="product-info">
+                    <h1 id="quick-view-title">Product Title</h1>
+                    <p id="quick-view-description" class="description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Officia, omnis illo iste ratione.
+                    </p>
+                    <div id="quick-view-price" class="price">R1299.99</div>
+                    <div class="button-group">
+                        <button id="add-to-cart-btn" class="add-to-cart">Add to Cart</button>
+                        <button class="learn-more">Learn more</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
     <div class="footer">
         <hr/>
         <div class="upper-footer">

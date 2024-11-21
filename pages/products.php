@@ -16,6 +16,8 @@
    <!--Header section-->
    <?php include('../components/navbar.php'); ?>
 
+   <br><br><br><br><br>
+
     <div class="main-products-container">
         <div class="inner-categories">
             <h1>Filters</h1>
@@ -194,7 +196,7 @@
                 </div> -->
 
                 <div class="filter-group">
-                    <label for="priceRange">Price: <span id="priceValue">$0 - $200</span></label>
+                    <label for="priceRange">Price: <span id="priceValue">R0 - R200</span></label>
                     <div class="slider-container">
                         <input type="range" min="1" max="10000" value="50" class="slider" id="priceRange" step="1" oninput="updatePriceValue(this.value)">
                     </div>

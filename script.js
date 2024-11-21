@@ -337,6 +337,28 @@ function redirectToNextPage(nextPageUrl) {
     window.location.href = nextPageUrl;
 }
 
+//Hamburger Menu functionality//
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger-menu');
+    const mainNav = document.querySelector('.main-nav');
+
+    hamburger.addEventListener('click', function() {
+        // Toggle active class on hamburger and navigation
+        hamburger.classList.toggle('active');
+        mainNav.classList.toggle('active');
+    });
+
+    // Close menu when a nav item is clicked
+    const navLinks = document.querySelectorAll('.main-nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            mainNav.classList.remove('active');
+        });
+    });
+});
+//End Hamburger Menu functionality//
+
 //Add the quick view functionality//
 document.addEventListener('DOMContentLoaded', function() {
     const images = [
@@ -433,9 +455,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Check current page and set appropriate background
         // Using includes() with more specific checks to avoid partial matches
         if (currentPage.endsWith('men.html')) {
-            backgroundImage = 'url("../assets/Men_page.png")';
+            backgroundImage = 'url("../assets/men_pg.png")';
         } else if (currentPage.endsWith('Women.html')) {
-            backgroundImage = 'url("../assets/Women_page.png")';
+            backgroundImage = 'url("../assets/women_pg.png")';
         } else if (currentPage.endsWith('new_arrivals.html')) {
             backgroundImage = 'url("../assets/New_Arr._page.png")';
         } else if (currentPage.endsWith('fashion.html')) {
@@ -443,7 +465,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (currentPage.endsWith('accessories.html')) {
             backgroundImage = 'url("../assets/Access_page.png")';
         } else if (currentPage.endsWith('shoes.html')) {
-            backgroundImage = 'url("../assets/Shoes_page.png")';
+            backgroundImage = 'url("../assets/shoes.png")';
         }
         
         // Set the background image if inner container exists
