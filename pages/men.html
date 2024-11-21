@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Link to external CSS -->
     <link rel="stylesheet" href="../styles.css">
-    <link rel="icon" href="assets/white TL logo.png" type="image/x-icon">
+    <link rel="icon" href="../assets/white TL logo.png" type="image/x-icon">
 </head>
 <body>
 
@@ -17,7 +17,7 @@
         <div class="nav-container">
             <!-- Logo -->
             <div class="logo">
-                <a href="../index.php"><img src="assets/log2.jpg" alt="TL"></a>
+                <a href="../index.php"><img src="../assets/log2.jpg" alt="TL"></a>
             </div>
     
             <!-- Navigation Menu -->
@@ -52,42 +52,48 @@
             </div>
         </div>
     
-        <!-- Search Bar (Initially hidden) -->
-        <div class="search-bar" id="search-bar" style="display:none;">
-            <input type="text" placeholder="Search for products..." />
-            <button type="button" id="search-btn">Search</button>
-        </div>
+       <!-- Search Bar (Initially hidden) -->
+       <div class="search-bar" id="search-bar" style="display:none;">
+        <input type="text" placeholder="What are you looking for?" />
+        <button type="button" id="search-btn">Search</button>
+    </div>
     </header>
     
     <!-- Search Modal -->
-    <div id="search-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="close-search">&times;</span>
-            <h2>Search Products</h2>
-            <input type="text" placeholder="Search for products..." id="search-input">
-            <button type="button">Search</button>
-        </div>
-    </div>
-    
-    <!-- Cart Modal -->
-<div id="cart-modal" class="modal">
+<div id="search-modal" class="modal">
     <div class="modal-content">
-        <span class="close" id="close-cart">&times;</span>
-        <h2>Cart</h2>
-        <div id="cart-items"></div>
-        <div id="total-price">R0.00</div>
-        <!-- Checkout Button will be dynamically added here -->
+        <span class="close" id="close-search" style="color: red;">&times;</span>
+        <h2>Search Products</h2>
+        <input type="text" placeholder="What are you looking for?" id="modal-search-input">
+        <button type="button" id="modal-search-btn">Search</button>
     </div>
 </div>
+    
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-cart" style="color: red;">&times;</span>
+            <h1 style="text-align: center;">Your Cart</h1>
+            <hr style="border: 1px solid #000; margin-bottom: 15px;" />
+            <div id="cart-items" class="cart-items"></div>
+            <div class="checkout-button-container">
+                <button onclick="">Checkout<i style="margin-left: 10px;" class="fa-solid fa-cart-shopping"></i></button>
+                <div id="total-price" style="font-weight: bold; margin-top: 10px;"><bold>Total: </bold>R0.00</div>
+            </div>
+            <!-- Checkout Button will be dynamically added here -->
+        </div>
+    </div>
 
     
     <!-- Wishlist Modal -->
     <div id="wishlist-modal" class="modal">
         <div class="modal-content">
-            <span class="close" id="close-wishlist">&times;</span>
-            <h2>Your Wishlist</h2>
-            <div id="wishlist-items">
+            <span class="close" id="close-wishlist"  style="color: red;">&times;</span>
+            <h1 style="text-align: center;">Your Wishlist</h1>
+            <hr style="border: 1px solid #000; margin-bottom: 15px;"/>
+            <div id="wishlist-items" class="wishlist-items">
                 <!-- Wishlist items will be dynamically added here -->
+                <button class="remove-btn" onclick="removeFromCart(index)"><i class="fa-solid fa-trash"></i></button>
             </div>
         </div>
     </div>
@@ -101,9 +107,9 @@
             <a class="shop-btn" href="products.html">Shop</a>
         </div>
     
-        <!-- BEST SELLERS -->
+        <!-- New Arrivals -->
         <div>
-            <h1 class="products-list">Best Sellers</h1>
+            <h1 class="products-list">New Arrivals</h1>
             <hr class="horizontal-line" />
             <div class="scroll-container">
                 <button class="scroll-btn prev-btn"><li style="color: white" class="fa fa-angle-left"></li></button>
@@ -113,7 +119,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/golf shirt white.png">
+                                    <img class="img-1" src="../assets/white_golf_shirt.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -122,8 +128,8 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R661.99 <span>R779.11</span></div>
-                                <h3 class="title"><a href="#">For Men</a></h3>
+                                <div class="price">R799.99</div>
+                                <h3 class="title"><a href="#">Pattern Golf</a></h3>
                             </div>
                         </div>
                     </div>
@@ -132,7 +138,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/black golf shirt.png">
+                                    <img class="img-1" src="../assets/black_golf_shirt.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -141,7 +147,7 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R799.99 <span>R899.99</span></div>
+                                <div class="price">R799.99</div>
                                 <h3 class="title"><a href="#">Golf Shirt</a></h3>
                             </div>
                         </div>
@@ -151,7 +157,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/home1.png">
+                                    <img class="img-1" src="../assets/bucket_hat.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -160,7 +166,7 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R499.99 <span>R599.99</span></div>
+                                <div class="price">R450.00</div>
                                 <h3 class="title"><a href="#">Bucket Hat</a></h3>
                             </div>
                         </div>
@@ -170,7 +176,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/blackcap1.png">
+                                    <img class="img-1" src="../assets/Black_Cap1.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -179,7 +185,7 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R250.00 <span>R499.99</span></div>
+                                <div class="price">R350.00</div>
                                 <h3 class="title"><a href="#">Caps</a></h3>
                             </div>
                         </div>
@@ -204,7 +210,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/hoodie.jpg">
+                                    <img class="img-1" src="../assets/hoodie.jpg">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -213,7 +219,7 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R661.99 <span>R779.11</span></div>
+                                <div class="price">R450.00</div>
                                 <h3 class="title"><a href="#">For Men</a></h3>
                             </div>
                         </div>
@@ -223,7 +229,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/Cap__Front_And_Back_View_UV1.png">
+                                    <img class="img-1" src="../assets/caps.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -232,8 +238,8 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R799.99 <span>R899.99</span></div>
-                                <h3 class="title"><a href="#">Running Shoes</a></h3>
+                                <div class="price">R350.00</div>
+                                <h3 class="title"><a href="#">Caps</a></h3>
                             </div>
                         </div>
                     </div>
@@ -242,7 +248,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/bag.png">
+                                    <img class="img-1" src="../assets/bag.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -251,8 +257,8 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R499.99 <span>R599.99</span></div>
-                                <h3 class="title"><a href="#">Summer Dress</a></h3>
+                                <div class="price">R199.99</div>
+                                <h3 class="title"><a href="#">Crossbag</a></h3>
                             </div>
                         </div>
                     </div>
@@ -261,7 +267,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/home1.png">
+                                    <img class="img-1" src="../assets/leather_jacket1.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -270,7 +276,7 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R1299.99 <span>R1499.99</span></div>
+                                <div class="price">R1299.99</div>
                                 <h3 class="title"><a href="#">Leather Jacket</a></h3>
                             </div>
                         </div>
@@ -283,9 +289,9 @@
             </div>
         </div>
 
-          <!-- BEST SELLERS -->
+          <!-- SALES -->
           <div>
-            <h1 class="products-list">Best Sellers</h1>
+            <h1 class="products-list">Sales</h1>
             <hr class="horizontal-line" />
             <div class="scroll-container">
                 <button class="scroll-btn prev-btn"><li style="color: white" class="fa fa-angle-left"></li></button>
@@ -295,7 +301,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/hoodie.jpg">
+                                    <img class="img-1" src="../assets/black_schoolbag.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -304,8 +310,8 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R661.99 <span>R779.11</span></div>
-                                <h3 class="title"><a href="#">For Men</a></h3>
+                                <div class="price" style="color: red;">R250.00 <span>R350</span></div>
+                                <h3 class="title"><a href="#">Schoolbag</a></h3>
                             </div>
                         </div>
                     </div>
@@ -314,7 +320,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/women.jpg">
+                                    <img class="img-1" src="../assets/sneakers.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -323,8 +329,8 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R799.99 <span>R899.99</span></div>
-                                <h3 class="title"><a href="#">Running Shoes</a></h3>
+                                <div class="price" style="color: red;">R1699.00 <span>R2100.00</span></div>
+                                <h3 class="title"><a href="#">Sneakers</a></h3>
                             </div>
                         </div>
                     </div>
@@ -333,7 +339,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/bag.png">
+                                    <img class="img-1" src="../assets/sidebag.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -342,8 +348,8 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R499.99 <span>R599.99</span></div>
-                                <h3 class="title"><a href="#">Summer Dress</a></h3>
+                                <div class="price" style="color: red;">R499.99 <span>R599.99</span></div>
+                                <h3 class="title"><a href="#">Sidebag</a></h3>
                             </div>
                         </div>
                     </div>
@@ -352,7 +358,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/home1.png">
+                                    <img class="img-1" src="../assets/bucket_hat.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -361,8 +367,8 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R1299.99 <span>R1499.99</span></div>
-                                <h3 class="title"><a href="#">Leather Jacket</a></h3>
+                                <div class="price" style="color: red;">R450.00 <span>R600.00</span></div>
+                                <h3 class="title"><a href="#">Bucket Hat</a></h3>
                             </div>
                         </div>
                     </div>
@@ -374,17 +380,44 @@
             </div>
         </div>
     </div>
-<!-- Quick View Modal -->
-<div id="quick-view-modal" class="modal">
-    <div class="modal-content">
+    
+<!-- Quick-view -->
+<div id="quick-view-modal" class="quickview-modal">
+    <div class="quickview-modal-content">
         <span class="close" id="close-quick-view">&times;</span>
-        <h2 id="quick-view-title">Product Title</h2>
-        <img id="quick-view-image" src="" alt="Product Image" />
-        <div id="quick-view-description">Product description goes here.</div>
-        <div id="quick-view-price">Price: R0.00</div>
-        <button id="add-to-cart-btn">Add to Cart</button>
+        
+        <div class="quickview-body">
+            <!-- Left side with green background and image carousel -->
+            <div class="view-left">
+                <div class="carousel-container">
+                    <button class="carousel-arrow prev">&lt;</button>
+                    <div class="main-image-container">
+                        <img id="quick-view-image" src="/api/placeholder/400/400" alt="Product Image" />
+                    </div>
+                    <button class="carousel-arrow next">&gt;</button>
+                </div>
+                
+            </div>
+
+            <!-- Right side with product info -->
+            <div class="view-right">
+                <div class="product-info">
+                    <h1 id="quick-view-title">Product Title</h1>
+                    <p id="quick-view-description" class="description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Officia, omnis illo iste ratione.
+                    </p>
+                    <div id="quick-view-price" class="price">R1299.99</div>
+                    <div class="button-group">
+                        <button id="add-to-cart-btn" class="add-to-cart">Add to Cart</button>
+                        <button class="learn-more">Learn more</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
     <div class="footer">
         <hr/>
         <div class="upper-footer">
@@ -461,6 +494,6 @@
 
 
     <!-- Link to external JavaScript -->
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>
