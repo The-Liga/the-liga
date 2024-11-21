@@ -13,9 +13,9 @@
         die("ERROR: Could not connect. " . mysqli_connect_error());
     }
 
-    session_start();
-    if (!isset($_SESSION['email']) || $_SESSION['userType'] !== 'admin') {
-    header("Location: ../login.php");
-    exit();
-}
+    // session_start();
+    // if (!isset($_SESSION['email']) || $_SESSION['userType'] !== 'admin') {
+    // header("Location: ../login.php");
+    // exit();
+
 ?>

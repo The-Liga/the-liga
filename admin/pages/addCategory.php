@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +22,7 @@
         <aside class="admin-sidenav">
             <?php include('../../components/adminSidenav.php'); ?>
         </aside>
-
+        <div id="toast-container" style="position: fixed; top: 100px; right: 10px; z-index: 9999;"></div>
         <form method="post" action="../components/upload.php" class="product-card" enctype='multipart/form-data'>
             <div class="categoryImage">
                 <input type="file" name="image">
@@ -32,15 +30,62 @@
             </div>
             <div class="product-info">
                 <label for="categoryName">Category Name:</label>
-                <input type="text" id="categoryName" name="categoryName" placeholder="Enter category name">
+                <input type="text" id="category-name" name="categoryName" placeholder="Enter category name">
 
                 <label for="numProducts">No. of products:</label>
-                <input type="number" id="numProducts" name="numProducts" placeholder="Enter number of products">
+                <input type="number" id="num-products" name="numProducts" placeholder="Enter number of products">
 
                 <input type="submit" class="btn bg-black text-white w-50" value="Add Category" name="addCategory" />
             </div>
         </form>
     </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.querySelector("form");
+
+            form.addEventListener("submit", (event) => {
+                const errors = [];
+
+                // Validate product name (only alphabets and spaces)
+                const productName = document.getElementById("category-name").value.trim();
+                if (!/^[a-zA-Z\s]+$/.test(productName)) {
+                    errors.push("Category name must only contain alphabets and spaces.");
+                }
+
+                // Validate product price (positive number)
+                const numProducts = document.getElementById("num-products").value.trim();
+                if (isNaN(numProducts) || numProducts <= 0) {
+                    errors.push("Number of products must be a valid positive number.");
+                }
+
+
+                const categoryImage = document.querySelector("input[type='file']").value;
+                if (!categoryImage) {
+                    errors.push("Image is required.");
+                }
+
+                // Show errors if any
+                if (errors.length > 0) {
+                    event.preventDefault(); // Prevent form submission
+                    const toastContainer = document.getElementById("toast-container");
+                    toastContainer.innerHTML = ""; // Clear previous toasts
+                    errors.forEach((error) => {
+                        const toast = document.createElement("div");
+                        toast.style.background = "#f8d7da";
+                        toast.style.color = "#721c24";
+                        toast.style.padding = "10px 15px";
+                        toast.style.marginBottom = "10px";
+                        toast.style.border = "1px solid #f5c6cb";
+                        toast.style.borderRadius = "5px";
+                        toast.innerText = error;
+
+                        toastContainer.appendChild(toast);
+                        setTimeout(() => toast.remove(), 5000); // Remove after 5 seconds
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

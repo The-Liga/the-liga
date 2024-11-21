@@ -16,7 +16,7 @@
 <body>
     <header class="admin-header">
         <div class="logo">
-            <a href="index.html"><img src="../../assets/log2.jpg" alt="TL"></a>
+            <a href="../pages/dashboard.php"><img src="../../assets/log2.jpg" alt="TL"></a>
         </div>
         <h3>Admin Dashboard</h3>
         <div class="links-container">
@@ -42,9 +42,11 @@
             </div>
 
             <div class="profile-dropdown">
-                <div class="profile-container">
-                    <img src="../../assets/profile.jpg" alt="Profile Image">
-                </div>
+                <a href="../pages/account.php">
+                    <div class="profile-container">
+                        <img src="../../assets/profile.jpg" alt="Profile Image">
+                    </div>
+                </a>
                 <div class="dropdown-menu" id="dropdown-menu">
                     <?php
                     // Check if the user is logged in
