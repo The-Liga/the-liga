@@ -34,6 +34,7 @@
                     <h1>Order</h1>
                     <hr />
                     <div>Jane Mahlangu, Puffer Jacket, 1356 Malboro Street</div>
+                    <input type="checkbox"/>
                     <br />
                     <h1>Order</h1>
                     <hr />

@@ -39,15 +39,6 @@
                 </a>
 
             </li>
-            <li class="has-subnav">
-                <a href="#">
-                    <i class="fa fa-gear fa-2x"></i>
-                    <span class="nav-text">
-                        Settings
-                    </span>
-                </a>
-
-            </li>
 
         </ul>
 

@@ -51,11 +51,11 @@
 .modal-window {
     position: fixed;
     background-color: rgba(255, 255, 255, 0.25);
-    top: 0;
+    top: 58%;
     right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 999;
+    left: 65%;
+    bottom: 55%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
@@ -67,12 +67,15 @@
     }
     & > div {
       width: 400px;
+      height: 480px;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       padding: 2em;
-      background: white;
+      background: #fff;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      border-radius: 4px;
     }
     header {
       font-weight: bold;

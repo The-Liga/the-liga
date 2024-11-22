@@ -47,7 +47,7 @@
                     $imageFullPath = "../../assets/uploads/products" . $imagePath;
                     $productSizes = json_decode($row['productSize'], true);
                     $productColors = json_decode($row['productColor'], true);
-                    $productID = $row['id']; // Correctly retrieve product ID
+                    $productID = $row['id']; 
                 ?>
                     <tr>
                         <td>
