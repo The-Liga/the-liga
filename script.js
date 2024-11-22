@@ -151,29 +151,113 @@ function redirectToNextPage(nextPageUrl) {
     window.location.href = nextPageUrl;
 }
 
+//Hamburger Menu functionality//
 document.addEventListener('DOMContentLoaded', function() {
-    const signUpButton = document.getElementById('signUpButton');
-    const signInButton = document.getElementById('signInButton');
-    const signInForm = document.getElementById('signIn');
-    const signUpForm = document.getElementById('signup');
+    const hamburger = document.getElementById('hamburger-menu');
+    const mainNav = document.querySelector('.main-nav');
 
-    // Ensure default visibility
-    signUpForm.style.display = 'none'; // Initially hide sign-up form
-    signInForm.style.display = 'block'; // Initially show sign-in form
-
-    // Event listener for switching to Sign Up
-    signUpButton.addEventListener('click', function() {
-        signInForm.style.display = "none";
-        signUpForm.style.display = "block";
+    hamburger.addEventListener('click', function() {
+        // Toggle active class on hamburger and navigation
+        hamburger.classList.toggle('active');
+        mainNav.classList.toggle('active');
     });
 
-    // Event listener for switching to Sign In
-    signInButton.addEventListener('click', function() {
-        signInForm.style.display = "block";
-        signUpForm.style.display = "none";
+    // Close menu when a nav item is clicked
+    const navLinks = document.querySelectorAll('.main-nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            mainNav.classList.remove('active');
+        });
     });
 });
 
+//Registrations functionality// 
+document.addEventListener('DOMContentLoaded', function() {
+            const signUpButton = document.getElementById('signUpButton');
+            const signInButton = document.getElementById('signInButton');
+            const flipContainer = document.querySelector('.flip-container');
+
+            // Set initial heights
+            function setContainerHeights() {
+                const signIn = document.getElementById('signIn');
+                const signUp = document.getElementById('signup');
+                const flipper = document.querySelector('.flipper');
+                const maxHeight = Math.max(signIn.offsetHeight, signUp.offsetHeight);
+                flipper.style.height = maxHeight + 'px';
+                flipContainer.style.height = maxHeight + 'px';
+            }
+
+            // Set heights on load and window resize
+            window.addEventListener('load', setContainerHeights);
+            window.addEventListener('resize', setContainerHeights);
+
+            signUpButton.addEventListener('click', function() {
+                flipContainer.classList.add('flipped');
+            });
+
+            signInButton.addEventListener('click', function() {
+                flipContainer.classList.remove('flipped');
+            });
+        });
+
+/*End Registrations */
+
+/* Inner-container */
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the inner container
+    const innerContainer = document.querySelector('.inner-container');
+    
+    // Get the current page URL and convert to lowercase for consistent comparison
+    const currentPage = window.location.pathname.toLowerCase();
+    
+    // Function to set background based on page
+    function setBackgroundImage() {
+        // Default background for home page
+        let backgroundImage = 'url("assets/logo1.jpg")';
+        
+        // Debug: Log the current pathname
+        console.log('Current pathname:', currentPage);
+        
+        // Check current page and set appropriate background
+        // Using includes() with more specific checks to avoid partial matches
+        if (currentPage.endsWith('men.html')) {
+            backgroundImage = 'url("../assets/men_pg.png")';
+        } else if (currentPage.endsWith('Women.html')) {
+            backgroundImage = 'url("../assets/women_pg.png")';
+        } else if (currentPage.endsWith('new_arrivals.html')) {
+            backgroundImage = 'url("../assets/New_Arr._page.png")';
+        } else if (currentPage.endsWith('fashion.html')) {
+            backgroundImage = 'url("../assets/Fashion_page.png")';
+        } else if (currentPage.endsWith('accessories.html')) {
+            backgroundImage = 'url("../assets/Access_page.png")';
+        } else if (currentPage.endsWith('shoes.html')) {
+            backgroundImage = 'url("../assets/shoes.png")';
+        }
+        
+        // Set the background image if inner container exists
+        if (innerContainer) {
+            innerContainer.style.backgroundImage = backgroundImage;
+            
+            // Debug: Log the background being set
+            console.log('Setting background:', backgroundImage);
+            
+            // Verify the background was set correctly
+            console.log('Applied background:', innerContainer.style.backgroundImage);
+            
+            // Add error handling for image loading
+            const img = new Image();
+            img.onerror = function() {
+                console.error('Failed to load image:', backgroundImage);
+            };
+            img.src = backgroundImage.replace('url("', '').replace('")', '');
+        }
+    }
+    
+    // Call the function when page loads
+    setBackgroundImage();
+});
+/*End Inner-container */
 
 /* ADMIN */
 document.addEventListener('DOMContentLoaded', function () {

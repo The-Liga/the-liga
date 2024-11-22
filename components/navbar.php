@@ -18,13 +18,19 @@
              <nav class="main-nav">
                  <ul>
                      <li><a href="./pages/men.html">Men</a></li>
-                     <li><a href="./pages/women.html">Women</a></li>
+                     <li><a href="./pages/Women.html">Women</a></li>
                      <li><a href="./pages/new_arrivals.html">New Arrivals</a></li>
                      <li><a href="./pages/new_arrivals.html">Fashion</a></li>
                      <li><a href="./pages/accessories.html">Accessories</a></li>
                      <li><a href="./pages/shoes.html">Shoes</a></li>
                      <li><a href="./pages/shop.html">Shop</a></li>
                  </ul>
+
+                 <div class="hamburger-menu" id="hamburger-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
              </nav>
              <!-- Icons and Profile -->
              <div class="nav-icons">

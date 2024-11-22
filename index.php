@@ -21,8 +21,6 @@ include("config.php");
 
     <?php include('./components/navbar.php'); ?>
 
-
-
     <!-- Search Modal -->
     <div id="search-modal" class="modal">
         <div class="modal-content">
@@ -338,8 +336,6 @@ include("config.php");
                             </div>
                         </div>
                     </div>
-
-
                     <div class="col-md-3 col-sm-6">
                         <div class="product-grid">
                             <div class="product-image">
