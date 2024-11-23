@@ -40,7 +40,7 @@ include("config.php");
             <hr style="border: 1px solid #000; margin-bottom: 15px;" />
             <div id="cart-items" class="cart-items"></div>
             <div class="checkout-button-container">
-                <button onclick="">Checkout<i style="margin-left: 10px;" class="fa-solid fa-cart-shopping"></i></button>
+                <button onclick="" href="./pages/checkout.html">Checkout<i style="margin-left: 10px;" class="fa-solid fa-cart-shopping"></i></button>
                 <div id="total-price" style="font-weight: bold; margin-top: 10px;"><bold>Total: </bold>R0.00</div>
             </div>
             <!-- Checkout Button will be dynamically added here -->
@@ -60,9 +60,45 @@ include("config.php");
         </div>
     </div>
 </div>
+
+<!-- Welcome Modal HTML -->
+<div id="welcome-modal" class="modal">
+    <div class="modal-content" style="max-width: 600px; text-align: center; padding: 40px; background: white; position: relative;">
+        <span class="close" style="position: absolute; right: 20px; top: 10px; font-size: 28px; cursor: pointer;">&times;</span>
+        
+        <h1 style="font-size: 32px; margin-bottom: 30px; font-weight: bold;">WELCOME TO THE LIGA</h1>
+        
+        <h2 style="font-size: 24px; margin-bottom: 30px;">We now ship to more countries!</h2>
+        
+        <ul style="list-style: none; margin-bottom: 30px;">
+            <li style="margin-bottom: 10px;">✓ Browse & pay in the currency of your choice</li>
+            <li style="margin-bottom: 10px;">✓ No additional charges on delivery</li>
+        </ul>
+
+        <p style="margin-bottom: 20px;">We've set your delivery country to <strong>SOUTH AFRICA</strong></p>
+        
+        <button onclick="closeWelcomeModal()" style="background: black; color: white; padding: 15px 30px; border: none; cursor: pointer; font-size: 16px; margin-bottom: 20px;">
+            CONTINUE TO THE LIGA
+        </button>
+        
+        <div style="font-size: 14px;">
+            Change your shipping country: 
+            <select style="padding: 5px; margin-left: 10px;">
+                <option value="ZA">🇿🇦 South Africa</option>
+                <option value="NA">🇳🇦 Namibia</option>
+                <option value="BW">🇧🇼 Botswana</option>
+                <option value="ZW">🇿🇼 Zimbabwe</option>
+                <option value="RU">🇷🇺 Russia</option>
+                <option value="AE">🇦🇪 Dubai, UAE</option>
+            </select>
+        </div>
+    </div>
+</div>
+
     <div class="home">
         <div class="inner-container">
             <!-- <h1>Welcome</h1> -->
+             <h1> THE LIGA </h1>
         </div>
         <div class="inner-text">
             <h1>DON'T WASTE YOUR MONEY, SHOP FOR QUALITY OVER QUANTITY.</h1>
