@@ -447,7 +447,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to set background based on page
     function setBackgroundImage() {
         // Default background for home page
-        let backgroundImage = 'url("assets/logo1.jpg")';
+        let backgroundImage = 'url("assets/log2.jpg")';
         
         // Debug: Log the current pathname
         console.log('Current pathname:', currentPage);
