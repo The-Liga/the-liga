@@ -15,9 +15,9 @@
         <div class="promo-banner">
             <div class="promo-container">
                 <div class="promo-slider">
-                    <div class="promo-slide">DRESS WATCH FLASH SALE | 40% OFF <a href="./pages/products.php"" class=" shop-now-btn">SHOP NOW</a></div>
+                    <div class="promo-slide">DRESS WATCH FLASH SALE | 40% OFF <a href="./pages/products.php" class=" shop-now-btn">SHOP NOW</a></div>
                     <div class="promo-slide">FREE SHIPPING OVER R100 ZAR & EASY RETURNS </div>
-                    <div class="promo-slide">NEW ARRIVALS - SPRING COLLECTION <a href="./pages/products.php"" class=" shop-now-btn">SHOP NOW</a></div>
+                    <div class="promo-slide">NEW ARRIVALS - SPRING COLLECTION <a href="./pages/products.php" class=" shop-now-btn">SHOP NOW</a></div>
                 </div>
                 <button class="promo-nav prev">&#10094;</button>
                 <button class="promo-nav next">&#10095;</button>
@@ -69,8 +69,8 @@
                     ?>
                             <!-- Dropdown menu for logged-in users -->
                             <div class="dropdown-menu" id="dropdown-menu">
-                                <p>Welcome, <?php echo $row['firstName']; ?></p>
-                                <a href="./pages/registrations.php"><i class="fa fa-user"></i> Profile</a>
+                                <p>Welcome, <?php echo $row['username']; ?></p>
+                                <a><i class="fa fa-user"></i> Profile</a>
                                 <a><i class="fa fa-list"></i> My Orders</a>
                                 <a><i class="fa-solid fa-bag-shopping"></i> Checkout</a>
                                 <a href="./pages/logout.php"><i class="fa fa-sign-out"></i> Logout</a>
@@ -81,8 +81,8 @@
                         ?>
                         <!-- Signup and login buttons for guests -->
                         <div class="dropdown-menu" id="dropdown-menu">
-                            <a href="./pages/signup.php" class="btn">Sign Up</a>
-                            <a href="./pages/login.php" class="btn">Login</a>
+                            <a class="for-btn" href="./pages/signup.php" ><button class="btn" >SignUp</button></a>
+                            <a class="for-btn"href="./pages/login.php" ><button class="login">LogIn</button></a>
                         </div>
                     <?php
                     }
