@@ -383,109 +383,42 @@ include("config.php");
             </div>
         </div>
 
-        <!-- Quick View Modal -->
-        <div id="quick-view-modal" class="quickview-modal">
-            <div class="quickview-modal-content">
-
-                <div class="view-top">
-                    <span class="close" id="close-quick-view">&times;</span>
-                    <h2 id="quick-view-title" style="color: black; margin-top: 15px;">Product Title</h2>
-                    <hr class="horizontal-line" />
-                </div>
-
-                <div class="quickview-body">
-
-                    <div class="view-left">
-
-                        <img id="quick-view-image" src="" alt="Product Image" />
-                        <div class="view-sizes">
-                            <span class="size">1</span>
-                            <span class="size">2</span>
-                            <span class="size">3</span>
-                            <span class="size">4</span>
-                            <span class="size">5</span>
-                            <span class="size">6</span>
-                            <span class="size">7</span>
-                            <span class="size">8</span>
-                            <span class="size">9</span>
-                        </div>
-
-                        <div class="view-colors">
-                            <div class="bg-white w-100" style="width: 25px; height: 25px; border-radius: .5rem;">
-                                <div class="d-flex p-2 gap-1">
-                                    <div>
-                                        <span class="bg-primary d-inline-block" style="width: 25px; height: 25px; border-radius: 50%; background-color: red; "></span>
-                                    </div>
-                                    <div class="circle">
-                                        <span class="bg-purple d-inline-block" style="width: 25px; height: 25px; border-radius: 50%; background-color: yellow;"></span>
-                                    </div>
-                                    <div class="circle">
-                                        <span class="bg-pink d-inline-block" style="width: 25px; height: 25px; border-radius: 50%; background-color: orange;"></span>
-                                    </div>
-                                    <div class="circle">
-                                        <span class="bg-pink d-inline-block" style="width: 25px; height: 25px; border-radius: 50%; background-color: black;"></span>
-                                    </div>
-                                    <div class="circle">
-                                        <span class="bg-pink d-inline-block" style="width: 25px; height: 25px; border-radius: 50%; background-color: gray;"></span>
-                                    </div>
-                                </div>
-                                <div class="card__content">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="delivery-info">
-                            <h2>Delivery Information</h2>
-                            
-                            <h3>Fast and Reliable Shipping</h3>
-                            <p>We understand that when you order a product, you want it to arrive quickly and safely. That's why we partner with trusted carriers to ensure your order is delivered in a timely manner.</p>
-                            
-                            <h3>Delivery Options</h3>
-                            <ul>
-                                <li><strong>Standard Shipping:</strong> Typically takes 5-7 business days. Perfect for those who plan ahead and want to save on shipping costs.</li>
-                                <li><strong>Express Shipping:</strong> Get your order in 2-3 business days! Ideal for last-minute purchases or when you need your item urgently.</li>
-                                <li><strong>Same-Day Delivery:</strong> Available in select areas for orders placed before noon. Check at checkout to see if you qualify!</li>
-                            </ul>
-                            
-                            <h3>Order Tracking</h3>
-                            <p>Once your order is shipped, you will receive a tracking number via email. You can use this number to monitor your package's journey right to your doorstep.</p>
-                            
-                            <h3>International Shipping</h3>
-                            <p>We offer international shipping to many countries. Delivery times may vary based on your location, customs processing, and local carriers. Additional fees may apply.</p>
-                            
-                            <h3>Delivery Insurance</h3>
-                            <p>All orders are covered by delivery insurance to protect against loss or damage during transit. If your package does not arrive or is damaged, please contact our customer service team for assistance.</p>
-                            
-                            <h3>Delivery Restrictions</h3>
-                            <p>Please note that some products may have shipping restrictions based on size, weight, or location. If there are any issues with your order, we will notify you promptly.</p>
-                            
-                            <h3>Customer Support</h3>
-                            <p>If you have any questions or concerns about your delivery, our customer service team is here to help! Feel free to reach out via email or phone for assistance.</p>
-                            
-                            <h3>Enjoy Your Purchase!</h3>
-                            <p>We aim to provide a seamless shopping experience from the moment you order to when you receive your product. Thank you for choosing us!</p>
-                            </div>
+          <!-- Quick-view -->
+          <div id="quick-view-modal" class="quickview-modal">
+    <div class="quickview-modal-content">
+        <span class="close" id="close-quick-view">&times;</span>
+        
+        <div class="quickview-body">
+            <!-- Left side with green background and image carousel -->
+            <div class="view-left">
+                <div class="carousel-container">
+                    <button class="carousel-arrow prev">&lt;</button>
+                    <div class="main-image-container">
+                        <img id="quick-view-image" src="./assets/" alt="Product Image" />
                     </div>
+                    <button class="carousel-arrow next">&gt;</button>
+                </div>
+                
+            </div>
 
-                    <div class="view-right">
-                        <div class="view-right-body">
-                            <div id="quick-view-description">Product description goes here.</div>
-                            <div id="quick-view-design">Product design goes nhere.</div>
-                            <div id="quick-view-details">Product details goes here.</div>
-                            <div class="view-stars">
-                                <li class="fa fa-star" style="color: black;"></li>
-                                <li class="fa fa-star" style="color: black;"></li>
-                                <li class="fa fa-star" style="color: black;"></li>
-                                <li class="fa fa-star" style="color: black;"></li>
-                                <li class="fa fa-star" style="color: black;"></li>
-                            </div>
-                        </div>
-                        <div id="quick-view-price">Price: R0.00</div>
-                        <button id="add-to-cart-btn">Add to Cart</button>
+            <!-- Right side with product info -->
+            <div class="view-right">
+                <div class="product-info">
+                    <h1 id="quick-view-title">Product Title</h1>
+                    <p id="quick-view-description" class="description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Officia, omnis illo iste ratione.
+                    </p>
+                    <div id="quick-view-price" class="price">R1299.99</div>
+                    <div class="button-group">
+                        <button id="add-to-cart-btn" class="add-to-cart">Add to Cart</button>
+                        <button class="learn-more">Learn more</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
         <!--  -->
 
