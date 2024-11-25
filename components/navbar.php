@@ -9,6 +9,19 @@
 </head>
 <body>
          <header>
+<!-- Add this right after the opening <body> tag, before the header -->
+<div class="promo-banner">
+    <div class="promo-container">
+        <div class="promo-slider">
+            <div class="promo-slide">DRESS WATCH FLASH SALE | 40% OFF <a href="./pages/products.php"" class="shop-now-btn">SHOP NOW</a></div>
+            <div class="promo-slide">FREE SHIPPING OVER R100 ZAR & EASY RETURNS </div>
+            <div class="promo-slide">NEW ARRIVALS - SPRING COLLECTION <a href="./pages/products.php"" class="shop-now-btn">SHOP NOW</a></div>
+        </div>
+        <button class="promo-nav prev">&#10094;</button>
+        <button class="promo-nav next">&#10095;</button>
+    </div>
+</div>
+<br><br><br><br>
          <div class="nav-container">
              <!-- Logo -->
              <div class="logo">
@@ -23,7 +36,7 @@
                      <li><a href="./pages/new_arrivals.html">Fashion</a></li>
                      <li><a href="./pages/accessories.html">Accessories</a></li>
                      <li><a href="./pages/shoes.html">Shoes</a></li>
-                     <li><a href="./pages/shop.html">Shop</a></li>
+                     <li><a href="../pages/Our story.html">Brand</a></li>
                  </ul>
 
                  <div class="hamburger-menu" id="hamburger-menu">

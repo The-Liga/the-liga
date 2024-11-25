@@ -1,3 +1,95 @@
+//header functionality //
+document.addEventListener('DOMContentLoaded', function() {
+    const promoBanner = document.querySelector('.promo-banner');
+    const header = document.querySelector('header');
+    const promoSlider = document.querySelector('.promo-slider');
+    const slides = document.querySelectorAll('.promo-slide');
+    const prevBtn = document.querySelector('.promo-nav.prev');
+    const nextBtn = document.querySelector('.promo-nav.next');
+    
+    let currentSlide = 0;
+    let lastScrollTop = 0;
+    const slideCount = slides.length;
+    
+    // Initialize slider
+    updateSliderPosition();
+    
+    function updateSliderPosition() {
+        promoSlider.style.transform = `translateX(-${currentSlide * 33.333}%)`;
+    }
+    
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slideCount;
+        updateSliderPosition();
+    }
+    
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+        updateSliderPosition();
+    }
+    
+    // Event listeners for manual navigation
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetInterval();
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetInterval();
+    });
+    
+    // Auto slide functionality
+    let slideInterval = setInterval(nextSlide, 4000);
+    
+    function resetInterval() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 4000);
+    }
+    
+    // Scroll behavior
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Show banner only when at the very top
+        if (currentScroll <= 0) {
+            promoBanner.classList.remove('hidden');
+            header.classList.remove('nav-up');
+            header.style.top = '36px'; // Banner height
+        } else {
+            promoBanner.classList.add('hidden');
+            header.classList.add('nav-up');
+            header.style.top = '0'; // Move header to top when banner is hidden
+        }
+        
+        // Additional check for scrolling up behavior for the header
+        if (currentScroll < lastScrollTop && currentScroll > 36) {
+            // Scrolling up but not at the top
+            header.classList.remove('nav-up');
+        }
+        
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+    
+    // Initial state check
+    if (window.pageYOffset > 0) {
+        promoBanner.classList.add('hidden');
+        header.classList.add('nav-up');
+        header.style.top = '0';
+    }
+    
+    // Pause auto-slide on hover
+    promoSlider.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+    });
+    
+    promoSlider.addEventListener('mouseleave', () => {
+        slideInterval = setInterval(nextSlide, 4000);
+    });
+});
+// End header functionality //
+
+// Initialize arrays to store cart and wishlist items
 let cart = [];
 let wishlist = [];
 
@@ -171,6 +263,75 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+//End Hamburger Menu functionality//
+
+// Welcome pop_up functionality //
+// Show modal when page loads - now shows every time
+window.addEventListener('DOMContentLoaded', (event) => {
+    document.getElementById('welcome-modal').style.display = 'block';
+});
+
+// Close modal function
+function closeWelcomeModal() {
+    document.getElementById('welcome-modal').style.display = 'none';
+}
+
+// Close when clicking the X
+document.querySelector('#welcome-modal .close').addEventListener('click', closeWelcomeModal);
+
+// Close when clicking outside the modal
+window.addEventListener('click', (event) => {
+    if (event.target == document.getElementById('welcome-modal')) {
+        closeWelcomeModal();
+    }
+});
+//End Welcome Pop-Up functionality //
+
+//Add the quick view functionality//
+document.addEventListener('DOMContentLoaded', function() {
+    const images = [
+        '/assets/blackcap1.png',
+        '/assets/Cap_Front_And_Back_View_UV1.png',
+        '/assets/beanie-on-table-with-accessories-mockup-005.png',
+        '/assets/hat.png'
+    ];
+    
+    let currentImageIndex = 0;
+    const mainImage = document.getElementById('quick-view-image');
+    const dots = document.querySelectorAll('.nav-dot');
+
+    // Function to update the main image and active dot
+    function updateImage(index) {
+        currentImageIndex = index;
+        mainImage.src = images[index];
+        
+        // Update active dot
+        dots.forEach((dot, i) => {
+            if (i === index) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+
+    // Navigation functions
+    window.plusDivs = function(n) {
+        let newIndex = (currentImageIndex + n + images.length) % images.length;
+        updateImage(newIndex);
+    }
+
+    window.currentDiv = function(n) {
+        updateImage(n - 1);
+    }
+
+    // Initialize first image and dot
+    updateImage(0);
+
+    // Add click handlers for carousel arrows
+    document.querySelector('.carousel-arrow.prev').addEventListener('click', () => plusDivs(-1));
+    document.querySelector('.carousel-arrow.next').addEventListener('click', () => plusDivs(1));
+});
 
 //Registrations functionality// 
 document.addEventListener('DOMContentLoaded', function() {
@@ -214,7 +375,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to set background based on page
     function setBackgroundImage() {
         // Default background for home page
-        let backgroundImage = 'url("assets/logo1.jpg")';
+        let backgroundImage = 'url("assets/banner.jpg")';
         
         // Debug: Log the current pathname
         console.log('Current pathname:', currentPage);
@@ -222,7 +383,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Check current page and set appropriate background
         // Using includes() with more specific checks to avoid partial matches
         if (currentPage.endsWith('men.html')) {
-            backgroundImage = 'url("../assets/men_pg.png")';
+            backgroundImage = 'url("../assets/Men_page.png")';
         } else if (currentPage.endsWith('Women.html')) {
             backgroundImage = 'url("../assets/women_pg.png")';
         } else if (currentPage.endsWith('new_arrivals.html')) {
