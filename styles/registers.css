@@ -197,9 +197,7 @@ body {
 	width: 100%;
 	border-radius: 4px;
 }
-.input:focus{
-	border: 1px solid red;
-}
+
 
 @keyframes show {
 	0%,
@@ -239,6 +237,7 @@ body {
 /* Hover effect */
 .icon-link:hover {
     color: #fff;
+	background-color: red;
 	font-size: 20px;
     text-decoration: none;
 }

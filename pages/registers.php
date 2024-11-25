@@ -90,6 +90,7 @@
         fistForm.addEventListener("submit", (e) => e.preventDefault());
         secondForm.addEventListener("submit", (e) => e.preventDefault());
     </script>
+    
 </body>
 
 </html>
