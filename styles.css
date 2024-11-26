@@ -85,41 +85,13 @@ header {
 }
 
 /* General Styles for Links and Icons */
-
-.btn {
-    display: inline-block;
-    padding: 5px 15px;
-    background-color: #000;
-    color: #fff;
+a {
     text-decoration: none;
-    border-radius: 4px;
-    
-}
-.login{
-    display: inline-block;
-    padding: 5px 20px;
-    background-color: #000;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;   
-}
-.btn:hover {
-    background-color: #aaa;
-    border: 1px solid white;
+    color: black;
 }
 
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background: white;
-    border: 1px solid #ddd;
-    padding: 10px;
-    list-style: none;
-    justify-content: center;
-}
-
-.profile-dropdown:hover .dropdown-menu {
-    display: block;
+a:hover {
+    text-decoration: underline;
 }
 
 /* Profile Dropdown Styles */
@@ -130,10 +102,10 @@ header {
 
 #profile-link {
     cursor: pointer;
-    
+    padding: 10px;
     display: flex;
     align-items: center;
-
+    gap: 5px;
 }
 
 .dropdown-menu {
@@ -145,14 +117,10 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid #ddd;
     z-index: 1;
-    border-radius: 4px;
-   
 }
-.for-btn:hover{
-    background-color: none;
-}
+
 .dropdown-menu a {
-    padding: 5px 1px;
+    padding: 5px 10px;
     display: block;
     color: black;
     text-decoration: none;
@@ -162,9 +130,7 @@ header {
 .dropdown-menu a:hover {
     background-color: #f1f1f1;
 }
-.for-btn:hover{
-    background-color: none;
-}
+
 .dropdown-menu i {
     margin-right: 10px;
 }
