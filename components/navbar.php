@@ -38,7 +38,7 @@
                     <li><a href="./pages/new_arrivals.html">Fashion</a></li>
                     <li><a href="./pages/accessories.html">Accessories</a></li>
                     <li><a href="./pages/shoes.html">Shoes</a></li>
-                    <li><a href="../pages/Our story.html">Brand</a></li>
+                    <li><a href="./pages/Our story.html">Brand</a></li>
                 </ul>
 
                 <div class="hamburger-menu" id="hamburger-menu">

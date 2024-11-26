@@ -47,19 +47,15 @@ include("config.php");
     </div>
 
     
-    <!-- Wishlist Modal -->
+    <!-- Wishlist Modal -->  
     <div id="wishlist-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="close-wishlist"  style="color: red;">&times;</span>
-            <h1 style="text-align: center;">Your Wishlist</h1>
-            <hr style="border: 1px solid #000; margin-bottom: 15px;"/>
-            <div id="wishlist-items" class="wishlist-items">
-                <!-- Wishlist items will be dynamically added here -->
-                <button class="remove-btn" onclick="removeFromCart(index)"><i class="fa-solid fa-trash"></i></button>
-            </div>
-            <div style="align-items: center; margin-top: 20px; display: flex; justify-content: center;">
-                <button>Add to Cart</button>
-            </div>
+    <div class="modal-content">
+        <span class="close" id="close-wishlist" style="color: red;">&times;</span>
+        <h1 style="text-align: center;">Your Wishlist</h1>
+        <hr style="border: 1px solid #000; margin-bottom: 15px;"/>
+        <div id="wishlist-items" class="wishlist-items">
+            <!-- Items will be dynamically added here -->
+            <button class="remove-btn" onclick="removeFromCart(index)"><i class="fa-solid fa-trash"></i></button>
         </div>
     </div>
 </div>
