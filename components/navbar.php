@@ -81,7 +81,7 @@
                         ?>
                         <!-- Signup and login buttons for guests -->
                         <div class="dropdown-menu" id="dropdown-menu">
-                            <a class="for-btn" href="./pages/registers.php" ><button class="btn" >SignUp</button></a>
+                            <a class="for-btn" href="./pages/signup.php" ><button class="btn" >SignUp</button></a>
                             <a class="for-btn"href="./pages/login.php" ><button class="login">LogIn</button></a>
                         </div>
                     <?php

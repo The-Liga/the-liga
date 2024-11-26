@@ -631,32 +631,3 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   
 
-
-
-
-/* ADMIN */
-document.addEventListener('DOMContentLoaded', function () {
-    const notificationIcon = document.querySelector('.notification-icon');
-    const notificationContainer = document.querySelector('.notification-container');
-    const notificationDropdown = document.querySelector('.notification-dropdown');
-  
-    // Toggle dropdown and unread status on icon click
-    notificationIcon.addEventListener('click', function (event) {
-      event.stopPropagation(); // Prevent event from bubbling to document
-      notificationContainer.classList.toggle('active');
-  
-      // Mark notifications as read and hide the red dot
-      if (notificationIcon.classList.contains('unread')) {
-        notificationIcon.classList.remove('unread');
-      }
-    });
-  
-    // Close the dropdown if clicking outside of it
-    document.addEventListener('click', function (event) {
-      if (!notificationContainer.contains(event.target)) {
-        notificationContainer.classList.remove('active');
-      }
-    });
-  });
-  
-
