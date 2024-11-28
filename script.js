@@ -240,6 +240,20 @@ document.addEventListener('click', function(event) {
 
 //End Language //
 
+// Color circles functionality //
+function changeColor(circle, imageSrc) {
+    const productImage = circle.closest('.product-grid').querySelector('.img-1');
+    productImage.src = imageSrc;
+    
+    // Remove active class from all circles
+    const colorCircles = circle.closest('.product-grid').querySelectorAll('.color-circle');
+    colorCircles.forEach(c => c.classList.remove('active'));
+    
+    // Add active class to the clicked circle
+    circle.classList.add('active');
+}
+//End Color circles functionality //
+
 // Initialize arrays to store cart and wishlist items
 let cart = [];
 let wishlist = [];

@@ -889,43 +889,27 @@ header.nav-up {
     transition: all 0.3s ease;
 }
 
-.product-image {
-    position: relative;
-  }
-  
-  .product-image::before {
-    content: "";
+/* Color Circles */
+.product-grid .color-circles {
     position: absolute;
     top: 10px;
     left: 10px;
-    width: 12px;
-    height: 12px;
-    background-color: #000;
+    display: flex;
+    gap: 5px;
+}
+
+.product-grid .color-circle {
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
-    margin-right: 5px;
-  }
-  
-  .product-image::after {
-    content: "";
-    position: absolute;
-    top: 10px;
-    left: 25px;
-    width: 12px;
-    height: 12px;
-    background-color: #fff;
-    border-radius: 50%;
-    margin-right: 5px;
-  }
-  
-  .product-image span {
-    position: absolute;
-    top: 10px;
-    left: 40px;
-    width: 12px;
-    height: 12px;
-    background-color: #000;
-    border-radius: 50%;
-  }
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.product-grid .color-circle.active {
+    transform: scale(1.2);
+}
+
 /* Product Links (Hover Menu) */
 .product-grid .product-links {
     width: 40px;

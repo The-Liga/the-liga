@@ -142,6 +142,11 @@ include("config.php");
                                 <a href="./pages/products.html" class="image">
                                     <img class="img-1" src="assets/hat.png">
                                 </a>
+                                <div class="color-circles">
+                                    <div class="color-circle" style="background-color: white;" onclick="changeColor(this, 'assets/hat.png')"></div>
+                                    <div class="color-circle" style="background-color: black;" onclick="changeColor(this, 'assets/hat-black.png')"></div>
+                                    <div class="color-circle" style="background-color: gray;" onclick="changeColor(this, 'assets/hat-gray.png')"></div>
+                                </div>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
                                     <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -161,6 +166,11 @@ include("config.php");
                                 <a href="./pages/products.html" class="image">
                                     <img class="img-1" src="assets/dress1.png">
                                 </a>
+                                <div class="color-circles">
+                                    <div class="color-circle" style="background-color: white;" onclick="changeColor(this, 'assets/hat.png')"></div>
+                                    <div class="color-circle" style="background-color: black;" onclick="changeColor(this, 'assets/hat-black.png')"></div>
+                                    <div class="color-circle" style="background-color: gray;" onclick="changeColor(this, 'assets/hat-gray.png')"></div>
+                                </div>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
                                     <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -180,6 +190,11 @@ include("config.php");
                                 <a href="./pages/products.html" class="image">
                                     <img class="img-1" src="assets/stomach_out.png">
                                 </a>
+                                <div class="color-circles">
+                                    <div class="color-circle" style="background-color: white;" onclick="changeColor(this, 'assets/hat.png')"></div>
+                                    <div class="color-circle" style="background-color: black;" onclick="changeColor(this, 'assets/hat-black.png')"></div>
+                                    <div class="color-circle" style="background-color: gray;" onclick="changeColor(this, 'assets/hat-gray.png')"></div>
+                                </div>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
                                     <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -199,6 +214,11 @@ include("config.php");
                                 <a href="./pages/products.html" class="image">
                                     <img class="img-1" src="assets/two_piece.png">
                                 </a>
+                                <div class="color-circles">
+                                    <div class="color-circle" style="background-color: white;" onclick="changeColor(this, 'assets/hat.png')"></div>
+                                    <div class="color-circle" style="background-color: black;" onclick="changeColor(this, 'assets/hat-black.png')"></div>
+                                    <div class="color-circle" style="background-color: gray;" onclick="changeColor(this, 'assets/hat-gray.png')"></div>
+                                </div>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
                                     <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -236,6 +256,11 @@ include("config.php");
                                 <a href="./pages/products.html" class="image">
                                     <img class="img-1" src="assets/hat.png">
                                 </a>
+                                <div class="color-circles">
+                                    <div class="color-circle" style="background-color: white;" onclick="changeColor(this, 'assets/hat.png')"></div>
+                                    <div class="color-circle" style="background-color: black;" onclick="changeColor(this, 'assets/hat-black.png')"></div>
+                                    <div class="color-circle" style="background-color: gray;" onclick="changeColor(this, 'assets/hat-gray.png')"></div>
+                                </div>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
                                     <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -255,6 +280,11 @@ include("config.php");
                                 <a href="./pages/products.html" class="image">
                                     <img class="img-1" src="assets/dress1.png">
                                 </a>
+                                <div class="color-circles">
+                                    <div class="color-circle" style="background-color: white;" onclick="changeColor(this, 'assets/hat.png')"></div>
+                                    <div class="color-circle" style="background-color: black;" onclick="changeColor(this, 'assets/hat-black.png')"></div>
+                                    <div class="color-circle" style="background-color: gray;" onclick="changeColor(this, 'assets/hat-gray.png')"></div>
+                                </div>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
                                     <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -274,6 +304,11 @@ include("config.php");
                                 <a href="./pages/products.html" class="image">
                                     <img class="img-1" src="assets/stomach_out.png">
                                 </a>
+                                <div class="color-circles">
+                                    <div class="color-circle" style="background-color: white;" onclick="changeColor(this, 'assets/hat.png')"></div>
+                                    <div class="color-circle" style="background-color: black;" onclick="changeColor(this, 'assets/hat-black.png')"></div>
+                                    <div class="color-circle" style="background-color: gray;" onclick="changeColor(this, 'assets/hat-gray.png')"></div>
+                                </div>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
                                     <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -293,6 +328,11 @@ include("config.php");
                                 <a href="./pages/products.html" class="image">
                                     <img class="img-1" src="assets/two_piece.png">
                                 </a>
+                                <div class="color-circles">
+                                    <div class="color-circle" style="background-color: white;" onclick="changeColor(this, 'assets/hat.png')"></div>
+                                    <div class="color-circle" style="background-color: black;" onclick="changeColor(this, 'assets/hat-black.png')"></div>
+                                    <div class="color-circle" style="background-color: gray;" onclick="changeColor(this, 'assets/hat-gray.png')"></div>
+                                </div>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
                                     <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -357,6 +397,11 @@ include("config.php");
                                 <a href="./pages/products.html" class="image">
                                     <img class="img-1" src="assets/shirt.png">
                                 </a>
+                                <div class="color-circles">
+                                    <div class="color-circle" style="background-color: white;" onclick="changeColor(this, 'assets/hat.png')"></div>
+                                    <div class="color-circle" style="background-color: black;" onclick="changeColor(this, 'assets/hat-black.png')"></div>
+                                    <div class="color-circle" style="background-color: gray;" onclick="changeColor(this, 'assets/hat-gray.png')"></div>
+                                </div>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
                                     <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -376,6 +421,11 @@ include("config.php");
                                 <a href="./pages/products.html" class="image">
                                     <img class="img-1" src="assets/leather_jacket1.png">
                                 </a>
+                                <div class="color-circles">
+                                    <div class="color-circle" style="background-color: white;" onclick="changeColor(this, 'assets/hat.png')"></div>
+                                    <div class="color-circle" style="background-color: black;" onclick="changeColor(this, 'assets/hat-black.png')"></div>
+                                    <div class="color-circle" style="background-color: gray;" onclick="changeColor(this, 'assets/hat-gray.png')"></div>
+                                </div>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
                                     <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -394,6 +444,11 @@ include("config.php");
                                 <a href="./pages/products.html" class="image">
                                     <img class="img-1" src="assets/sneakers.png">
                                 </a>
+                                <div class="color-circles">
+                                    <div class="color-circle" style="background-color: white;" onclick="changeColor(this, 'assets/hat.png')"></div>
+                                    <div class="color-circle" style="background-color: black;" onclick="changeColor(this, 'assets/hat-black.png')"></div>
+                                    <div class="color-circle" style="background-color: gray;" onclick="changeColor(this, 'assets/hat-gray.png')"></div>
+                                </div>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
                                     <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -413,6 +468,11 @@ include("config.php");
                                 <a href="./pages/products.html" class="image">
                                     <img class="img-1" src="assets/sport bag_cleanup.png">
                                 </a>
+                                <div class="color-circles">
+                                    <div class="color-circle" style="background-color: white;" onclick="changeColor(this, 'assets/hat.png')"></div>
+                                    <div class="color-circle" style="background-color: black;" onclick="changeColor(this, 'assets/hat-black.png')"></div>
+                                    <div class="color-circle" style="background-color: gray;" onclick="changeColor(this, 'assets/hat-gray.png')"></div>
+                                </div>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
                                     <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
