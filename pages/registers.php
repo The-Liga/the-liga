@@ -130,7 +130,7 @@
 
                     if (result.success) {
                         showToast("success", result.message);
-                        setTimeout(() => window.location.href = "../pages/categories.php", 2000);
+                        setTimeout(() => window.location.href = "../index.php", 2000);
                     } else if (result.errors) {
                         result.errors.forEach(err => showToast("error", err));
                     } else {

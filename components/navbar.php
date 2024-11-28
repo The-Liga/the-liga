@@ -23,7 +23,7 @@
                 <button class="promo-nav next">&#10095;</button>
             </div>
         </div>
-        <br><br><br><br>
+        
         <div class="nav-container">
             <!-- Logo -->
             <div class="logo">
@@ -69,8 +69,8 @@
                     ?>
                             <!-- Dropdown menu for logged-in users -->
                             <div class="dropdown-menu" id="dropdown-menu">
-                                <p>Welcome, <?php echo $row['username']; ?></p>
-                                <a><i class="fa fa-user"></i> Profile</a>
+                                <!-- <h3 style="text-align: center; margin-bottom: 10px;">Welcome, <?php echo $row['username']; ?></h3> -->
+                                <a><i class="fa fa-user"></i> <?php echo $row['username']; ?></a>
                                 <a><i class="fa fa-list"></i> My Orders</a>
                                 <a><i class="fa-solid fa-bag-shopping"></i> Checkout</a>
                                 <a href="./pages/logout.php"><i class="fa fa-sign-out"></i> Logout</a>

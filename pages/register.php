@@ -30,7 +30,7 @@ function sendVerificationEmail($email, $token)
         // Content
         $mail->isHTML(true);
         $mail->Subject = 'Email Verification';
-        $mail->Body    = "Click the link below to verify your email address:<br><a href='http://localhost/the-liga/pages/verify.php?token=$token'>Verify Email</a>";
+        $mail->Body    = "Click the link below to verify your email address:<br><a href='http://localhost/the-liga/pages/verify.php?verificationToken=$token'>Verify Email</a>";
 
         $mail->send();
         return true;
@@ -127,20 +127,23 @@ try {
 
         // Determine whether input is email or username
         if (filter_var($emailOrUsername, FILTER_VALIDATE_EMAIL)) {
-            $sql = "SELECT id, email, password, userType FROM users WHERE email = ?";
+            $sql = "SELECT id, email, password, userType, emailVerified FROM users WHERE email = ?";
         } else {
-            $sql = "SELECT id, email, password, userType FROM users WHERE username = ?";
+            $sql = "SELECT id, email, password, userType, emailVerified FROM users WHERE username = ?";
         }
 
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('s', $emailOrUsername);
         $stmt->execute();
         $stmt->store_result();
-        $stmt->bind_result($id, $dbEmail, $dbPassword, $userType);
+        $stmt->bind_result($id, $dbEmail, $dbPassword, $userType, $emailVerified);
 
         if ($stmt->num_rows > 0) {
             $stmt->fetch();
-            if (password_verify($password, $dbPassword)) {
+            if ($emailVerified == 0) {
+                // Email not verified
+                echo json_encode(['success' => false, 'errors' => ['Your email is not verified. Please verify your email to log in.']]);
+            } elseif (password_verify($password, $dbPassword)) {
                 // Successful login
                 $_SESSION['email'] = $dbEmail;
                 $_SESSION['userType'] = $userType;

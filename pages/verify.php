@@ -18,9 +18,11 @@ if (isset($_GET['verificationToken'])) {
         $stmt->bind_param('s', $token);
         $stmt->execute();
 
-        echo "Your email has been verified successfully!";
+        // Redirect to the registration page
+        header("Location: ./registers.php");
+        exit();
     } else {
-        echo "Invalid or expired token.";
+        echo "Invalid or expired verification token.";
     }
     $stmt->close();
 } else {
