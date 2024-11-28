@@ -514,12 +514,68 @@ header.nav-up {
     color: black;
 }
 
+ /* Language Switcher Popup Styles */
+ .language-popup-container {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    background-color: #f1f1f1;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.language-popup-toggle {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    padding: 10px 5px;
+    background-color: #000;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 10px 10px 0;
+}
+
+.language-popup-content {
+    display: none;
+    padding: 15px;
+    background-color: white;
+    border-radius: 0 10px 10px 0;
+}
+
+.language-popup-container.active .language-popup-content {
+    display: block;
+}
+
+.language-popup-content button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.language-popup-content button:hover {
+    background-color: #e1e1e1;
+}
+
+.language-popup-content button.active {
+    background-color: #000;
+    color: white;
+}
+
+/*End language */
+
 /*Home section*/
 .inner-container {
     height: 85vh;
     width: 100%;
     display: flex;
-    top: 20px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -527,10 +583,40 @@ header.nav-up {
     background-position: center;
     background-size: cover;
     transition: background-image 0.3s ease-in-out;
+    position: relative; /* Added to enable absolute positioning of the button */
 }
 
-.inner-container .h1{
+.inner-container .h1 {
     font-family: serif;
+}
+
+.inner-container p {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 20px;
+}
+
+.inner-container .shop-btn {
+    padding: 15px 60px;
+    border: none;
+    border-radius: 25px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s, color 0.3s;
+    position: absolute; /* Positions the button absolutely within the container */
+    bottom: 20px; /* Positions the button 20px from the bottom */
+    left: 20px; /* Positions the button 20px from the left */
+}
+
+.inner-container .shop-btn:hover {
+    background-color: #757474;
+    color: #000;
 }
 
 /* Why choose us section */
@@ -670,8 +756,9 @@ header.nav-up {
 
 .products-list{
     font-weight: 300;
-    text-align: center;
+    text-align: left;
     margin-top: 25px;
+    margin-left: 25px;
     text-transform: uppercase;
 }
 
@@ -703,8 +790,6 @@ header.nav-up {
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-   
- 
 }
 
 .row-products {
@@ -732,8 +817,8 @@ header.nav-up {
     position: absolute;
     transform: translateY(-200%); 
     background-color: rgba(240, 240, 240, 0.8); 
-    background-color: #000;
-    color: #ffff;
+    background-color: #cacaca;
+    color: #000000;
     border: none;
     padding: 10px;
     border-radius: 50%;
@@ -744,17 +829,17 @@ header.nav-up {
 }
 
 .prev-btn {
-    left: 10px;
+    left: 5px;
 }
 
 .next-btn {
-    right: 10px; 
+    right: 5px; 
  
 }
 
 .scroll-btn:hover {
     background-color: rgba(204, 204, 204, 0.8); 
-    background-color: #CCC;
+    background-color: #030303;
     color: #fff;
     
 }
@@ -776,7 +861,7 @@ header.nav-up {
     text-align: center;
     border-radius: 5px;
     padding-bottom: 10px;
-    width: 250px; /* Fixed width */
+    width: 285px; /* Fixed width */
     height: 400px; /* Fixed height */
     box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
     position: relative;
@@ -788,7 +873,7 @@ header.nav-up {
 .product-grid .product-image {
     position: relative;
     width: 100%;
-    height: 300px; /* Fixed height for image container */
+    height: 250px; /* Fixed height for image container */
 }
 
 .product-grid .product-image a.image {
@@ -804,6 +889,43 @@ header.nav-up {
     transition: all 0.3s ease;
 }
 
+.product-image {
+    position: relative;
+  }
+  
+  .product-image::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 12px;
+    height: 12px;
+    background-color: #000;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  .product-image::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  .product-image span {
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    width: 12px;
+    height: 12px;
+    background-color: #000;
+    border-radius: 50%;
+  }
 /* Product Links (Hover Menu) */
 .product-grid .product-links {
     width: 40px;
@@ -1138,21 +1260,6 @@ header.nav-up {
     text-decoration: solid;
     text-transform: uppercase;
     font-weight: 900;
-}
-
-.shop-btn{
-    padding: 15px 60px;
-    border: none;
-    border-radius: 25px;
-    background-color: #000;
-    color: #FFF;
-    font-weight: 600;
-    font-size: 20px;
-}
-
-.shop-btn:hover{
-    background-color: #757474;
-    color: #000000;
 }
 
 /* FOOTER SECTION */

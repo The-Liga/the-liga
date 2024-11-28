@@ -94,20 +94,42 @@ include("config.php");
     </div>
 </div>
 
+ <!-- Language Switcher Popup -->
+ <div class="language-popup-container" id="languagePopup">
+        <div class="language-popup-toggle" onclick="toggleLanguagePopup()">
+            Language
+        </div>
+        
+        <div class="language-popup-content">
+            <button onclick="changeLanguage('en')" id="lang-en">
+                🇬🇧 English
+            </button>
+            <button onclick="changeLanguage('fr')" id="lang-fr">
+                🇫🇷 Français
+            </button>
+            <button onclick="changeLanguage('es')" id="lang-es">
+                🇪🇸 Español
+            </button>
+            <button onclick="changeLanguage('ru')" id="lang-ru">
+                🇷🇺 Русский
+            </button>
+            <button onclick="changeLanguage('ar')" id="lang-ar">
+                🇦🇪 العربية (دبي)
+            </button>
+        </div>
+    </div>
+
     <div class="home">
         <div class="inner-container">
             <!-- <h1>Welcome</h1> -->
              <h1> THE LIGA </h1>
+             <p><strong> FOR THE BOLD </strong></p>
+             <a class="shop-btn" href="./pages/products.php">Shop</a>
         </div>
-        <div class="inner-text">
-            <h1>DON'T WASTE YOUR MONEY, SHOP FOR QUALITY OVER QUANTITY.</h1>
-            <a class="shop-btn" href="./pages/products.php">Shop</a>
-        </div>
-
+      
         <!-- NEW ARRIVALS -->
-        <div style="margin: 50px;">
-            <h1 class="products-list">NEW ARRIVALS</h1>
-            <hr class="horizontal-line" />
+        <div>
+            <h1 class="products-list">New Arrivals</h1>
             <div class="scroll-container">
                 <button class="scroll-btn prev-btn">
                     <li style="color: white" class="fa fa-angle-left"></li>
@@ -118,12 +140,12 @@ include("config.php");
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/hoodie.jpg">
+                                    <img class="img-1" src="assets/hat.png">
                                 </a>
                                 <ul class="product-links">
-                                    <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="./assets/shirt.png"></a></li>
-                                    <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/shirt.png"></a></li>
-                                    <li><a href="#" class="fa fa-eye" onclick="openQuickView(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/shirt.png"></a></li>
+                                    <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
+                                    <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
+                                    <li><a href="#" class="fa fa-eye" onclick="openQuickView(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
                                 </ul>
                             </div>
                             <div class="product-content">
@@ -137,7 +159,7 @@ include("config.php");
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/women.jpg">
+                                    <img class="img-1" src="assets/dress1.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -147,25 +169,6 @@ include("config.php");
                             </div>
                             <div class="product-content">
                                 <div class="price">R799.99</div>
-                                <h3 class="title"><a href="#">For Women</a></h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/bag.png">
-                                </a>
-                                <ul class="product-links">
-                                    <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
-                                    <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
-                                    <li><a href="#" class="fa fa-eye" onclick="openQuickView(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <div class="price">R499.99</div>
                                 <h3 class="title"><a href="#">Summer Dress</a></h3>
                             </div>
                         </div>
@@ -175,7 +178,7 @@ include("config.php");
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/home1.png">
+                                    <img class="img-1" src="assets/stomach_out.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -184,8 +187,27 @@ include("config.php");
                                 </ul>
                             </div>
                             <div class="product-content">
-                                <div class="price">R599.99</div>
-                                <h3 class="title"><a href="#">Bucket Hat</a></h3>
+                                <div class="price">R499.99</div>
+                                <h3 class="title"><a href="#">Crop Top</a></h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="./pages/products.html" class="image">
+                                    <img class="img-1" src="assets/two_piece.png">
+                                </a>
+                                <ul class="product-links">
+                                    <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
+                                    <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
+                                    <li><a href="#" class="fa fa-eye" onclick="openQuickView(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
+                                </ul>
+                            </div>
+                            <div class="product-content">
+                                <div class="price">R1299.99</div>
+                                <h3 class="title"><a href="#">Two Pieces</a></h3>
                             </div>
                         </div>
                     </div>
@@ -202,7 +224,6 @@ include("config.php");
         <!-- BEST SELLERS -->
         <div>
             <h1 class="products-list">Best Sellers</h1>
-            <hr class="horizontal-line" />
             <div class="scroll-container">
                 <button class="scroll-btn prev-btn">
                     <li style="color: white" class="fa fa-angle-left"></li>
@@ -324,7 +345,6 @@ include("config.php");
         <!-- SALES -->
         <div>
             <h1 class="products-list">SALES</h1>
-            <hr class="horizontal-line" />
             <div class="scroll-container">
                 <button class="scroll-btn prev-btn">
                     <li style="color: white" class="fa fa-angle-left"></li>

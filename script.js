@@ -89,6 +89,157 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 // End header functionality //
 
+// Language translations
+const translations = {
+    en: {
+        shopNow: 'Shop',
+        newArrivals: 'NEW ARRIVALS',
+        bestSellers: 'Best Sellers',
+        whyChooseUs: 'Why Choose Us?',
+        fastDeliveryTitle: 'Fast & Reliable Delivery',
+        fastDeliveryDesc: 'We ensure your orders are delivered on time, every time, with real-time tracking available.',
+        qualityProductsTitle: 'Quality Products',
+        qualityProductsDesc: 'All our products undergo strict quality control to ensure you receive only the best.',
+        customerSupportTitle: 'Excellent Customer Support',
+        customerSupportDesc: 'Our dedicated support team is here to assist you with any questions or concerns.',
+        easyReturnsTitle: 'Easy Returns',
+        easyReturnsDesc: 'If you\'re not satisfied, our hassle-free return policy makes it easy to exchange or return items.',
+        sales: 'SALES'
+    },
+    fr: {
+        shopNow: 'Acheter',
+        newArrivals: 'NOUVELLES ARRIVÉES',
+        bestSellers: 'Meilleures Ventes',
+        whyChooseUs: 'Pourquoi nous choisir?',
+        fastDeliveryTitle: 'Livraison Rapide et Fiable',
+        fastDeliveryDesc: 'Nous garantissons que vos commandes sont livrées à temps, avec un suivi en temps réel.',
+        qualityProductsTitle: 'Produits de Qualité',
+        qualityProductsDesc: 'Tous nos produits subissent un contrôle qualité strict pour vous garantir le meilleur.',
+        customerSupportTitle: 'Support Client Excellent',
+        customerSupportDesc: 'Notre équipe de support dédiée est là pour vous aider avec toute question ou préoccupation.',
+        easyReturnsTitle: 'Retours Faciles',
+        easyReturnsDesc: 'Si vous n\'êtes pas satisfait, notre politique de retour sans tracas vous permet d\'échanger ou de retourner facilement des articles.',
+        sales: 'SOLDES'
+    },
+    es: {
+        shopNow: 'Comprar',
+        newArrivals: 'NUEVAS LLEGADAS',
+        bestSellers: 'Más Vendidos',
+        whyChooseUs: '¿Por qué elegirnos?',
+        fastDeliveryTitle: 'Entrega Rápida y Confiable',
+        fastDeliveryDesc: 'Garantizamos que sus pedidos se entreguen a tiempo, con seguimiento en tiempo real.',
+        qualityProductsTitle: 'Productos de Calidad',
+        qualityProductsDesc: 'Todos nuestros productos pasan por un estricto control de calidad para garantizarle lo mejor.',
+        customerSupportTitle: 'Excelente Servicio al Cliente',
+        customerSupportDesc: 'Nuestro equipo de soporte dedicado está aquí para ayudarle con cualquier pregunta o inquietud.',
+        easyReturnsTitle: 'Devoluciones Fáciles',
+        easyReturnsDesc: 'Si no está satisfecho, nuestra política de devolución sin complicaciones le permite cambiar o devolver artículos fácilmente.',
+        sales: 'VENTAS'
+    },
+    ru: {
+        welcome: 'Добро пожаловать в The Liga',
+        shopNow: 'Купить',
+        newArrivals: 'НОВЫЕ ПОСТУПЛЕНИЯ',
+        bestSellers: 'Бестселлеры',
+        whyChooseUs: 'Почему выбирают нас?',
+        fastDeliveryTitle: 'Быстрая и надежная доставка',
+        fastDeliveryDesc: 'Мы гарантируем доставку ваших заказов вовремя с отслеживанием в реальном времени.',
+        qualityProductsTitle: 'Качественные Продукты',
+        qualityProductsDesc: 'Все наши продукты проходят строгий контроль качества, чтобы обеспечить вам только лучшее.',
+        customerSupportTitle: 'Отличная поддержка клиентов',
+        customerSupportDesc: 'Наша выделенная команда поддержки готова помочь вам с любыми вопросами или проблемами.',
+        easyReturnsTitle: 'Простые возвраты',
+        easyReturnsDesc: 'Если вы остались недовольны, наша беспроблемная политика возврата позволяет легко обменивать или возвращать товары.',
+        sales: 'РАСПРОДАЖА'
+    },
+    ar: {
+        welcome: 'مرحباً بك في The Liga',
+        shopNow: 'تسوق الآن',
+        newArrivals: 'وصل حديثًا',
+        bestSellers: 'الأكثر مبيعاً',
+        whyChooseUs: 'لماذا تختارنا؟',
+        fastDeliveryTitle: 'توصيل سريع وموثوق',
+        fastDeliveryDesc: 'نضمن توصيل طلباتك في الوقت المحدد مع تتبع فوري.',
+        qualityProductsTitle: 'منتجات عالية الجودة',
+        qualityProductsDesc: 'جميع منتجاتنا تخضع لرقابة جودة صارمة لضمان أفضل المنتجات.',
+        customerSupportTitle: 'دعم عملاء ممتاز',
+        customerSupportDesc: 'فريق الدعم المخصص لدينا هنا للمساعدة في أي استفسارات أو مخاوف.',
+        easyReturnsTitle: 'مرتجعات سهلة',
+        easyReturnsDesc: 'إذا لم تكن راضيًا، فسياسة الإرجاع السلسة لدينا تجعل استبدال أو إرجاع العناصر أمرًا سهلاً.',
+        sales: 'التخفيضات'
+    }
+};
+
+// Toggle Language Popup
+function toggleLanguagePopup() {
+    const popup = document.getElementById('languagePopup');
+    popup.classList.toggle('active');
+}
+
+// Change Language Function
+function changeLanguage(lang) {
+    // Update active language buttons
+    document.querySelectorAll('#languagePopup button').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.getElementById(`lang-${lang}`).classList.add('active');
+
+    // Translate specific elements
+    const elementsToTranslate = [
+        { selector: '.inner-text h1', key: 'welcome' },
+        { selector: '.shop-btn', key: 'shopNow' },
+        { selector: '.products-list:nth-of-type(1)', key: 'newArrivals' },
+        { selector: '.products-list:nth-of-type(2)', key: 'bestSellers' },
+        { selector: 'h1[style*="text-align: center; font-weight: bold;"]', key: 'whyChooseUs' },
+        { selector: '.why-card:nth-child(1) h3', key: 'fastDeliveryTitle' },
+        { selector: '.why-card:nth-child(1) p', key: 'fastDeliveryDesc' },
+        { selector: '.why-card:nth-child(2) h3', key: 'qualityProductsTitle' },
+        { selector: '.why-card:nth-child(2) p', key: 'qualityProductsDesc' },
+        { selector: '.why-card:nth-child(3) h3', key: 'customerSupportTitle' },
+        { selector: '.why-card:nth-child(3) p', key: 'customerSupportDesc' },
+        { selector: '.why-card:nth-child(4) h3', key: 'easyReturnsTitle' },
+        { selector: '.why-card:nth-child(4) p', key: 'easyReturnsDesc' },
+        { selector: '.products-list:nth-of-type(3)', key: 'sales' }
+    ];
+
+    elementsToTranslate.forEach(item => {
+        const element = document.querySelector(item.selector);
+        if (element) {
+            element.textContent = translations[lang][item.key];
+        }
+    });
+
+    // Close popup after selection
+    toggleLanguagePopup();
+
+    // Store language preference
+    localStorage.setItem('site-lang', lang);
+
+    // Update page direction for Arabic
+    document.body.style.direction = lang === 'ar' ? 'rtl' : 'ltr';
+    document.body.style.textAlign = lang === 'ar' ? 'right' : 'left';
+}
+
+// Initialize Language on Page Load
+function initLanguage() {
+    // Check for saved language preference
+    const savedLang = localStorage.getItem('site-lang') || 'en';
+    changeLanguage(savedLang);
+}
+
+// Run on page load
+document.addEventListener('DOMContentLoaded', initLanguage);
+
+// Close popup if clicked outside
+document.addEventListener('click', function(event) {
+    const popup = document.getElementById('languagePopup');
+    if (popup && !popup.contains(event.target) && popup.classList.contains('active')) {
+        toggleLanguagePopup();
+    }
+});
+
+//End Language //
+
 // Initialize arrays to store cart and wishlist items
 let cart = [];
 let wishlist = [];
