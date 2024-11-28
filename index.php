@@ -55,7 +55,7 @@ include("config.php");
         <hr style="border: 1px solid #000; margin-bottom: 15px;"/>
         <div id="wishlist-items" class="wishlist-items">
             <!-- Items will be dynamically added here -->
-            <button class="remove-btn" onclick="removeFromCart(index)"><i class="fa-solid fa-trash"></i></button>
+            <!-- <button class="remove-btn" onclick="removeFromCart(index)"><i class="fa-solid fa-trash"></i></button> -->
         </div>
     </div>
 </div>
