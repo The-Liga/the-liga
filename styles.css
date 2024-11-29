@@ -889,27 +889,43 @@ header.nav-up {
     transition: all 0.3s ease;
 }
 
-/* Color Circles */
-.product-grid .color-circles {
+.product-image {
+    position: relative;
+  }
+  
+  .product-image::before {
+    content: "";
     position: absolute;
     top: 10px;
     left: 10px;
-    display: flex;
-    gap: 5px;
-}
-
-.product-grid .color-circle {
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
+    background-color: #000;
     border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.product-grid .color-circle.active {
-    transform: scale(1.2);
-}
-
+    margin-right: 5px;
+  }
+  
+  .product-image::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  .product-image span {
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    width: 12px;
+    height: 12px;
+    background-color: #000;
+    border-radius: 50%;
+  }
 /* Product Links (Hover Menu) */
 .product-grid .product-links {
     width: 40px;
@@ -1692,16 +1708,7 @@ a:hover {
     border: none;
     background: none;
 }
-.add-to-cart-btn{
-    float: right;
-    margin-top: 20px;
-    font-size: 20px;
-    color: lightgray; 
-    cursor: pointer;
-    transition: color 0.2s ease-in-out;
-    border: none;
-    background: none;
-}
+
 .remove-item-btn:hover {
     color: #333;  
     transform: scale(1.1);  
