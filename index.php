@@ -134,7 +134,7 @@ include("config.php");
             <h1 class="products-list">New Arrivals</h1>
             <div class="scroll-container">
                 <button class="scroll-btn prev-btn">
-                    <li style="color: white" class="fa fa-angle-left"></li>
+                    <li style="color: Black" class="fa fa-angle-left"></li>
                 </button>
                 <div class="row-products">
                     <!-- Product Items -->
@@ -218,7 +218,7 @@ include("config.php");
 
                 </div>
                 <button class="scroll-btn next-btn">
-                    <li style="color: white" class="fa fa-angle-right"></li>
+                    <li style="color: black" class="fa fa-angle-right"></li>
                 </button>
             </div>
         </div>
@@ -228,7 +228,7 @@ include("config.php");
             <h1 class="products-list">Best Sellers</h1>
             <div class="scroll-container">
                 <button class="scroll-btn prev-btn">
-                    <li style="color: white" class="fa fa-angle-left"></li>
+                    <li style="color: black" class="fa fa-angle-left"></li>
                 </button>
                 <div class="row-products">
                     <!-- Product Items -->
@@ -312,7 +312,7 @@ include("config.php");
 
                 </div>
                 <button class="scroll-btn next-btn">
-                    <li style="color: white" class="fa fa-angle-right"></li>
+                    <li style="color: black" class="fa fa-angle-right"></li>
                 </button>
             </div>
         </div>
@@ -348,7 +348,7 @@ include("config.php");
             <h1 class="products-list">SALES</h1>
             <div class="scroll-container">
                 <button class="scroll-btn prev-btn">
-                    <li style="color: white" class="fa fa-angle-left"></li>
+                    <li style="color: black" class="fa fa-angle-left"></li>
                 </button>
                 <div class="row-products">
                     <!-- Product Items -->
@@ -431,7 +431,7 @@ include("config.php");
 
                 </div>
                 <button class="scroll-btn next-btn">
-                    <li style="color: white" class="fa fa-angle-right"></li>
+                    <li style="color: black" class="fa fa-angle-right"></li>
                 </button>
             </div>
         </div>
