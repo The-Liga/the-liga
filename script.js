@@ -89,6 +89,17 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 // End header functionality //
 
+//Sticky Navbar //
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (window.pageYOffset > 0) {
+      header.classList.add('sticky');
+    } else {
+      header.classList.remove('sticky');
+    }
+  });
+// End sticky navbar functionality //
+
 // Language translations
 const translations = {
     en: {
@@ -282,6 +293,7 @@ function addToWishlist(button) {
 
     updateWishlistCount();
     updateWishlistItems();
+    
 }
 
 // Update the cart counter
@@ -465,39 +477,36 @@ document.getElementById('add-to-cart-btn').onclick = function() {
     document.getElementById('quick-view-modal').style.display = 'none';
 };
 
-// Search Functionality
+// Get all products with only images
 function getAllProducts() {
     const products = [];
     const productElements = document.querySelectorAll('.product-grid');
     
     productElements.forEach(productElement => {
-        const titleElement = productElement.querySelector('.title a');
-        const priceElement = productElement.querySelector('.price');
         const imageElement = productElement.querySelector('.img-1');
         
-        const priceText = priceElement.textContent.replace('R', '').split(' ')[0];
-        const price = parseFloat(priceText);
-
-        products.push({
-            name: titleElement.textContent,
-            price: price,
-            image: imageElement.src,
-            element: productElement.cloneNode(true)
-        });
+        if (imageElement) {
+            products.push({
+                image: imageElement.src,
+                element: productElement.cloneNode(true)
+            });
+        }
     });
     
     return products;
 }
 
+// Filter products by name using the query
 function filterProducts(searchQuery, products) {
     return products.filter(product => {
         const searchTerms = searchQuery.toLowerCase().split(' ');
-        const productName = product.name.toLowerCase();
+        const productName = product.element.querySelector('.title a').textContent.toLowerCase();
         
         return searchTerms.every(term => productName.includes(term));
     });
 }
 
+// Clear previous search results
 function clearSearch() {
     const searchInput = document.getElementById('modal-search-input');
     searchInput.value = '';
@@ -509,6 +518,7 @@ function clearSearch() {
     }
 }
 
+// Display only images in search results
 function displaySearchResults(filteredProducts) {
     const modalContent = document.querySelector('#search-modal .modal-content');
     
@@ -521,29 +531,22 @@ function displaySearchResults(filteredProducts) {
     resultsContainer.className = 'search-results';
     resultsContainer.style.cssText = 'margin-top: 20px; max-height: 400px; overflow-y: auto;';
     
-    const clearButtonContainer = document.createElement('div');
-    clearButtonContainer.style.cssText = 'display: flex; justify-content: flex-end; margin-bottom: 10px;';
-    
-    const clearButton = document.createElement('button');
-    clearButton.textContent = 'Clear Search';
-    clearButton.className = 'clear-search-btn';
-    clearButton.onclick = clearSearch;
-    
-    clearButtonContainer.appendChild(clearButton);
-    resultsContainer.appendChild(clearButtonContainer);
-    
     if (filteredProducts.length === 0) {
-        resultsContainer.innerHTML += '<p style="text-align: center;">No products found</p>';
+        resultsContainer.innerHTML = '<p style="text-align: center;">No products found</p>';
     } else {
-        const productsGrid = document.createElement('div');
-        productsGrid.style.cssText = 'display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;';
+        const imageGrid = document.createElement('div');
+        imageGrid.style.cssText = 'display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;';
         
         filteredProducts.forEach(product => {
-            const productClone = product.element;
-            productsGrid.appendChild(productClone);
+            const imgElement = document.createElement('img');
+            imgElement.src = product.image;
+            imgElement.alt = 'Product Image';
+            imgElement.style.cssText = 'width: 100%; height: auto; object-fit: cover; border-radius: 8px;';
+            
+            imageGrid.appendChild(imgElement);
         });
         
-        resultsContainer.appendChild(productsGrid);
+        resultsContainer.appendChild(imageGrid);
     }
     
     modalContent.appendChild(resultsContainer);
@@ -700,7 +703,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /*End Registrations */
 
-/* Inner-container */
 document.addEventListener('DOMContentLoaded', function() {
     // Get the inner container
     const innerContainer = document.querySelector('.inner-container');
@@ -710,24 +712,22 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to set background based on page
     function setBackgroundImage() {
-        // Default background for home page
-        let backgroundImage = 'url("assets/banner.jpg")';
+        let backgroundImage = 'url("assets/banner.jpg")';  // Default background for home page
         
         // Debug: Log the current pathname
         console.log('Current pathname:', currentPage);
         
         // Check current page and set appropriate background
-        // Using includes() with more specific checks to avoid partial matches
         if (currentPage.endsWith('men.html')) {
             backgroundImage = 'url("../assets/men_pg.png")';
         } else if (currentPage.endsWith('women.html')) {
             backgroundImage = 'url("../assets/women_pg.png")';
         } else if (currentPage.endsWith('new_arrivals.html')) {
-            backgroundImage = 'url("../assets/New_Arr._page.png")';
+            backgroundImage = 'url("../assets/New_Arr_pg.png")';
         } else if (currentPage.endsWith('fashion.html')) {
-            backgroundImage = 'url("../assets/Fashion_page.png")';
+            backgroundImage = 'url("../assets/Fashion_pg.png")';
         } else if (currentPage.endsWith('accessories.html')) {
-            backgroundImage = 'url("../assets/Access_page.png")';
+            backgroundImage = 'url("../assets/Access_pg.png")';
         } else if (currentPage.endsWith('shoes.html')) {
             backgroundImage = 'url("../assets/shoes_bg.png")';
         }
@@ -744,6 +744,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Add error handling for image loading
             const img = new Image();
+            img.onload = function() {
+                console.log('Image loaded successfully');
+            };
             img.onerror = function() {
                 console.error('Failed to load image:', backgroundImage);
             };
@@ -754,7 +757,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Call the function when page loads
     setBackgroundImage();
 });
-/*End Inner-container */
 
 /* ADMIN */
 document.addEventListener('DOMContentLoaded', function () {

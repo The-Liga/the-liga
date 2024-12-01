@@ -60,47 +60,57 @@
     </header>
     
     <!-- Search Modal -->
-    <div id="search-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="close-search">&times;</span>
-            <h2>Search Products</h2>
-            <input type="text" placeholder="Search for products..." id="search-input">
-            <button type="button">Search</button>
-        </div>
-    </div>
-    
-    <!-- Cart Modal -->
-<div id="cart-modal" class="modal">
+<div id="search-modal" class="modal">
     <div class="modal-content">
-        <span class="close" id="close-cart">&times;</span>
-        <h2>Cart</h2>
-        <div id="cart-items"></div>
-        <div id="total-price">R0.00</div>
-        <!-- Checkout Button will be dynamically added here -->
+        <span class="close" id="close-search">&times;</span>
+        <h2>Search Products</h2>
+        <input type="text" placeholder="Search for products..." id="modal-search-input">
+        <button type="button" id="modal-search-btn">Search</button>
     </div>
 </div>
 
+
     
-    <!-- Wishlist Modal -->
-    <div id="wishlist-modal" class="modal">
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
         <div class="modal-content">
-            <span class="close" id="close-wishlist">&times;</span>
-            <h2>Your Wishlist</h2>
-            <div id="wishlist-items">
-                <!-- Wishlist items will be dynamically added here -->
+            <span class="close" id="close-cart" style="color: red;">&times;</span>
+            <h1 style="text-align: center;">Your Cart</h1>
+            <hr style="border: 1px solid #000; margin-bottom: 15px;" />
+            <div id="cart-items" class="cart-items"></div>
+            <div class="checkout-button-container">
+                <button onclick="" href="./pages/checkout.html">Checkout<i style="margin-left: 10px;" class="fa-solid fa-cart-shopping"></i></button>
+                <div id="total-price" style="font-weight: bold; margin-top: 10px;"><bold>Total: </bold>R0.00</div>
             </div>
+            <!-- Checkout Button will be dynamically added here -->
         </div>
     </div>
 
-    <div class="home">
-        <div class="inner-container">
-            <!-- <h1>Welcome</h1> -->
-            <a class="shop-btn" href="products.html">Shop</a>
+    
+    <!-- Wishlist Modal -->  
+    <div id="wishlist-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="close-wishlist" style="color: red;">&times;</span>
+        <h1 style="text-align: center;">Your Wishlist</h1>
+        <hr style="border: 1px solid #000; margin-bottom: 15px;"/>
+        <div id="wishlist-items" class="wishlist-items">
+            <!-- Items will be dynamically added here -->
+            <!-- <button class="remove-btn" onclick="removeFromCart(index)"><i class="fa-solid fa-trash"></i></button> -->
         </div>
+    </div>
+</div>
 
-        <!-- BEST SELLERS -->
+<div class="home">
+    <div class="inner-container">
+        <!-- <h1>Welcome</h1> -->
+        <a class="shop-btn" href="products.html">Shop</a>
+    </div>
+</div>
+
+
+        <!-- New Arrivals -->
         <div>
-            <h1 class="products-list">Best Sellers</h1>
+            <h1 class="products-list">New Arrivals</h1>
             <div class="scroll-container">
                 <button class="scroll-btn prev-btn"><li style="color: white" class="fa fa-angle-left"></li></button>
                 <div class="row-products">
@@ -109,7 +119,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="../assets/golf shirt white.png">
+                                    <img class="img-1" src="../assets/White_G_Shirt.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -128,7 +138,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="../assets/black golf shirt.png">
+                                    <img class="img-1" src="../assets/Black_G_Shirt.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -147,7 +157,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="../assets/home1.png">
+                                    <img class="img-1" src="../assets/bucket hat.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -166,7 +176,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="../assets/blackcap1.png">
+                                    <img class="img-1" src="../assets/Black_Cap1.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -199,7 +209,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="../assets/hoodie.jpg">
+                                    <img class="img-1" src="../assets/sweater.jpg">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -237,7 +247,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="../assets/bag.png">
+                                    <img class="img-1" src="../assets/Crossbag.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>
@@ -256,7 +266,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="../assets/home1.png">
+                                    <img class="img-1" src="../assets/leather_jacket1.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Leather Jacket" data-price="1299.99" data-image="assets/jacket.jpg"></a></li>

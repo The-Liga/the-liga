@@ -59,15 +59,17 @@
     </div>
     </header>
     
-    <!-- Search Modal -->
+   <!-- Search Modal -->
 <div id="search-modal" class="modal">
     <div class="modal-content">
-        <span class="close" id="close-search" style="color: red;">&times;</span>
+        <span class="close" id="close-search">&times;</span>
         <h2>Search Products</h2>
-        <input type="text" placeholder="What are you looking for?" id="modal-search-input">
+        <input type="text" placeholder="Search for products..." id="modal-search-input">
         <button type="button" id="modal-search-btn">Search</button>
     </div>
 </div>
+
+
     
     <!-- Cart Modal -->
     <div id="cart-modal" class="modal">
@@ -77,7 +79,7 @@
             <hr style="border: 1px solid #000; margin-bottom: 15px;" />
             <div id="cart-items" class="cart-items"></div>
             <div class="checkout-button-container">
-                <button onclick="">Checkout<i style="margin-left: 10px;" class="fa-solid fa-cart-shopping"></i></button>
+                <button onclick="" href="./pages/checkout.html">Checkout<i style="margin-left: 10px;" class="fa-solid fa-cart-shopping"></i></button>
                 <div id="total-price" style="font-weight: bold; margin-top: 10px;"><bold>Total: </bold>R0.00</div>
             </div>
             <!-- Checkout Button will be dynamically added here -->
@@ -85,55 +87,60 @@
     </div>
 
     
-    <!-- Wishlist Modal -->
+    <!-- Wishlist Modal -->  
     <div id="wishlist-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="close-wishlist"  style="color: red;">&times;</span>
-            <h1 style="text-align: center;">Your Wishlist</h1>
-            <hr style="border: 1px solid #000; margin-bottom: 15px;"/>
-            <div id="wishlist-items" class="wishlist-items">
-                <!-- Wishlist items will be dynamically added here -->
-                <button class="remove-btn" onclick="removeFromCart(index)"><i class="fa-solid fa-trash"></i></button>
-            </div>
+    <div class="modal-content">
+        <span class="close" id="close-wishlist" style="color: red;">&times;</span>
+        <h1 style="text-align: center;">Your Wishlist</h1>
+        <hr style="border: 1px solid #000; margin-bottom: 15px;"/>
+        <div id="wishlist-items" class="wishlist-items">
+            <!-- Items will be dynamically added here -->
+            <!-- <button class="remove-btn" onclick="removeFromCart(index)"><i class="fa-solid fa-trash"></i></button> -->
         </div>
     </div>
+</div>
     
 <br><br><br>
-   <!-- Hero Section -->
-   <div class="story-hero">
-    <div class="hero-content">
-        <h1>Our Story</h1>
-        <p>Born from passion, driven by innovation. The Liga represents the intersection of style, performance, and authenticity.</p>
-    </div>
-</div>
 
-<!-- Story Section 1 -->
-<div class="story-section">
-    <div class="story-grid">
-        <div class="story-text">
-            <h2>Where It All Began</h2>
-            <p>Founded in 2020, The Liga emerged from a simple yet powerful vision: to create a brand that seamlessly blends contemporary fashion with athletic performance. We saw a gap in the market for high-quality, stylish sportswear that didn't compromise on functionality.</p>
-            <p>What started as a small collection of athletic essentials has grown into a comprehensive lifestyle brand, embraced by athletes and fashion enthusiasts alike.</p>
-        </div>
-        <div class="story-image">
-            <img src="../assets/logo1.jpg" alt="The Liga founding moment">
-        </div>
-    </div>
-</div>
+  <div class="story-hero">
+    <h1>Our Story</h1>
+    <p>Discover the passion and craftsmanship behind our brand.</p>
+  </div>
 
-<!-- Story Section 2 -->
-<div class="story-section" style="background-color: #f8f8f8;">
+  <div class="story-section">
     <div class="story-grid">
-        <div class="story-image">
-            <img src="/api/placeholder/600/500" alt="The Liga design process">
-        </div>
-        <div class="story-text">
-            <h2>Our Craft</h2>
-            <p>Every piece in our collection is thoughtfully designed with attention to detail and commitment to quality. We work closely with skilled artisans and use premium materials to ensure each product meets our exacting standards.</p>
-            <p>Our design philosophy combines minimalist aesthetics with innovative performance features, creating versatile pieces that transition seamlessly from workout to everyday wear.</p>
-        </div>
+      <div class="story-text">
+        <h2>Where It All Began</h2>
+        <p>Founded in 2020, The Liga emerged from a simple yet powerful vision: to create a brand that seamlessly blends contemporary fashion with athletic performance. We saw a gap in the market for high-quality, stylish sportswear that didn't compromise on functionality.</p>
+        <p>What started as a small collection of athletic essentials has grown into a comprehensive lifestyle brand, embraced by athletes and fashion enthusiasts alike.</p>
+      </div>
     </div>
-</div>
+  </div>
+
+  <div class="story-cards">
+    <div class="storycard">
+      <img src="../assets/leather_jacket1.png" alt="Clean Design">
+      <h3>Clean Design</h3>
+    </div>
+    <div class="storycard">
+      <img src="../assets/bucket_ha1.png" alt="Innovative Materials">
+      <h3>Innovative Materials</h3>
+    </div>
+    <div class="storycard">
+      <img src="../assets/sweater1.png" alt="Creative Design">
+      <h3>Creative Design</h3>
+    </div>
+  </div>
+
+  <div class="video-section">
+    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">3 Years of Big Time Things</h2>
+    <div class="video-container">
+      <video controls>
+        <source src="../assets/brand-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
 
 <!-- Values Section -->
 <div class="values-section">
