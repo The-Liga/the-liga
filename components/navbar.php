@@ -36,9 +36,6 @@
                 <ul>
                     <li><a href="./pages/men.html">Men</a></li>
                     <li><a href="./pages/Women.html">Women</a></li>
-                    <li><a href="./pages/new_arrivals.html">New Arrivals</a></li>
-                    <li><a href="./pages/new_arrivals.html">Fashion</a></li>
-                    <li><a href="./pages/accessories.html">Accessories</a></li>
                     <li><a href="./pages/shoes.html">Shoes</a></li>
                     <li><a href="./pages/Our story.html">Brand</a></li>
                 </ul>

@@ -20,19 +20,18 @@
             <div class="footer-socials">
                 <h6>Follow Us</h6>
                 <div class="footer-icon">
-                    <li class="fa fa-facebook"></li>
+                    <i class="fa fa-facebook"></i>
                 </div>
                 <div class="footer-icon">
-                    <li class="fa fa-twitter"></li>
+                    <i class="fa fa-twitter"></i>
                 </div>
                 <div class="footer-icon">
-                    <li class="fa fa-instagram"></li>
+                    <i class="fa fa-instagram"></i>
                 </div>
                 <div class="footer-icon">
-                    <li class="fa fa-linkedin"></li>
-                </div>
-          
-            </div>
+                    <i class="fa fa-linkedin"></i>
+        </div>
+</div>
         </div>
         <hr/>
         <div class="middle-footer">

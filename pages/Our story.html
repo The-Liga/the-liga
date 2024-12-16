@@ -25,9 +25,6 @@
                 <ul>
                     <li><a href="men.html">Men</a></li>
                     <li><a href="women.html">Women</a></li>
-                    <li><a href="new_arrivals.html">New Arrivals</a></li>
-                    <li><a href="fashion.html">Fashion</a></li>
-                    <li><a href="accessories.html">Accessories</a></li>
                     <li><a href="shoes.html">Shoes</a></li>
                     <li><a href="Our story.html">Brand</a></li>
                 </ul>
@@ -52,25 +49,26 @@
             </div>
         </div>
     
-         <!-- Search Bar (Initially hidden) -->
-       <div class="search-bar" id="search-bar" style="display:none;">
-        <input type="text" placeholder="What are you looking for?" />
-        <button type="button" id="search-btn">Search</button>
-    </div>
+        <!-- Search Bar (Initially hidden) -->
+        <div class="search-bar" id="search-bar" style="display:none;">
+            <input type="text" placeholder="Search for products..." />
+            <button type="button" id="search-btn">Search</button>
+        </div>
     </header>
     
-   <!-- Search Modal -->
+<!-- Search Modal -->
 <div id="search-modal" class="modal">
     <div class="modal-content">
         <span class="close" id="close-search">&times;</span>
         <h2>Search Products</h2>
         <input type="text" placeholder="Search for products..." id="modal-search-input">
+        
+        <!-- Search Button on the left and Clear Button on the right -->
         <button type="button" id="modal-search-btn">Search</button>
+        <button type="button" id="clearSearch">Clear</button>
     </div>
 </div>
 
-
-    
     <!-- Cart Modal -->
     <div id="cart-modal" class="modal">
         <div class="modal-content">
@@ -86,7 +84,6 @@
         </div>
     </div>
 
-    
     <!-- Wishlist Modal -->  
     <div id="wishlist-modal" class="modal">
     <div class="modal-content">
@@ -102,16 +99,17 @@
     
 <br><br><br>
 
-  <div class="story-hero">
-    <h1>Our Story</h1>
-    <p>Discover the passion and craftsmanship behind our brand.</p>
-  </div>
+<div class="story-hero">
+    <div class="hero-content">
+        <h1>Join The Liga</h1>
+    </div>
+</div>
 
   <div class="story-section">
     <div class="story-grid">
       <div class="story-text">
-        <h2>Where It All Began</h2>
-        <p>Founded in 2020, The Liga emerged from a simple yet powerful vision: to create a brand that seamlessly blends contemporary fashion with athletic performance. We saw a gap in the market for high-quality, stylish sportswear that didn't compromise on functionality.</p>
+        <h2>Bringing the unexpected to luxury designs since 2020.</h2>
+        <p>For five years, The Liga emerged from a simple yet powerful vision: to create a brand that seamlessly blends contemporary fashion with athletic performance. We saw a gap in the market for high-quality, stylish sportswear that didn't compromise on functionality.</p>
         <p>What started as a small collection of athletic essentials has grown into a comprehensive lifestyle brand, embraced by athletes and fashion enthusiasts alike.</p>
       </div>
     </div>
@@ -119,28 +117,39 @@
 
   <div class="story-cards">
     <div class="storycard">
-      <img src="../assets/leather_jacket1.png" alt="Clean Design">
+      <img src="../assets/leather_jackets.png" alt="Clean Design">
       <h3>Clean Design</h3>
     </div>
     <div class="storycard">
-      <img src="../assets/bucket_ha1.png" alt="Innovative Materials">
+      <img src="../assets/sweater2.png" alt="Innovative Materials">
       <h3>Innovative Materials</h3>
     </div>
     <div class="storycard">
-      <img src="../assets/sweater1.png" alt="Creative Design">
+      <img src="../assets/story1.png" alt="Creative Design">
       <h3>Creative Design</h3>
     </div>
   </div>
 
-  <div class="video-section">
-    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">3 Years of Big Time Things</h2>
-    <div class="video-container">
-      <video controls>
-        <source src="../assets/brand-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+  <div class="timeline-section">
+    <h2>5 Years of Big Time Things</h2>
+    <div class="slider-container">
+        <div class="slider-images">
+            <img src="../assets/logo1.jpg" alt="2020 Image" class="slider-image active">
+            <img src="../assets/beanie-on-table-with-accessories-mockup-005.jpg" alt="2021 Image" class="slider-image">
+            <img src="..//assets/bucket_ha1.png" alt="2022 Image" class="slider-image">
+            <img src="../assets/Crossbag1.png" alt="2023 Image" class="slider-image">
+            <img src="../assets/sweater.jpg" alt="2024 Image" class="slider-image">
+        </div>
+        <div class="timeline">
+            <span class="year active">2020</span>
+            <span class="year">2021</span>
+            <span class="year">2022</span>
+            <span class="year">2023</span>
+            <span class="year">2024</span>
+        </div>
     </div>
-  </div>
+</div>
+
 
 <!-- Values Section -->
 <div class="values-section">

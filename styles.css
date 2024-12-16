@@ -39,7 +39,8 @@ header {
 
 /* Logo */
 .logo img {
-    height: 30px;
+    height: 35px;
+    margin-left: 35px;
 }
 
 /* Main Navigation Menu */
@@ -63,14 +64,15 @@ header {
 .main-nav ul li a:hover {
     color: gray;
     text-decoration: underline;
+    font-weight: bold;
 }
 
 /* Icons */
 .nav-icons {
     display: flex;
     align-items: center;
-    font-size: 14px;
-    margin-left: 25px; /* Add margin to push icons to the left */
+    font-size: 20px;
+    margin-right: 35px; /* Add margin to push icons to the left */
 }
 
 .nav-icons a {
@@ -596,25 +598,30 @@ header.nav-up {
     position: relative; /* Needed to position button properly */
 }
 
-.inner-container .h1 {
+.inner-container h3 {
     font-family: serif;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 85px;
 }
 
 .inner-container p {
     color: #fff;
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-top: 20px;
+    margin-top: 425px;
+    bottom: 25px; /* Positions the button 20px from the bottom */
+    text-align: center; /* Positions the button 20px from the left */
 }
 
 .inner-container .shop-btn {
     padding: 15px 60px;
     border: none;
     border-radius: 25px;
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #e7e7e7;
+    color: #000000;
     font-size: 20px;
     font-weight: 600;
     text-transform: uppercase;
@@ -625,8 +632,8 @@ header.nav-up {
 }
 
 .inner-container .shop-btn:hover {
-    background-color: #757474;
-    color: #000;
+    background-color: #292929;
+    color: #f5f5f5;
 }
 
 /* Why choose us section */
@@ -861,13 +868,13 @@ header.nav-up {
     text-align: center;
     border-radius: 5px;
     padding-bottom: 10px;
-    width: 285px;
+    width: 340px;
     height: 400px;
     position: relative;
-    margin: 15px;
+    margin: 10px;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
-    gap: 5px;
+    gap: 2px;
 }
 
 /* Hover Effects for Grid */
@@ -1308,21 +1315,23 @@ header.nav-up {
 .newsletter h6{
     font-size: 12px;
 }
-.footer-icon{
+.footer-icon {
     background-color: #ddd;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
     align-items: center;
     width: 30px;
     height: 30px;
 }
 
-.footer-icon:hover{
+.footer-icon:hover {
     background-color: #eee;
 }
 
-.footer-icon li{
-    margin-left: 9px;
-    margin-top: 6px;
+.footer-icon i {
+    color: #333;
+    font-size: 16px;
 }
 
 .middle-footer{
@@ -2027,7 +2036,7 @@ a:hover {
     gap: 12px; /* Reduced from 15px */
  }
  
- .add-to-cart {
+ .add_to_cart {
     background-color: #000000;
     color: white;
     border: none;
@@ -2039,7 +2048,7 @@ a:hover {
     transition: all 0.3s;
  }
  
- .add-to-cart:hover {
+ .add_to_cart:hover {
     background-color: #505050;
     transform: translateY(-2px);
  }
@@ -2098,28 +2107,206 @@ a:hover {
     }
  }
 
-/* Our Story pages */
+ /* End responsive design */
+
+ /*Size guide */
+ .product-container {
+    display: flex;
+    padding: 20px;
+    gap: 30px;
+  }
+  
+  .images-section {
+    flex: 1;
+  }
+  
+  .main-image {
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  
+  .thumbnail-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .thumbnail {
+    width: 50px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+  }
+  
+  .details-section {
+    flex: 1;
+  }
+  
+  .quantity-add {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  #quantity {
+    width: 40px;
+    text-align: center;
+  }
+  
+  .add-to-cart {
+    background-color: #f88;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .shipping-info p {
+    margin: 10px 0;
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .tab-btn {
+    background: #eee;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .tab-btn.active {
+    background: #f88;
+    color: #fff;
+  }
+  
+  .tab-content .tab-panel {
+    display: none;
+    margin-top: 20px;
+  }
+  
+  .tab-panel.active {
+    display: block;
+  }
+  
+  .size-guide-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .size-guide-table th, .size-guide-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+ /* End Size guide */
+
+ /*Explore section */
+.explore-list {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 40px 0;
+    text-transform: uppercase;
+}
+
+.row-products {
+    display: flex;
+    gap: 20px;
+    padding: 0 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Explore item container */
+.explore-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 365px; /* Increased height */
+    width: 100%;
+}
+
+.explore-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Button styling inside the image */
+.explore-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    padding: 12px 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.explore-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Hover effect for images */
+.explore-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .row-products {
+        flex-direction: column;
+        padding: 0 10px;
+    }
+    
+    .explore-item {
+        height: 400px;
+    }
+}
+
+
+  /* Our Story pages */
 .story-hero {
     height: 80vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/Home.png');
     background-size: cover;
     background-position: center;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     color: white;
     text-align: center;
+    position: relative;
 }
 
-  .hero h1 {
-    font-size: 4rem;
-    margin-bottom: 20px;
-  }
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+}
 
-  .hero p {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
-  }
+.story-hero h1 {
+    font-size: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 30px;
+}
 
   .story-section {
     padding: 80px 20px;
@@ -2173,20 +2360,71 @@ a:hover {
     text-align: center;
   }
 
-  .video-section {
-    background-color: #f8f8f8;
-    padding: 80px 20px;
-  }
-
-  .video-container {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .video-container video {
-    width: 100%;
-    border-radius: 8px;
-  }
+     /* Section styling */
+     .timeline-section {
+        background-color: #f8f8f8;
+        padding: 80px 20px;
+        text-align: center;
+    }
+    .timeline-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    
+    /* Slider container */
+    .slider-container {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Images styling */
+    .slider-images {
+        display: flex;
+        transition: transform 1s ease-in-out;
+        width: 500%;
+    }
+    
+    .slider-image {
+        flex: 1;
+        display: none;
+        transition: opacity 0.5s ease;
+        height: 400px;
+        object-fit: cover;
+        width: 100%;
+    }
+    
+    .slider-image.active {
+        display: block;
+    }
+    
+    /* Timeline styling */
+    .timeline {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .timeline .year {
+        font-size: 1.2rem;
+        color: #aaa;
+        transition: color 0.3s ease, font-weight 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .timeline .year.active {
+        color: #333;
+        font-weight: bold;
+    }
 
 .values-section {
     background-color: #f8f8f8;
@@ -2241,3 +2479,4 @@ a:hover {
     }
 }
 /* End Story pages */
+

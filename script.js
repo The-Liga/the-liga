@@ -245,6 +245,31 @@ document.addEventListener('click', function(event) {
 let cart = [];
 let wishlist = [];
 
+// Create notification container
+function createNotification(message, type) {
+    // Remove any existing notifications
+    const existingNotifications = document.getElementById('notification-container');
+    if (existingNotifications) {
+        existingNotifications.remove();
+    }
+
+    // Create notification container
+    const notificationContainer = document.createElement('div');
+    notificationContainer.id = 'notification-container';
+    notificationContainer.className = `notification ${type}`;
+    notificationContainer.innerText = message;
+    
+    // Add to body
+    document.body.appendChild(notificationContainer);
+
+    // Automatically remove notification after 3 seconds
+    setTimeout(() => {
+        if (notificationContainer) {
+            notificationContainer.remove();
+        }
+    }, 3000);
+}
+
 // Add to Cart functionality
 function addToCart(button) {
     const product = {
@@ -255,9 +280,12 @@ function addToCart(button) {
     cart.push(product);
     updateCartCount();
     updateCartItems();
+    
+    // Show notification
+    createNotification(`${product.name} added to cart`, 'success');
 }
 
-// Add to Wishlist functionality with toggle
+// Add to Wishlist functionality 
 function addToWishlist(button) {
     const product = {
         name: button.getAttribute("data-name"),
@@ -265,25 +293,23 @@ function addToWishlist(button) {
         image: button.getAttribute("data-image"),
     };
 
-    // Check if item is already in wishlist
-    const existingItemIndex = wishlist.findIndex(item => 
-        item.name === product.name && 
-        item.price === product.price
+    // Check if product is already in wishlist
+    const isDuplicate = wishlist.some(item => 
+        item.name === product.name && item.price === product.price
     );
 
-    if (existingItemIndex === -1) {
-        // Item not in wishlist - add it and make heart red
+    if (!isDuplicate) {
+        // Always add the product to wishlist
         wishlist.push(product);
         button.style.color = "red";
-    } else {
-        // Item already in wishlist - remove it and make heart black
-        wishlist.splice(existingItemIndex, 1);
-        button.style.color = "black";
+        
+        // Update wishlist count and items
+        updateWishlistCount();
+        updateWishlistItems();
+        
+        // Show notification
+        createNotification(`${product.name} added to wishlist`, 'success');
     }
-
-    updateWishlistCount();
-    updateWishlistItems();
-    
 }
 
 // Update the cart counter
@@ -301,14 +327,25 @@ function updateWishlistItems() {
     const wishlistItemsContainer = document.getElementById("wishlist-items");
     wishlistItemsContainer.innerHTML = ''; // Clear existing items
 
-    wishlist.forEach((item, index) => {
+    // Group similar items to show unique products
+    const groupedWishlist = wishlist.reduce((acc, item) => {
+        const key = `${item.name}-${item.price}`;
+        if (!acc[key]) {
+            acc[key] = { ...item, count: 1 };
+        } else {
+            acc[key].count++;
+        }
+        return acc;
+    }, {});
+
+    Object.values(groupedWishlist).forEach((item, index) => {
         const wishlistItem = document.createElement("div");
         wishlistItem.innerHTML = `
             <div class="carts-container">
                 <div class="carts-container-child">
                     <img src="${item.image}" alt="${item.name}">
                     <div class="carts-prices">
-                        <div>${item.name}</div>
+                        <div>${item.name} ${item.count > 1 ? `(${item.count})` : ''}</div>
                         <div>R${item.price.toFixed(2)}</div>
                     </div>
                 </div>
@@ -357,59 +394,152 @@ function updateCartItems() {
 
 // Move item from Wishlist to Cart
 function moveToCart(index) {
-    const item = wishlist[index];
-    
+    const groupedWishlist = wishlist.reduce((acc, item) => {
+        const key = `${item.name}-${item.price}`;
+        if (!acc[key]) {
+            acc[key] = { ...item, indices: [wishlist.indexOf(item)] };
+        } else {
+            acc[key].indices.push(wishlist.indexOf(item));
+        }
+        return acc;
+    }, {});
+
+    const wishlistGroups = Object.values(groupedWishlist);
+    const selectedGroup = wishlistGroups[index];
+
+    // Add item to cart
     cart.push({
-        name: item.name,
-        price: item.price,
-        image: item.image
+        name: selectedGroup.name,
+        price: selectedGroup.price,
+        image: selectedGroup.image
     });
     
-    // Find and reset the heart color for this item
-    const heartButton = document.querySelector(`a[data-name="${item.name}"][data-price="${item.price}"]`);
-    if (heartButton) {
+    // Find and reset the heart color for this item (multiple ways to select)
+    const heartButtons = document.querySelectorAll(`[data-name="${selectedGroup.name}"][data-price="${selectedGroup.price}"]`);
+    heartButtons.forEach(heartButton => {
         heartButton.style.color = "black";
-    }
+    });
     
-    wishlist.splice(index, 1);
+    // Remove the corresponding item from wishlist
+    wishlist.splice(selectedGroup.indices[0], 1);
+
     updateWishlistItems();
     updateCartItems();
     updateWishlistCount();
     updateCartCount();
+    
+    // Show notification
+    createNotification(`${selectedGroup.name} moved to cart`, 'success');
 }
 
 // Remove item from Cart
 function removeFromCart(index) {
+    const removedItem = cart[index];
     cart.splice(index, 1);
     updateCartItems();
     updateCartCount();
+    
+    // Show notification
+    createNotification(`${removedItem.name} removed from cart`, 'warning');
 }
 
 // Remove item from Wishlist
 function removeFromWishlist(index) {
-    const item = wishlist[index];
-    // Find and reset the heart color for this item
-    const heartButton = document.querySelector(`a[data-name="${item.name}"][data-price="${item.price}"]`);
-    if (heartButton) {
+    const groupedWishlist = wishlist.reduce((acc, item) => {
+        const key = `${item.name}-${item.price}`;
+        if (!acc[key]) {
+            acc[key] = { ...item, indices: [wishlist.indexOf(item)] };
+        } else {
+            acc[key].indices.push(wishlist.indexOf(item));
+        }
+        return acc;
+    }, {});
+
+    const wishlistGroups = Object.values(groupedWishlist);
+    const selectedGroup = wishlistGroups[index];
+
+    // Find and reset the heart color for this item (multiple ways to select)
+    const heartButtons = document.querySelectorAll(`[data-name="${selectedGroup.name}"][data-price="${selectedGroup.price}"]`);
+    heartButtons.forEach(heartButton => {
         heartButton.style.color = "black";
-    }
+    });
     
-    wishlist.splice(index, 1);
+    // Remove the corresponding item from wishlist
+    wishlist.splice(selectedGroup.indices[0], 1);
+
     updateWishlistItems();
     updateWishlistCount();
+    
+    // Show notification
+    createNotification(`${selectedGroup.name} removed from wishlist`, 'warning');
 }
+
+// Add CSS for notifications
+const style = document.createElement('style');
+style.textContent = `
+    #notification-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px;
+        color: white;
+        border-radius: 5px;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        animation: slideIn 0.3s ease-out;
+    }
+    
+    #notification-container.success {
+        background-color: #4CAF50;
+    }
+    
+    #notification-container.warning {
+        background-color: #424040;
+    }
+    
+    #notification-container.error {
+        background-color: #F44336;
+    }
+    
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+`;
+document.head.appendChild(style);
+
+// End of cart & wishlist functionality//
 
 // Quick View functionality
 function openQuickView(product) {
-    const title = product.getAttribute('data-name');
-    const price = product.getAttribute('data-price');
-    const image = product.getAttribute('data-image');
+    // Get the parent product grid
+    const productGrid = product.closest('.product-grid');
     
+    // Find elements within the product grid
+    const imageElement = productGrid.querySelector('.product-image .img-1');
+    const titleElement = productGrid.querySelector('.product-content .title a');
+    const priceElement = productGrid.querySelector('.product-content .price');
+    
+    // Extract the correct information
+    const title = titleElement ? titleElement.innerText : 'Product';
+    const price = priceElement ? priceElement.innerText.replace('R', '').trim() : '0.00';
+    const image = imageElement ? imageElement.src : 'assets/';
+    
+    // Update quick view modal with correct information
     document.getElementById('quick-view-title').innerText = title;
-    document.getElementById('quick-view-price').innerText = `Price: R${parseFloat(price).toFixed(2)}`;
+    document.getElementById('quick-view-price').innerText = `Price: R${price}`;
     document.getElementById('quick-view-image').src = image;
-    document.getElementById('quick-view-description').innerText = "Description for " + title;
     
+    // You can customize the description or add more specific descriptions
+    document.getElementById('quick-view-description').innerText = `Detailed description for ${title}`;
+    
+    // Show the modal
     document.getElementById('quick-view-modal').style.display = 'block';
 }
 
@@ -467,14 +597,14 @@ document.getElementById('add-to-cart-btn').onclick = function() {
     document.getElementById('quick-view-modal').style.display = 'none';
 };
 
+//Search Functionality //
 // Get all products with only images
 function getAllProducts() {
     const products = [];
     const productElements = document.querySelectorAll('.product-grid');
-    
+
     productElements.forEach(productElement => {
         const imageElement = productElement.querySelector('.img-1');
-        
         if (imageElement) {
             products.push({
                 image: imageElement.src,
@@ -482,7 +612,7 @@ function getAllProducts() {
             });
         }
     });
-    
+
     return products;
 }
 
@@ -491,7 +621,6 @@ function filterProducts(searchQuery, products) {
     return products.filter(product => {
         const searchTerms = searchQuery.toLowerCase().split(' ');
         const productName = product.element.querySelector('.title a').textContent.toLowerCase();
-        
         return searchTerms.every(term => productName.includes(term));
     });
 }
@@ -499,46 +628,46 @@ function filterProducts(searchQuery, products) {
 // Clear previous search results
 function clearSearch() {
     const searchInput = document.getElementById('modal-search-input');
-    searchInput.value = '';
-    
+    searchInput.value = ''; // Clear input field
+
     const modalContent = document.querySelector('#search-modal .modal-content');
     const existingResults = modalContent.querySelector('.search-results');
     if (existingResults) {
-        existingResults.remove();
+        existingResults.remove(); // Remove search results
     }
 }
 
 // Display only images in search results
 function displaySearchResults(filteredProducts) {
     const modalContent = document.querySelector('#search-modal .modal-content');
-    
+
+    // Remove any existing results
     const existingResults = modalContent.querySelector('.search-results');
     if (existingResults) {
         existingResults.remove();
     }
-    
+
     const resultsContainer = document.createElement('div');
     resultsContainer.className = 'search-results';
     resultsContainer.style.cssText = 'margin-top: 20px; max-height: 400px; overflow-y: auto;';
-    
+
     if (filteredProducts.length === 0) {
         resultsContainer.innerHTML = '<p style="text-align: center;">No products found</p>';
     } else {
         const imageGrid = document.createElement('div');
         imageGrid.style.cssText = 'display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;';
-        
+
         filteredProducts.forEach(product => {
             const imgElement = document.createElement('img');
             imgElement.src = product.image;
             imgElement.alt = 'Product Image';
             imgElement.style.cssText = 'width: 100%; height: auto; object-fit: cover; border-radius: 8px;';
-            
             imageGrid.appendChild(imgElement);
         });
-        
+
         resultsContainer.appendChild(imageGrid);
     }
-    
+
     modalContent.appendChild(resultsContainer);
 }
 
@@ -546,8 +675,10 @@ function displaySearchResults(filteredProducts) {
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('modal-search-input');
     const searchButton = document.getElementById('modal-search-btn');
+    const clearButton = document.getElementById('clearSearch');
     const allProducts = getAllProducts();
-    
+
+    // Search Button Event
     searchButton.addEventListener('click', () => {
         const searchQuery = searchInput.value.trim();
         if (searchQuery) {
@@ -555,7 +686,8 @@ document.addEventListener('DOMContentLoaded', function() {
             displaySearchResults(filteredProducts);
         }
     });
-    
+
+    // Enter Key Event
     searchInput.addEventListener('keypress', (event) => {
         if (event.key === 'Enter') {
             const searchQuery = searchInput.value.trim();
@@ -565,12 +697,59 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+
+    // Clear Button Event
+    clearButton.addEventListener('click', clearSearch); // Clear functionality
 });
+
 
 
 function redirectToNextPage(nextPageUrl) {
     window.location.href = nextPageUrl;
 }
+
+//scroll btn prev - next button functionality //
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all scroll containers
+    const scrollContainers = document.querySelectorAll('.scroll-container');
+
+    scrollContainers.forEach(container => {
+        const prevBtn = container.querySelector('.prev-btn');
+        const nextBtn = container.querySelector('.next-btn');
+        const rowProducts = container.querySelector('.row-products');
+
+        // Scroll amount (adjust as needed)
+        const scrollAmount = 300; // pixels
+
+        // Previous button functionality
+        prevBtn.addEventListener('click', () => {
+            rowProducts.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        // Next button functionality
+        nextBtn.addEventListener('click', () => {
+            rowProducts.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        // Optional: Disable buttons when scrolling reaches start or end
+        rowProducts.addEventListener('scroll', () => {
+            // Check if at the beginning
+            prevBtn.disabled = rowProducts.scrollLeft <= 0;
+            
+            // Check if at the end (with a small buffer)
+            nextBtn.disabled = 
+                rowProducts.scrollLeft + rowProducts.clientWidth >= 
+                rowProducts.scrollWidth - 5;
+        });
+    });
+});
+// End Scroll functionality //
 
 //Hamburger Menu functionality//
 document.addEventListener('DOMContentLoaded', function() {
@@ -662,6 +841,36 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.carousel-arrow.next').addEventListener('click', () => plusDivs(1));
 });
 
+/*size guide page*/
+document.querySelector('.learn-more').addEventListener('click', () => {
+    // Redirect to the size guide page in the same tab
+    window.location.href = 'Size_Guide.html';
+  });
+document.querySelectorAll('.tab-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const tab = button.dataset.tab;
+
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+
+    button.classList.add('active');
+    document.getElementById(tab).classList.add('active');
+  });
+});
+
+const quantityInput = document.getElementById('quantity');
+document.getElementById('increase').addEventListener('click', () => {
+  quantityInput.value = parseInt(quantityInput.value) + 1;
+});
+
+document.getElementById('decrease').addEventListener('click', () => {
+  if (quantityInput.value > 1) {
+    quantityInput.value = parseInt(quantityInput.value) - 1;
+  }
+});
+
+/* End size guide page */
+
 //Registrations functionality// 
 document.addEventListener('DOMContentLoaded', function() {
             const signUpButton = document.getElementById('signUpButton');
@@ -693,6 +902,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /*End Registrations */
 
+/* Inner-container */
 document.addEventListener('DOMContentLoaded', function() {
     // Get the inner container
     const innerContainer = document.querySelector('.inner-container');
@@ -702,24 +912,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to set background based on page
     function setBackgroundImage() {
-        let backgroundImage = 'url("assets/banner.jpg")';  // Default background for home page
+        // Default background for home page
+        let backgroundImage = 'url("assets/banner.jpg")';
         
         // Debug: Log the current pathname
         console.log('Current pathname:', currentPage);
         
         // Check current page and set appropriate background
+        // Using includes() with more specific checks to avoid partial matches
         if (currentPage.endsWith('men.html')) {
-            backgroundImage = 'url("../assets/men_pg.png")';
-        } else if (currentPage.endsWith('women.html')) {
+            backgroundImage = 'url("../assets/Men_page.png")';
+        } else if (currentPage.endsWith('Women.html')) {
             backgroundImage = 'url("../assets/women_pg.png")';
         } else if (currentPage.endsWith('new_arrivals.html')) {
-            backgroundImage = 'url("../assets/New_Arr_pg.png")';
+            backgroundImage = 'url("../assets/New_Arr._page.png")';
         } else if (currentPage.endsWith('fashion.html')) {
-            backgroundImage = 'url("../assets/Fashion_pg.png")';
+            backgroundImage = 'url("../assets/Fashion_page.png")';
         } else if (currentPage.endsWith('accessories.html')) {
-            backgroundImage = 'url("../assets/Access_pg.png")';
+            backgroundImage = 'url("../assets/Access_page.png")';
         } else if (currentPage.endsWith('shoes.html')) {
-            backgroundImage = 'url("../assets/shoes_bg.png")';
+            backgroundImage = 'url("../assets/shoes.png")';
         }
         
         // Set the background image if inner container exists
@@ -734,9 +946,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Add error handling for image loading
             const img = new Image();
-            img.onload = function() {
-                console.log('Image loaded successfully');
-            };
             img.onerror = function() {
                 console.error('Failed to load image:', backgroundImage);
             };
@@ -747,6 +956,147 @@ document.addEventListener('DOMContentLoaded', function() {
     // Call the function when page loads
     setBackgroundImage();
 });
+/*End Inner-container */
+
+/* Explore section */
+document.querySelectorAll('.explore-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+        const category = button.textContent.trim().toLowerCase(); // Get button text
+        window.location.href = `/${category}-category.html`; // Navigate to the respective page
+    });
+});
+/* End Explore section */
+
+/* Sales popup function */
+document.addEventListener('DOMContentLoaded', function() {
+    const salesPopup = document.getElementById('sales-popup');
+    const closeSales = document.querySelector('.close-sales');
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    const addToWishlistButtons = document.querySelectorAll('.add-to-wishlist');
+
+    // Show the popup after 5 seconds
+    setTimeout(function() {
+        salesPopup.style.display = 'block';
+        setTimeout(function() {
+            salesPopup.style.left = '0';
+        }, 10);
+    }, 5000);
+
+    // Close the popup when clicking on the close button
+    closeSales.addEventListener('click', function() {
+        closeSalesPopup();
+    });
+
+    // Close the popup when clicking outside of it
+    window.addEventListener('click', function(event) {
+        if (event.target == salesPopup) {
+            closeSalesPopup();
+        }
+    });
+
+    function closeSalesPopup() {
+        salesPopup.style.left = '-100%';
+        setTimeout(function() {
+            salesPopup.style.display = 'none';
+        }, 500);
+    }
+
+    // Add to Cart functionality
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const name = this.getAttribute('data-name');
+            const price = this.getAttribute('data-price');
+            const image = this.getAttribute('data-image');
+            addToCart(this, name, price, image);
+        });
+    });
+
+    // Add to Wishlist functionality
+    addToWishlistButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const name = this.getAttribute('data-name');
+            const price = this.getAttribute('data-price');
+            const image = this.getAttribute('data-image');
+            addToWishlist(this, name, price, image);
+        });
+    });
+
+    function addToCart(button, name, price, image) {
+        // This function adds the item to the cart
+        console.log(`Added to cart: ${name} - R${price}`);
+        
+        // Here we're using the existing addToCart function from your main script
+        // Make sure this function exists in your main script
+        window.addToCart(button);
+        
+        // You can add additional cart logic here if needed
+        createNotification(`${name} added to cart`, 'success');
+    }
+
+    function addToWishlist(button, name, price, image) {
+        // This function adds the item to the wishlist
+        console.log(`Added to wishlist: ${name} - R${price}`);
+        
+        // Here we're using the existing addToWishlist function from your main script
+        // Make sure this function exists in your main script
+        window.addToWishlist(button);
+        
+        // You can add additional wishlist logic here if needed
+        createNotification(`${name} added to wishlist`, 'success');
+    }
+
+    // Notification function (make sure this exists in your main script or add it here)
+    function createNotification(message, type) {
+        const existingNotifications = document.getElementById('notification-container');
+        if (existingNotifications) {
+            existingNotifications.remove();
+        }
+
+        const notificationContainer = document.createElement('div');
+        notificationContainer.id = 'notification-container';
+        notificationContainer.className = `notification ${type}`;
+        notificationContainer.innerText = message;
+        
+        document.body.appendChild(notificationContainer);
+
+        setTimeout(() => {
+            if (notificationContainer) {
+                notificationContainer.remove();
+            }
+        }, 3000);
+    }
+});
+/* End Sales popup */
+
+/* story */
+const images = document.querySelectorAll('.slider-image');
+const years = document.querySelectorAll('.timeline .year');
+let currentIndex = 0;
+
+function updateSlider() {
+    // Remove active class from all images and years
+    images.forEach(img => img.classList.remove('active'));
+    years.forEach(year => year.classList.remove('active'));
+
+    // Add active class to the current image and year
+    images[currentIndex].classList.add('active');
+    years[currentIndex].classList.add('active');
+
+    // Increment index and loop back to the beginning
+    currentIndex = (currentIndex + 1) % images.length;
+}
+
+// Manual year selection
+years.forEach((year, index) => {
+    year.addEventListener('click', () => {
+        currentIndex = index;
+        updateSlider();
+    });
+});
+
+// Start slider animation
+setInterval(updateSlider, 3000); // 3-second interval
+/* End Story */
 
 /* ADMIN */
 document.addEventListener('DOMContentLoaded', function () {
