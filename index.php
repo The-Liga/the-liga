@@ -12,11 +12,11 @@ include("config.php");
     <title>The Liga</title>
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Link to external CSS -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="sales-popup.css">
     <link rel="icon" href="assets/white TL logo.png" type="image/x-icon">
 </head>
 
@@ -406,8 +406,6 @@ include("config.php");
 
         <!-- Link to external JavaScript -->
         <script src="script.js"></script>
-<!-- Link to new JavaScript file -->
-<script src="sales-popup.js"></script>
 </body>
 
 </html>
