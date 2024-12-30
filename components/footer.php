@@ -6,6 +6,7 @@
     <title>Document</title>
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Link to external CSS -->
     <link rel="stylesheet" href="../styles.css">
@@ -25,7 +26,7 @@
       <ul class="social-network social-circle">
         <li><a href="#" class="icoEnvelope" title="Email"><i class="fa fa-envelope"></i></a></li>
         <li><a href="https://www.linkedin.com/in/ripfumelo-nova-magomani/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-        <li><a href="#" class="icoWhatsapp" title="Whatsapp"><i class="fa fa-whatsapp"></i></a></li>
+        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
         <li><a href="#" class="icoTwitter" title="X (Twitter)"><i class="fa-brands fa-twitter"></i></a></li>
         <li><a href="https://www.instagram.com/novacodings/" class="icoInstagram" title="Instagram"><i class="fa fa-instagram"></i></a></li>
       </ul>
@@ -37,7 +38,7 @@
     <ul>
       <li><a href="#">Shopping online</a></li>
       <li><a href="#">Delivery & Returns</a></li>
-      <li><a href="../pages/Size_Guide.html">Size Guide</a></li>
+      <li><a href="Size_Guide.html">Size Guide</a></li>
     </ul>
   </div>
   <div class="inner-footer-links">
@@ -74,6 +75,5 @@
   </div>
 </div>
 </div>
-
 </body>
 </html>

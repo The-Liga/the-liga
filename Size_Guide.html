@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Size Guide</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="index.php"><img src="assets/log2.jpg" alt="TL"></a>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="./pages/men.html">Men</a></li>
+                <li><a href="./pages/women.html">Women</a></li>
+                <li><a href="./pages/shoes.html">Shoes</a></li>
+                <li><a href="./pages/Our story.html">Brand</a></li>
+            </ul>
+        </nav>
+
+        <!-- Icons and Profile -->
+        <div class="nav-icons">
+            <a href="#" id="search-icon"><i class="fa fa-search"></i></a>
+            <a href="#" id="cart-icon"><i class="fa fa-shopping-cart"></i><span id="cart-count">0</span></a>
+            <a href="#" id="wishlist-icon"><i class="fa fa-heart"></i><span id="wishlist-count">0</span></a>
+
+            <!-- Profile Dropdown -->
+            <div class="profile-dropdown">
+                <a href="#" id="profile-link">Username <i class="fa fa-caret-down"></i></a>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="#"><i class="fa fa-user"></i> Profile</a>
+                    <a href="#"><i class="fa fa-list"></i> My Orders</a>
+                    <a href="#">Checkout</a>
+                    <a href="#"><i class="fa fa-sign-out"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Bar (Initially hidden) -->
+    <div class="search-bar" id="search-bar" style="display:none;">
+        <input type="text" placeholder="Search for products..." />
+        <button type="button" id="search-btn">Search</button>
+    </div>
+</header>
+
+<!-- Search Modal -->
+<div id="search-modal" class="modal">
+<div class="modal-content">
+    <span class="close" id="close-search">&times;</span>
+    <h2>Search Products</h2>
+    <input type="text" placeholder="Search for products..." id="modal-search-input">
+    
+    <!-- Search Button on the left and Clear Button on the right -->
+    <button type="button" id="modal-search-btn">Search</button>
+    <button type="button" id="clearSearch">Clear</button>
+</div>
+</div>
+
+<!-- Cart Modal -->
+<div id="cart-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="close-cart" style="color: red;">&times;</span>
+        <h1 style="text-align: center;">Your Cart</h1>
+        <hr style="border: 1px solid #000; margin-bottom: 15px;" />
+        <div id="cart-items" class="cart-items"></div>
+        <div class="checkout-button-container">
+            <button onclick="" href="./pages/checkout.html">Checkout<i style="margin-left: 10px;" class="fa-solid fa-cart-shopping"></i></button>
+            <div id="total-price" style="font-weight: bold; margin-top: 10px;"><bold>Total: </bold>R0.00</div>
+        </div>
+        <!-- Checkout Button will be dynamically added here -->
+    </div>
+</div>
+
+
+<!-- Wishlist Modal -->  
+<div id="wishlist-modal" class="modal">
+<div class="modal-content">
+    <span class="close" id="close-wishlist" style="color: red;">&times;</span>
+    <h1 style="text-align: center;">Your Wishlist</h1>
+    <hr style="border: 1px solid #000; margin-bottom: 15px;"/>
+    <div id="wishlist-items" class="wishlist-items">
+        <!-- Items will be dynamically added here -->
+        <!-- <button class="remove-btn" onclick="removeFromCart(index)"><i class="fa-solid fa-trash"></i></button> -->
+    </div>
+</div>
+</div>
+<br><br><br>
+    <h1>Size Guide</h1>
+    <div class="container">
+        <div class="product-info">
+            <img src="assets/Beanie.png" alt="Product" class="product-image">
+            <div class="thumbnails">
+                <img src="assets/netball3.jpg" alt="Thumbnail 1" class="thumbnail">
+                <img src="assets/White_Cap1.png" alt="Thumbnail 2" class="thumbnail">
+                <img src="assets/Black_Cap1.png" alt="Thumbnail 3" class="thumbnail">
+                <img src="assets/bucket_ha1.png" alt="Thumbnail 4" class="thumbnail">
+            </div>
+        </div>
+        
+        <div class="size-guide">
+            <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+                <button class="add-to-cart">ADD TO CART</button>
+            </div>
+
+            <div class="shipping-info">
+                <div>
+                    <span>🚚 SHIP IT TODAY?</span><br>
+                    Order by 4:00p Mon-Fri
+                </div>
+                <div>
+                    <span>🏪 FREE SAMEDAY PICKUP</span><br>
+                    Order by 6:30p Mon-Sat
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-button active" data-tab="details">Details</button>
+                <button class="nav-button" data-tab="specs">Specs</button>
+                <button class="nav-button" data-tab="size-guide">Size Guide</button>
+            </div>
+
+            <div id="details" class="content-section active">
+                <h3>Product Details</h3>
+                <p>This comfortable and stylish t-shirt features:</p>
+                <ul>
+                    <li>100% Premium cotton material</li>
+                    <li>Relaxed fit design</li>
+                    <li>Crew neckline</li>
+                    <li>Short sleeves</li>
+                    <li>Machine washable</li>
+                    <li>Available in multiple sizes</li>
+                </ul>
+            </div>
+
+            <div id="specs" class="content-section">
+                <h3>Product Specifications</h3>
+                <ul class="specs-list">
+                    <li><strong>Material:</strong> 100% Cotton</li>
+                    <li><strong>Weight:</strong> 180 GSM</li>
+                    <li><strong>Care Instructions:</strong> Machine wash cold</li>
+                    <li><strong>Country of Origin:</strong> Made in USA</li>
+                    <li><strong>Style:</strong> Casual</li>
+                    <li><strong>Season:</strong> All-season wear</li>
+                </ul>
+            </div>
+
+            <div id="size-guide" class="content-section">
+                <table class="size-table">
+                    <tr>
+                        <th>You</th>
+                        <th>Size</th>
+                        <th>Waist</th>
+                        <th>Bust</th>
+                    </tr>
+                    <tr>
+                        <td>00-0</td>
+                        <td>XS</td>
+                        <td>23-24</td>
+                        <td>31-32</td>
+                    </tr>
+                    <tr>
+                        <td>2-4</td>
+                        <td>S</td>
+                        <td>25-26</td>
+                        <td>33-34</td>
+                    </tr>
+                    <tr>
+                        <td>6-8</td>
+                        <td>M</td>
+                        <td>27-28</td>
+                        <td>35-36</td>
+                    </tr>
+                    <tr>
+                        <td>10-12</td>
+                        <td>L</td>
+                        <td>29-31</td>
+                        <td>37-39</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>XL</td>
+                        <td>32-34</td>
+                        <td>40-42</td>
+                    </tr>
+                    <tr>
+                        <td>16-18</td>
+                        <td>1X</td>
+                        <td>35-37</td>
+                        <td>43-45</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="upper-footer">
+        <div class="newsletter">
+          <h6>Subscribe to our Newsletter</h6>
+          <div class="signup-newsletter">
+            <input placeholder="Enter your Email Address" />
+            <button class="footer-signup-btn">Sign Up</button>
+          </div>
+        </div>
+        <div class="flex justify-center space-x-4 mb-4">
+          <h6>Follow Us</h6>
+          <ul class="social-network social-circle">
+            <li><a href="#" class="icoEnvelope" title="Email"><i class="fa fa-envelope"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/ripfumelo-nova-magomani/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#" class="icoTwitter" title="X (Twitter)"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com/novacodings/" class="icoInstagram" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <div class="middle-footer">
+          <div class="inner-footer-links">
+            <ul>
+              <li><a href="#">Shopping online</a></li>
+              <li><a href="#">Delivery & Returns</a></li>
+              <li><a href="../Size_Guide.html">Size Guide</a></li>
+            </ul>
+          </div>
+          <div class="inner-footer-links">
+            <ul>
+              <li><a href="#">Customer Services</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Track Your Order</a></li>
+              <li><a href="#">FAQ's</a></li>
+            </ul>
+          </div>
+          <div class="inner-footer-links">
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="../pages/Our story.html">Brand Information</a></li>
+              <li><a href="#">Counterfeit</a></li>
+            </ul>
+          </div>
+          <div class="inner-footer-links">
+            <ul>
+              <li><a href="#">Stores & Loyalty Club</a></li>
+              <li><a href="#">Find a Store</a></li>
+              <li><a href="#">Rewards and Benefits</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+        <div class="lower-footer">
+          <a href="#">© 2024 The Liga. All Rights Reserved</a>
+          <div class="footer-payments">
+            <h6>Pay securely with </h6>
+            <li class="fa fa-cc-mastercard"></li>
+            <li class="fa fa-cc-visa"></li>
+          </div>
+        </div>
+    </div>
+
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+    const minusBtn = document.querySelector('.minus');
+    const plusBtn = document.querySelector('.plus');
+    const input = document.querySelector('.quantity-input');
+    const addToCartBtn = document.querySelector('.add-to-cart');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const mainImage = document.querySelector('.product-image');
+    const navButtons = document.querySelectorAll('.nav-button');
+
+    // Quantity controls
+    minusBtn.addEventListener('click', () => {
+        const currentValue = parseInt(input.value);
+        if (currentValue > 1) {
+            input.value = currentValue - 1;
+        }
+    });
+
+    plusBtn.addEventListener('click', () => {
+        const currentValue = parseInt(input.value);
+        input.value = currentValue + 1;
+    });
+
+    addToCartBtn.addEventListener('click', () => {
+        alert(`Added ${input.value} item(s) to cart!`);
+    });
+
+    // Thumbnail interaction
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', () => {
+            const tempSrc = mainImage.src;
+            mainImage.src = thumbnail.src;
+            thumbnail.src = tempSrc;
+        });
+    });
+
+    // Tab navigation
+    navButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons and sections
+            navButtons.forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Add active class to clicked button and corresponding section
+            button.classList.add('active');
+            const tabId = button.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+});
+    </script>
+</body>
+</html>

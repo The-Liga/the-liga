@@ -717,36 +717,60 @@ document.addEventListener('DOMContentLoaded', () => {
         const prevBtn = container.querySelector('.prev-btn');
         const nextBtn = container.querySelector('.next-btn');
         const rowProducts = container.querySelector('.row-products');
+        
+        // Calculate scroll amount based on product width plus gap
+        // Using the width from your CSS (340px) plus margin (10px * 2) plus gap
+        const scrollAmount = 370; // 340 + 20 + 10
 
-        // Scroll amount (adjust as needed)
-        const scrollAmount = 300; // pixels
+        // Function to check scroll position and update button states
+        const updateButtonStates = () => {
+            // Check if scrolling is at the start
+            if (rowProducts.scrollLeft <= 0) {
+                prevBtn.style.opacity = '0.5';
+                prevBtn.style.cursor = 'not-allowed';
+            } else {
+                prevBtn.style.opacity = '1';
+                prevBtn.style.cursor = 'pointer';
+            }
 
-        // Previous button functionality
+            // Check if scrolling is at the end
+            if (Math.ceil(rowProducts.scrollLeft + rowProducts.clientWidth) >= rowProducts.scrollWidth) {
+                nextBtn.style.opacity = '0.5';
+                nextBtn.style.cursor = 'not-allowed';
+            } else {
+                nextBtn.style.opacity = '1';
+                nextBtn.style.cursor = 'pointer';
+            }
+        };
+
+        // Previous button click handler
         prevBtn.addEventListener('click', () => {
-            rowProducts.scrollBy({
-                left: -scrollAmount,
-                behavior: 'smooth'
-            });
+            if (rowProducts.scrollLeft > 0) {
+                rowProducts.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
         });
 
-        // Next button functionality
+        // Next button click handler
         nextBtn.addEventListener('click', () => {
-            rowProducts.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
+            if (rowProducts.scrollLeft + rowProducts.clientWidth < rowProducts.scrollWidth) {
+                rowProducts.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
         });
 
-        // Optional: Disable buttons when scrolling reaches start or end
-        rowProducts.addEventListener('scroll', () => {
-            // Check if at the beginning
-            prevBtn.disabled = rowProducts.scrollLeft <= 0;
-            
-            // Check if at the end (with a small buffer)
-            nextBtn.disabled = 
-                rowProducts.scrollLeft + rowProducts.clientWidth >= 
-                rowProducts.scrollWidth - 5;
-        });
+        // Update button states on scroll
+        rowProducts.addEventListener('scroll', updateButtonStates);
+        
+        // Update button states on window resize
+        window.addEventListener('resize', updateButtonStates);
+        
+        // Initial button state check
+        updateButtonStates();
     });
 });
 // End Scroll functionality //
@@ -755,20 +779,50 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.getElementById('hamburger-menu');
     const mainNav = document.querySelector('.main-nav');
+    const body = document.body;
 
-    hamburger.addEventListener('click', function() {
-        // Toggle active class on hamburger and navigation
+    // Toggle menu function
+    function toggleMenu() {
         hamburger.classList.toggle('active');
         mainNav.classList.toggle('active');
+        body.classList.toggle('menu-open');
+        closeButton.style.display = mainNav.classList.contains('active') ? 'block' : 'none';
+    }
+
+    // Close menu function
+    function closeMenu() {
+        hamburger.classList.remove('active');
+        mainNav.classList.remove('active');
+        body.classList.remove('menu-open');
+        closeButton.style.display = 'none';
+    }
+
+    // Hamburger click event
+    hamburger.addEventListener('click', toggleMenu);
+
+    // Close button click event
+    closeButton.addEventListener('click', closeMenu);
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!mainNav.contains(event.target) && 
+            !hamburger.contains(event.target) && 
+            mainNav.classList.contains('active')) {
+            closeMenu();
+        }
     });
 
-    // Close menu when a nav item is clicked
+    // Close menu when clicking nav links
     const navLinks = document.querySelectorAll('.main-nav ul li a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            mainNav.classList.remove('active');
-        });
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Handle escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && mainNav.classList.contains('active')) {
+            closeMenu();
+        }
     });
 });
 //End Hamburger Menu functionality//
@@ -841,35 +895,15 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.carousel-arrow.next').addEventListener('click', () => plusDivs(1));
 });
 
-/*size guide page*/
-document.querySelector('.learn-more').addEventListener('click', () => {
-    // Redirect to the size guide page in the same tab
-    window.location.href = 'Size_Guide.html';
-  });
-document.querySelectorAll('.tab-btn').forEach(button => {
-  button.addEventListener('click', () => {
-    const tab = button.dataset.tab;
+//End Quick View functionality//
 
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
-
-    button.classList.add('active');
-    document.getElementById(tab).classList.add('active');
-  });
-});
-
-const quantityInput = document.getElementById('quantity');
-document.getElementById('increase').addEventListener('click', () => {
-  quantityInput.value = parseInt(quantityInput.value) + 1;
-});
-
-document.getElementById('decrease').addEventListener('click', () => {
-  if (quantityInput.value > 1) {
-    quantityInput.value = parseInt(quantityInput.value) - 1;
-  }
-});
-
-/* End size guide page */
+// size guide //
+        // Add an event listener to the "Learn more" button
+        document.querySelector('.learn-more').addEventListener('click', () => {
+            // Redirect to the size guide page in the same tab
+            window.location.href = 'Size_Guide.html';
+          });
+// End side guide //
 
 //Registrations functionality// 
 document.addEventListener('DOMContentLoaded', function() {
@@ -901,62 +935,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
 /*End Registrations */
-
-/* Inner-container */
-document.addEventListener('DOMContentLoaded', function() {
-    // Get the inner container
-    const innerContainer = document.querySelector('.inner-container');
-    
-    // Get the current page URL and convert to lowercase for consistent comparison
-    const currentPage = window.location.pathname.toLowerCase();
-    
-    // Function to set background based on page
-    function setBackgroundImage() {
-        // Default background for home page
-        let backgroundImage = 'url("assets/banner.jpg")';
-        
-        // Debug: Log the current pathname
-        console.log('Current pathname:', currentPage);
-        
-        // Check current page and set appropriate background
-        // Using includes() with more specific checks to avoid partial matches
-        if (currentPage.endsWith('men.html')) {
-            backgroundImage = 'url("../assets/Men_page.png")';
-        } else if (currentPage.endsWith('Women.html')) {
-            backgroundImage = 'url("../assets/women_pg.png")';
-        } else if (currentPage.endsWith('new_arrivals.html')) {
-            backgroundImage = 'url("../assets/New_Arr._page.png")';
-        } else if (currentPage.endsWith('fashion.html')) {
-            backgroundImage = 'url("../assets/Fashion_page.png")';
-        } else if (currentPage.endsWith('accessories.html')) {
-            backgroundImage = 'url("../assets/Access_page.png")';
-        } else if (currentPage.endsWith('shoes.html')) {
-            backgroundImage = 'url("../assets/shoes.png")';
-        }
-        
-        // Set the background image if inner container exists
-        if (innerContainer) {
-            innerContainer.style.backgroundImage = backgroundImage;
-            
-            // Debug: Log the background being set
-            console.log('Setting background:', backgroundImage);
-            
-            // Verify the background was set correctly
-            console.log('Applied background:', innerContainer.style.backgroundImage);
-            
-            // Add error handling for image loading
-            const img = new Image();
-            img.onerror = function() {
-                console.error('Failed to load image:', backgroundImage);
-            };
-            img.src = backgroundImage.replace('url("', '').replace('")', '');
-        }
-    }
-    
-    // Call the function when page loads
-    setBackgroundImage();
-});
-/*End Inner-container */
 
 /* Explore section */
 document.querySelectorAll('.explore-btn').forEach((button) => {
@@ -1069,33 +1047,7 @@ document.addEventListener('DOMContentLoaded', function() {
 /* End Sales popup */
 
 /* story */
-const images = document.querySelectorAll('.slider-image');
-const years = document.querySelectorAll('.timeline .year');
-let currentIndex = 0;
 
-function updateSlider() {
-    // Remove active class from all images and years
-    images.forEach(img => img.classList.remove('active'));
-    years.forEach(year => year.classList.remove('active'));
-
-    // Add active class to the current image and year
-    images[currentIndex].classList.add('active');
-    years[currentIndex].classList.add('active');
-
-    // Increment index and loop back to the beginning
-    currentIndex = (currentIndex + 1) % images.length;
-}
-
-// Manual year selection
-years.forEach((year, index) => {
-    year.addEventListener('click', () => {
-        currentIndex = index;
-        updateSlider();
-    });
-});
-
-// Start slider animation
-setInterval(updateSlider, 3000); // 3-second interval
 /* End Story */
 
 /* ADMIN */
@@ -1122,5 +1074,4 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-  
-
+  /* END Admin Panel */

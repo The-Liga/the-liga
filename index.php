@@ -14,6 +14,8 @@ include("config.php");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Link to external CSS -->
     <link rel="stylesheet" href="styles.css">
@@ -126,167 +128,219 @@ include("config.php");
     </div>
 
     <div class="home">
-        <div class="inner-container">
-            <!-- <h1>Welcome</h1> -->
-             <h3>BE VERSATILE '25 </h3>
-             <p><strong> "FOR THE BOLD" </strong></p>
-             <a class="shop-btn" href="./pages/products.php">Shop ></a>
+        <div class="inner-container" style="background-image: url('assets/Banner_hero.png');">
+            <p><strong>"FOR THE BOLD"</strong></p>
+            <a class="shop-btn" href="./pages/products.php">
+                <span class="shop-text">SHOP</span>
+                <img src="./assets/shopping.png" alt="Shop icon" class="shop-icon">
+            </a>
         </div>
-      
+
         <!-- NEW ARRIVALS -->
-        <div>
-            <h1 class="products-list">New Arrivals</h1>
-            <div class="scroll-container">
-                <button class="scroll-btn prev-btn">
-                    <li style="color: Black" class="fa fa-angle-left"></li>
-                </button>
-                <div class="row-products">
-                    <!-- Product Items -->
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/White_Cap1.png">
-                                </a>
-                                <ul class="product-links">
-                                    <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Caps" data-price="661.99" data-image="assets//White_Cap1.png"></a></li>
-                                    <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Caps" data-price="661.99" data-image="assets//White_Cap1.png"></a></li>
-                                    <li><a href="#" class="fa fa-eye" onclick="openQuickView(this)" data-name="Caps" data-price="661.99" data-image="assets//White_Cap1.png"></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <div class="price">R661.99</div>
-                                <h3 class="title"><a href="#">Caps</a></h3>
-                            </div>
+    <div>
+        <h1 class="products-list">New Arrivals</h1>
+        <div class="scroll-container">
+            <button class="scroll-btn prev-btn">
+                <i class="fas fa-angle-left"></i>
+            </button>
+            <div class="row-products">
+                <!-- Product Items -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="./pages/products.html" class="image">
+                                <img class="img-1" src="assets/White_Cap1.png" alt="White Cap">
+                            </a>
+                            <ul class="product-links">
+                                <li><a href="#" class="fas fa-shopping-cart" onclick="addToCart(this)" data-name="Caps" data-price="661.99" data-image="assets/White_Cap1.png"></a></li>
+                                <li><a href="#" class="fas fa-heart" onclick="addToWishlist(this)" data-name="Caps" data-price="661.99" data-image="assets/White_Cap1.png"></a></li>
+                                <li><a href="#" class="fas fa-eye" onclick="openQuickView(this)" data-name="Caps" data-price="661.99" data-image="assets/White_Cap1.png"></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <div class="price">R661.99</div>
+                            <h3 class="title"><a href="#">Caps</a></h3>
                         </div>
                     </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/Full_Logo_Polo_Tshirt.png">
-                                </a>
-                                <ul class="product-links">
-                                    <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="T-shirt" data-price="799.99" data-image="assets/Full_Logo_Polo_Tshirt.png"></a></li>
-                                    <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="T-shirt" data-price="799.99" data-image="assets/Full_Logo_Polo_Tshirt.png"></a></li>
-                                    <li><a href="#" class="fa fa-eye" onclick="openQuickView(this)" data-name="T-shirt" data-price="799.99" data-image="assets/Full_Logo_Polo_Tshirt.png"></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <div class="price">R799.99</div>
-                                <h3 class="title"><a href="#">T-shirt</a></h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/bucket_ha1.png">
-                                </a>
-                                <ul class="product-links">
-                                    <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Bucket Hat" data-price="799.99" data-image="assets/bucket_ha1.png"></a></li>
-                                    <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Bucket Hat" data-price="799.99" data-image="assets/bucket_ha1.png"></a></li>
-                                    <li><a href="#" class="fa fa-eye" onclick="openQuickView(this)" data-name="Bucket Hat" data-price="799.99" data-image="assets/bucket_ha1.png"></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <div class="price">R799.99</div>
-                                <h3 class="title"><a href="#">Bucket Hat</a></h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-
-                    <!-- Additional product items can be added here... -->
-
                 </div>
-                <button class="scroll-btn next-btn">
-                    <li style="color: black" class="fa fa-angle-right"></li>
-                </button>
-            </div>
-        </div>
 
-        <!-- THE LIGA X NETBALL SOUTH AFRICA -->
-        <div>
-            <h1 class="products-list"> THE LIGA X NETBALL SOUTH AFRICA </h1>
-            <div class="scroll-container">
-                <button class="scroll-btn prev-btn">
-                    <li style="color: black" class="fa fa-angle-left"></li>
-                </button>
-                <div class="row-products">
-                    <!-- Product Items -->
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/netball1.jpg">
-                                </a>
-                                <ul class="product-links">
-                                    <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="BE VERSATILE '25 HOODIE" data-price="1500.00" data-image="assets/netball1.jpg"></a></li>
-                                    <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="BE VERSATILE '25 HOODIE" data-price="1500.00" data-image="assets/netball1.jpg"></a></li>
-                                    <li><a href="#" class="fa fa-eye" onclick="openQuickView(this)" data-name="BE VERSATILE '25 HOODIE" data-price="1500.00" data-image="assets/netball1.jpg"></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <div class="price">R1.500</div>
-                                <h3 class="title"><a href="#">BE VERSATILE '25 HOODIE</a></h3>
-                            </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="./pages/products.html" class="image">
+                                <img class="img-1" src="assets/Full_Logo_Polo_Tshirt.png" alt="Polo T-shirt">
+                            </a>
+                            <ul class="product-links">
+                                <li><a href="#" class="fas fa-shopping-cart" onclick="addToCart(this)" data-name="T-shirt" data-price="799.99" data-image="assets/Full_Logo_Polo_Tshirt.png"></a></li>
+                                <li><a href="#" class="fas fa-heart" onclick="addToWishlist(this)" data-name="T-shirt" data-price="799.99" data-image="assets/Full_Logo_Polo_Tshirt.png"></a></li>
+                                <li><a href="#" class="fas fa-eye" onclick="openQuickView(this)" data-name="T-shirt" data-price="799.99" data-image="assets/Full_Logo_Polo_Tshirt.png"></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <div class="price">R799.99</div>
+                            <h3 class="title"><a href="#">T-shirt</a></h3>
                         </div>
                     </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/netball2.jpg">
-                                </a>
-                                <ul class="product-links">
-                                    <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="BE VERSATILE '25 POLO SHIRT" data-price="1200.00" data-image="assets/netball2.jpg"></a></li>
-                                    <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="BE VERSATILE '25 POLO SHIRT" data-price="1200.00" data-image="assets/netball2.jpg"></a></li>
-                                    <li><a href="#" class="fa fa-eye" onclick="openQuickView(this)" data-name="BE VERSATILE '25 POLO SHIRT" data-price="1200.00" data-image="assets/netball2.jpg"></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <div class="price">R1.200</div>
-                                <h3 class="title"><a href="#">BE VERSATILE '25 POLO SHIRT</a></h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="assets/netball3.jpg">
-                                </a>
-                                <ul class="product-links">
-                                    <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="BE VERSATILE '25 BASEBALL CAP" data-price="850.00" data-image="assets/netball3.jpg"></a></li>
-                                    <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="BE VERSATILE '25 BASEBALL CAP" data-price="850.00" data-image="assets/netball3.jpg"></a></li>
-                                    <li><a href="#" class="fa fa-eye" onclick="openQuickView(this)" data-name="BE VERSATILE '25 BASEBALL CAP" data-price="850.00" data-image="assets/netball3.jpg"></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <div class="price">R850</div>   
-                                <h3 class="title"><a href="#">BE VERSATILE '25 BASEBALL CAP</a></h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Additional product items can be added here... -->
-
                 </div>
-                <button class="scroll-btn next-btn">
-                    <li style="color: black" class="fa fa-angle-right"></li>
-                </button>
-            </div>
-        </div>
 
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="./pages/products.html" class="image">
+                                <img class="img-1" src="assets/bucket_ha1.png" alt="Bucket Hat">
+                            </a>
+                            <ul class="product-links">
+                                <li><a href="#" class="fas fa-shopping-cart" onclick="addToCart(this)" data-name="Bucket Hat" data-price="799.99" data-image="assets/bucket_ha1.png"></a></li>
+                                <li><a href="#" class="fas fa-heart" onclick="addToWishlist(this)" data-name="Bucket Hat" data-price="799.99" data-image="assets/bucket_ha1.png"></a></li>
+                                <li><a href="#" class="fas fa-eye" onclick="openQuickView(this)" data-name="Bucket Hat" data-price="799.99" data-image="assets/bucket_ha1.png"></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <div class="price">R799.99</div>
+                            <h3 class="title"><a href="#">Bucket Hat</a></h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="./pages/products.html" class="image">
+                                <img class="img-1" src="assets/Whitehoodie.jpg" alt="Whitehoodie">
+                            </a>
+                            <ul class="product-links">
+                                <li><a href="#" class="fas fa-shopping-cart" onclick="addToCart(this)" data-name="Whitehoodie" data-price="799.99" data-image="assets/Whitehoodie"></a></li>
+                                <li><a href="#" class="fas fa-heart" onclick="addToWishlist(this)" data-name="Whitehoodie" data-price="799.99" data-image="assets/Whitehoodie"></a></li>
+                                <li><a href="#" class="fas fa-eye" onclick="openQuickView(this)" data-name="Whitehoodie" data-price="799.99" data-image="assets/Whitehoodie"></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <div class="price">R750.99</div>
+                            <h3 class="title"><a href="#">Bucket Hat</a></h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="./pages/products.html" class="image">
+                                <img class="img-1" src="assets/black&white_cap.jpg" alt="black&white_capt">
+                            </a>
+                            <ul class="product-links">
+                                <li><a href="#" class="fas fa-shopping-cart" onclick="addToCart(this)" data-name="black&white_cap" data-price="399.99" data-image="assets/black&white_cap.jpg"></a></li>
+                                <li><a href="#" class="fas fa-heart" onclick="addToWishlist(this)" data-name="black&white_cap" data-price="399.99" data-image="assets/black&white_cap.jpg"></a></li>
+                                <li><a href="#" class="fas fa-eye" onclick="openQuickView(this)" data-name="black&white_cap" data-price="399.99" data-image="assets/black&white_cap.jpg"></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <div class="price">R399.99</div>
+                            <h3 class="title"><a href="#">Two color Cap</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="scroll-btn next-btn">
+                <i class="fas fa-angle-right"></i>
+            </button>
+        </div>
+    </div>
+    <br>
+    
+    <!-- THE LIGA X NETBALL SOUTH AFRICA -->
+    <div>
+        <h1 class="products-list"> THE LIGA X NETBALL SOUTH AFRICA </h1>
+        <br>
+        <div class="scroll-container">
+            <button class="scroll-btn prev-btn">
+                <i class="fas fa-angle-left"></i>
+            </button>
+            <div class="row-products">
+                <!-- Product Items -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="./pages/products.html" class="image">
+                                <img class="img-1" src="assets/netball1.jpg" alt="BE VERSATILE '25 HOODIE">
+                            </a>
+                            <ul class="product-links">
+                                <li><a href="#" class="fas fa-shopping-cart" onclick="addToCart(this)" data-name="BE VERSATILE '25 HOODIE" data-price="1500.00" data-image="assets/netball1.jpg"></a></li>
+                                <li><a href="#" class="fas fa-heart" onclick="addToWishlist(this)" data-name="BE VERSATILE '25 HOODIE" data-price="1500.00" data-image="assets/netball1.jpg"></a></li>
+                                <li><a href="#" class="fas fa-eye" onclick="openQuickView(this)" data-name="BE VERSATILE '25 HOODIE" data-price="1500.00" data-image="assets/netball1.jpg"></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <div class="price">R1.500</div>
+                            <h3 class="title"><a href="#">BE VERSATILE '25 HOODIE</a></h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="./pages/products.html" class="image">
+                                <img class="img-1" src="assets/netball2.jpg" alt="BE VERSATILE '25 POLO SHIRT">
+                            </a>
+                            <ul class="product-links">
+                                <li><a href="#" class="fas fa-shopping-cart" onclick="addToCart(this)" data-name="BE VERSATILE '25 POLO SHIRT" data-price="1200.00" data-image="assets/netball2.jpg"></a></li>
+                                <li><a href="#" class="fas fa-heart" onclick="addToWishlist(this)" data-name="BE VERSATILE '25 POLO SHIRT" data-price="1200.00" data-image="assets/netball2.jpg"></a></li>
+                                <li><a href="#" class="fas fa-eye" onclick="openQuickView(this)" data-name="BE VERSATILE '25 POLO SHIRT" data-price="1200.00" data-image="assets/netball2.jpg"></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <div class="price">R1.200</div>
+                            <h3 class="title"><a href="#">BE VERSATILE '25 POLO SHIRT</a></h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="./pages/products.html" class="image">
+                                <img class="img-1" src="assets/netball3.jpg" alt="BE VERSATILE '25 BASEBALL CAP">
+                            </a>
+                            <ul class="product-links">
+                                <li><a href="#" class="fas fa-shopping-cart" onclick="addToCart(this)" data-name="BE VERSATILE '25 BASEBALL CAP" data-price="850.00" data-image="assets/netball3.jpg"></a></li>
+                                <li><a href="#" class="fas fa-heart" onclick="addToWishlist(this)" data-name="BE VERSATILE '25 BASEBALL CAP" data-price="850.00" data-image="assets/netball3.jpg"></a></li>
+                                <li><a href="#" class="fas fa-eye" onclick="openQuickView(this)" data-name="BE VERSATILE '25 BASEBALL CAP" data-price="850.00" data-image="assets/netball3.jpg"></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <div class="price">R850</div>   
+                            <h3 class="title"><a href="#">BE VERSATILE '25 BASEBALL CAP</a></h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="./pages/products.html" class="image">
+                                <img class="img-1" src="assets/netball3.jpg" alt="BE VERSATILE '25 BASEBALL CAP">
+                            </a>
+                            <ul class="product-links">
+                                <li><a href="#" class="fas fa-shopping-cart" onclick="addToCart(this)" data-name="BE VERSATILE '25 BASEBALL CAP" data-price="850.00" data-image="assets/netball3.jpg"></a></li>
+                                <li><a href="#" class="fas fa-heart" onclick="addToWishlist(this)" data-name="BE VERSATILE '25 BASEBALL CAP" data-price="850.00" data-image="assets/netball3.jpg"></a></li>
+                                <li><a href="#" class="fas fa-eye" onclick="openQuickView(this)" data-name="BE VERSATILE '25 BASEBALL CAP" data-price="850.00" data-image="assets/netball3.jpg"></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <div class="price">R850</div>   
+                            <h3 class="title"><a href="#">BE VERSATILE '25 BASEBALL CAP</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="scroll-btn next-btn">
+                <i class="fas fa-angle-right"></i>
+            </button>
+        </div>
+    </div>
+<br>
         <!--Why-Us section -->
-        <h1 style="text-align: left; font-weight: bold; margin-left: 35px;">Our Promises</h1>
+        <h1 style="text-align: left; font-weight: 500; margin-left: 40px; font-size: 32px;">Our Promises</h1>
         <div class="why-choose-us">
 
             <div class="why-card">
@@ -312,6 +366,7 @@ include("config.php");
         </div>
 
         <h1 class="explore-list">EXPLORE</h1>
+        <br><br>
 <div class="row-products">
     <!-- Explore Item: Women -->
     <div class="col-md-3 col-sm-6">
@@ -331,7 +386,7 @@ include("config.php");
     <div class="col-md-3 col-sm-6">
         <div class="explore-item">
             <img src="assets/kids1.png" alt="Kids">
-            <a href="pages/shoes.html" class="explore-btn">KIDS ></a>
+            <a href="pages/kids.html" class="explore-btn">KIDS ></a>
         </div>
     </div>
 </div>
@@ -360,8 +415,6 @@ include("config.php");
         </div>
     </div>
 </div>
-
-
           <!-- Quick-view -->
           <div id="quick-view-modal" class="quickview-modal">
     <div class="quickview-modal-content">
@@ -391,7 +444,7 @@ include("config.php");
                     <div id="quick-view-price" class="price"></div>
                     <div class="button-group">
                         <button id="add-to-cart-btn" class="add_to_cart">Add to Cart</button>
-                        <button class="learn-more">Learn more</button>
+                        <button class="learn-more">Size Guide</button>
                     </div>
                 </div>
             </div>
@@ -399,13 +452,12 @@ include("config.php");
     </div>
 </div>
 
-
         <!--  -->
         <?php include('./components/footer.php'); ?>
 
 
-        <!-- Link to external JavaScript -->
-        <script src="script.js"></script>
+    <!-- Link to external JavaScript -->
+    <script src="script.js"></script>
 </body>
 
 </html>

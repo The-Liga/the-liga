@@ -10,9 +10,9 @@
 </head>
 
 <body>
-    <header>
-        <!-- Add this right after the opening <body> tag, before the header -->
-        <div class="promo-banner">
+<header>
+     <!-- Add this right after the opening <body> tag, before the header -->
+     <div class="promo-banner">
             <div class="promo-container">
                 <div class="promo-slider">
                     <div class="promo-slide">DRESS WATCH FLASH SALE | 40% OFF <a href="./pages/products.php" class=" shop-now-btn">SHOP NOW</a></div>
@@ -25,35 +25,32 @@
         </div>
 
         <br><br><br><br><br>
+    
+    <div class="nav-container">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="../index.php"><img src="assets/log2.jpg" alt="TL"></a>
+        </div>
         
-        <div class="nav-container">
-            <!-- Logo -->
-            <div class="logo">
-                <a href="../index.php"><img src="assets/log2.jpg" alt="TL"></a>
-            </div>
-            <!-- Navigation Menu -->
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="./pages/men.html">Men</a></li>
-                    <li><a href="./pages/Women.html">Women</a></li>
-                    <li><a href="./pages/shoes.html">Shoes</a></li>
-                    <li><a href="./pages/Our story.html">Brand</a></li>
-                </ul>
-
-                <div class="hamburger-menu" id="hamburger-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </nav>
-            <!-- Icons and Profile -->
-            <div class="nav-icons">
-                <a href="#" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
-                <a href="#" id="cart-icon"><i class="fa-solid fa-cart-shopping"></i><span id="cart-count">0</span></a>
-                <a href="#" id="wishlist-icon"><i class="fa-solid fa-heart"></i><span id="wishlist-count">0</span></a>
-                <!-- Profile Dropdown -->
-                <div class="profile-dropdown">
-                    <a href="#" id="profile-link">
+        <!-- Navigation Menu -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="./pages/men.html">Men</a></li>
+                <li><a href="./pages/Women.html">Women</a></li>
+                <li><a href="./pages/kids.html">Kids</a></li>
+                <li><a href="./pages/shoes.html">Shoes</a></li>
+                <li><a href="./pages/Our story.html">Brand</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Icons and Profile -->
+        <div class="nav-icons">
+            <a href="#" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="#" id="cart-icon"><i class="fa-solid fa-cart-shopping"></i><span id="cart-count">0</span></a>
+            <a href="#" id="wishlist-icon"><i class="fa-solid fa-heart"></i><span id="wishlist-count">0</span></a>
+            <!-- Profile Dropdown -->
+            <div class="profile-dropdown">
+            <a href="#" id="profile-link">
                         <?php
                         // Display profile icon
                         echo '<i class="fa-solid fa-user"></i>';
@@ -86,17 +83,23 @@
                     <?php
                     }
                     ?>
-                </div>
-
-
-
             </div>
         </div>
-        <!-- Search Bar (Initially hidden) -->
-        <div class="search-bar" id="search-bar" style="display:none;">
-            <input type="text" placeholder="Search for products..." />
-            <button type="button" id="search-btn">Search</button>
+            
+            <!-- Hamburger Menu (moved here) -->
+            <div class="hamburger-menu" id="hamburger-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
-    </header>
+    </div>
+    
+    <!-- Search Bar (Initially hidden) -->
+    <div class="search-bar" id="search-bar" style="display:none;">
+        <input type="text" placeholder="Search for products..." />
+        <button type="button" id="search-btn">Search</button>
+    </div>
+</header>
 </body>
 </html>

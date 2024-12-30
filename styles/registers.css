@@ -16,7 +16,7 @@
 body {
 	align-items: center;
 	background-color: var(--white);
-	background: url("../assets/clouds.jpg");
+	background: url("../assets/clouds_bg.png");
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;

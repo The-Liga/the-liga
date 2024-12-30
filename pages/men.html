@@ -14,42 +14,69 @@
 </head>
 <body>
 <br><br>
-    <header>
-        <div class="nav-container">
-            <!-- Logo -->
-            <div class="logo">
-                <a href="../index.php"><img src="../assets/log2.jpg" alt="TL"></a>
-            </div>
-    
-            <!-- Navigation Menu -->
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="men.html">Men</a></li>
-                    <li><a href="women.html">Women</a></li>
-                    <li><a href="shoes.html">Shoes</a></li>
-                    <li><a href="Our story.html">Brand</a></li>
-                </ul>
-            </nav>
-    
-            <!-- Icons and Profile -->
-            <div class="nav-icons">
-                <a href="#" id="search-icon"><i class="fa fa-search"></i></a>
-                <a href="#" id="cart-icon"><i class="fa fa-shopping-cart"></i><span id="cart-count">0</span></a>
-                <a href="#" id="wishlist-icon"><i class="fa fa-heart"></i><span id="wishlist-count">0</span></a>
-    
-                <!-- Profile Dropdown -->
-                <div class="profile-dropdown">
-                    <a href="#" id="profile-link">Username <i class="fa fa-caret-down"></i></a>
-                    <div class="dropdown-menu" id="dropdown-menu">
-                        <a href="#"><i class="fa fa-user"></i> Profile</a>
-                        <a href="#"><i class="fa fa-list"></i> My Orders</a>
-                        <a href="#">Checkout</a>
-                        <a href="#"><i class="fa fa-sign-out"></i> Logout</a>
-                    </div>
+<header>
+    <!-- Add this right after the opening <body> tag, before the header -->
+    <div class="promo-banner">
+           <div class="promo-container">
+               <div class="promo-slider">
+                   <div class="promo-slide">DRESS WATCH FLASH SALE | 40% OFF <a href="./pages/products.php" class=" shop-now-btn">SHOP NOW</a></div>
+                   <div class="promo-slide">FREE SHIPPING OVER R100 ZAR & EASY RETURNS </div>
+                   <div class="promo-slide">NEW ARRIVALS - SPRING COLLECTION <a href="./pages/products.php" class=" shop-now-btn">SHOP NOW</a></div>
+               </div>
+               <button class="promo-nav prev">&#10094;</button>
+               <button class="promo-nav next">&#10095;</button>
+           </div>
+       </div>
+
+       <br><br><br><br><br>
+   
+   <div class="nav-container">
+       <!-- Logo -->
+       <div class="logo">
+           <a href="../index.php"><img src="../assets/log2.jpg" alt="TL"></a>
+       </div>
+       
+       <!-- Navigation Menu -->
+       <nav class="main-nav">
+           <ul>
+               <li><a href="men.html">Men</a></li>
+               <li><a href="Women.html">Women</a></li>
+               <li><a href="kids.html">Kids</a></li>
+               <li><a href="shoes.html">Shoes</a></li>
+               <li><a href="Our story.html">Brand</a></li>
+           </ul>
+       </nav>
+       
+       <!-- Icons and Profile -->
+       <div class="nav-icons">
+           <a href="#" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+           <a href="#" id="cart-icon"><i class="fa-solid fa-cart-shopping"></i><span id="cart-count">0</span></a>
+           <a href="#" id="wishlist-icon"><i class="fa-solid fa-heart"></i><span id="wishlist-count">0</span></a>
+           <!-- Profile Dropdown -->
+            <div class="profile-dropdown">
+                <a href="#" id="profile-link">Username <i class="fa fa-caret-down"></i></a>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="#"><i class="fa fa-user"></i> Profile</a>
+                    <a href="#"><i class="fa fa-list"></i> My Orders</a>
+                    <a href="#">Checkout</a>
+                    <a href="#"><i class="fa fa-sign-out"></i> Logout</a>
                 </div>
             </div>
         </div>
-    
+    </div>
+
+       </div>
+           
+           <!-- Hamburger Menu (moved here) -->
+           <div class="hamburger-menu" id="hamburger-menu">
+               <span class="bar"></span>
+               <span class="bar"></span>
+               <span class="bar"></span>
+           </div>
+       </div>
+   </div>
+   
+               
         <!-- Search Bar (Initially hidden) -->
         <div class="search-bar" id="search-bar" style="display:none;">
             <input type="text" placeholder="Search for products..." />
@@ -100,7 +127,7 @@
 </div>
 
 <div class="home">
-    <div class="inner-container">
+    <div class="inner-container" style="background-image: url('../assets/Men_page.png'); margin-top: 25px;">
         <!-- <h1>Welcome</h1> -->
         <a class="shop-btn" href="products.html">Shop</a>
     </div>
@@ -127,7 +154,7 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R661.99 <span>R779.11</span></div>
+                                <div class="price">R661.99</div>
                                 <h3 class="title"><a href="#">White Golf Shirt</a></h3>
                             </div>
                         </div>
@@ -146,7 +173,7 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R799.99 <span>R899.99</span></div>
+                                <div class="price">R799.99</div>
                                 <h3 class="title"><a href="#">Black Golf Shirt</a></h3>
                             </div>
                         </div>
@@ -165,7 +192,7 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R499.99 <span>R599.99</span></div>
+                                <div class="price">R499.99</div>
                                 <h3 class="title"><a href="#">Bucket Hat</a></h3>
                             </div>
                         </div>
@@ -199,7 +226,7 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R661.99 <span>R779.11</span></div>
+                                <div class="price">R661.99</div>
                                 <h3 class="title"><a href="#">Sweaters</a></h3>
                             </div>
                         </div>
@@ -209,7 +236,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="../assets/Black_Cap1.png">
+                                    <img class="img-1" src="../assets/balck_cap2.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Caps" data-price="499.99" data-image="../assets/Black_Cap1.png"></a></li>
@@ -218,7 +245,7 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R250.00 <span>R499.99</span></div>
+                                <div class="price">R250.00</div>
                                 <h3 class="title"><a href="#">Caps</a></h3>
                             </div>
                         </div>
@@ -228,7 +255,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="../assets/Crossbag.png">
+                                    <img class="img-1" src="../assets/crossbag2.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Crossbag" data-price="599.99" data-image="../assets/Crossbag.png"></a></li>
@@ -237,7 +264,7 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R499.99 <span>R599.99</span></div>
+                                <div class="price">R499.99</div>
                                 <h3 class="title"><a href="#">Crossbag</a></h3>
                             </div>
                         </div>
@@ -270,7 +297,7 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R661.99 <span>R779.11</span></div>
+                                <div class="price">R661.99</div>
                                 <h3 class="title"><a href="#">Hoodie</a></h3>
                             </div>
                         </div>
@@ -289,7 +316,7 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R1299.99 <span>R1499.99</span></div>
+                                <div class="price">R1299.99</div>
                                 <h3 class="title"><a href="#">Leather Jacket</a></h3>
                             </div>
                         </div>
@@ -299,7 +326,7 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="./pages/products.html" class="image">
-                                    <img class="img-1" src="../assets/Schoolblack.png">
+                                    <img class="img-1" src="../assets/blackbag.png">
                                 </a>
                                 <ul class="product-links">
                                     <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Schoolbags" data-price="599.99" data-image="../assets/Schoolblack.png"></a></li>
@@ -308,13 +335,30 @@
                                 </ul>                                
                             </div>
                             <div class="product-content">
-                                <div class="price">R499.99 <span>R599.99</span></div>
+                                <div class="price">R499.99</div>
                                 <h3 class="title"><a href="#">Schoolbags</a></h3>
                             </div>
                         </div>
                     </div>
     
-                    <!-- Additional product items can be added here... -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="./pages/products.html" class="image">
+                                    <img class="img-1" src="../assets/whitebag.png">
+                                </a>
+                                <ul class="product-links">
+                                    <li><a href="#" class="fa fa-shopping-cart" onclick="addToCart(this)" data-name="Schoolbags" data-price="599.99" data-image="../assets/Schoolblack.png"></a></li>
+                                    <li><a href="#" class="fa fa-heart" onclick="addToWishlist(this)" data-name="Schoolbags" data-price="599.99" data-image="../assets/Schoolblack.png"></a></li>
+                                    <li><a href="#" class="fa fa-eye" onclick="openQuickView(this)" data-name="Schoolbags" data-price="599.99" data-image="../assets/Schoolblack.png"></a></li>
+                                </ul>                                
+                            </div>
+                            <div class="product-content">
+                                <div class="price">R499.99</div>
+                                <h3 class="title"><a href="#">Schoolbags</a></h3>
+                            </div>
+                        </div>
+                    </div>
     
                 </div>
                 <button class="scroll-btn next-btn"><li style="color: rgb(0, 0, 0)" class="fa fa-angle-right"></li></button>
@@ -351,7 +395,7 @@
                             <div id="quick-view-price" class="price">R1299.99</div>
                             <div class="button-group">
                                 <button id="add-to-cart-btn" class="add-to-cart">Add to Cart</button>
-                                <button class="learn-more">Learn more</button>
+                                <button class="learn-more">Size Guide</button>
                             </div>
                         </div>
                     </div>
@@ -386,7 +430,7 @@
                   <ul>
                     <li><a href="#">Shopping online</a></li>
                     <li><a href="#">Delivery & Returns</a></li>
-                    <li><a href="../pages/Size_Guide.html">Size Guide</a></li>
+                    <li><a href="../Size_Guide.html">Size Guide</a></li>
                   </ul>
                 </div>
                 <div class="inner-footer-links">
