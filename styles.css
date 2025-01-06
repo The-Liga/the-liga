@@ -108,19 +108,11 @@ header {
     border-radius: 4px;   
 }
 .btn:hover {
-    background-color: #aaa;
-    border: 1px solid white;
+    background-color: #ccc;
+    color: #000;
+    border: none;
 }
 
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background: white;
-    border: 1px solid #ddd;
-    padding: 10px;
-    list-style: none;
-    justify-content: center;
-}
 
 .profile-dropdown:hover .dropdown-menu {
     display: block;
@@ -144,34 +136,25 @@ header {
     display: none;
     position: absolute;
     right: 0;
-    background-color: white;
-    min-width: 175px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ddd;
-    z-index: 1;
-    border-radius: 4px;
+    background-color: none;
+    max-width: 175px;
+    /* box-shadow: 0 4px 8px rgb(78, 76, 76); */
+    border: none;
+    border-radius: 2px;
+    align-items: center;
+    justify-content: center;
+    border: none;
    
 }
 .for-btn:hover{
     background-color: none;
 }
-.dropdown-menu a {
-    padding: 5px 1px;
-    display: block;
-    color: black;
-    text-decoration: none;
-    white-space: nowrap;
-}
 
-.dropdown-menu a:hover {
-    background-color: #f1f1f1;
-}
+
 .for-btn:hover{
     background-color: none;
 }
-.dropdown-menu i {
-    margin-right: 10px;
-}
+
 
 /* Show dropdown when profile-link is hovered */
 .profile-dropdown:hover .dropdown-menu {
@@ -688,7 +671,7 @@ header.nav-up {
     margin-right: 5px;
 }
 
-.inner-container .shop-btn .shop-icon {
+.inner-container .shop-btn  .shop-btn{
     width: 24px;
     height: 24px;
 }
@@ -1166,9 +1149,7 @@ header.nav-up {
         right: 5px;
     }
     
-    .product-grid:hover .product-links {
-        right: 5px;
-    }
+
 }
 
 .select {
@@ -1694,13 +1675,7 @@ d-flex {
     justify-content: space-between;
 }
 
-.dropdown-menu{
-    border: none;
-    font-weight: 600;
-    width: 100% ;
-   
 
-}
 .dropdown-item:hover{
     background-color: #fff;
 }
@@ -1852,15 +1827,15 @@ a:hover {
 .cart-items button, .wishlist-items button{
     background: none;
     border: none;
-    color: lightgray;
+    color: #000;
     font-size: 20px;
 }
 .cart-items button:hover{
-    color: #000;
+    color: lightgray;
     background: none;
 }
 .wishlist-items button:hover{
-    color: #000;
+    color: lightgray;
     background: none;
 }
 .modal-content .close{
@@ -2218,7 +2193,17 @@ a:hover {
     display: flex;
     gap: 12px; /* Reduced from 15px */
  }
- 
+ .add-to-cart-btn{
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px 25px; /* Reduced from 12px 30px */
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s;
+ }
  .add_to_cart {
     background-color: #000000;
     color: white;
@@ -2500,7 +2485,10 @@ h1 {
 .explore-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     border-radius: 8px;
     transition: transform 0.3s ease-in-out;
 }
@@ -2761,29 +2749,48 @@ h1 {
     overflow: auto;
     background-color: rgba(0,0,0,0.4);
     transition: left 0.5s ease-in-out;
+    
 }
 
 .sales-content {
-    background-color: #fefefe;
+    background-color: #fff;
     margin: 10% auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 800px;
+    border-radius: 2.5px;
+    max-width: 80%;
     position: relative;
+    overflow-y: scroll;
+    
+}
+.sales-content::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar */
 }
 
 .close-sales {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 20px;
     font-weight: bold;
     cursor: pointer;
+    color: #000;
+    z-index: 10;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    border: 1px solid #ccc;
+    
 }
 
 .close-sales:hover,
 .close-sales:focus {
-    color: #000;
+    color: #ccc;
     text-decoration: none;
     cursor: pointer;
 }
@@ -2797,11 +2804,20 @@ h1 {
 
 .sales-item {
     text-align: center;
+    background-color: #fff;
+    display: column;
+    justify-content: center;
+    align-items: center;
 }
-
+.sales-item:hover{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    transform: translateY(-5px);
+    border-radius: 2.5px;
+}
 .sales-item img {
     max-width: 100%;
-    height: auto;
+    height: 200px;
 }
 
 .sales-item h3 {

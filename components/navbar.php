@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Navbar </title>
+    <title>Navbar</title>
 </head>
 
 <body>
@@ -77,8 +77,8 @@
                         ?>
                         <!-- Signup and login buttons for guests -->
                         <div class="dropdown-menu" id="dropdown-menu">
-                            <a class="for-btn" href="./pages/registers.php" ><button class="btn" >SignUp</button></a>
-                            <a class="for-btn"href="./pages/login.php" ><button class="login">LogIn</button></a>
+                            <a class="for-btn" href="./pages/registers.php" ><button class="btn" >Register</button></a>
+                            <!-- <a class="for-btn"href="./pages/login.php" ><button class="login">LogIn</button></a> -->
                         </div>
                     <?php
                     }
