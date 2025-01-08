@@ -29,7 +29,7 @@
     <div class="nav-container">
         <!-- Logo -->
         <div class="logo">
-            <a href="../index.php"><img src="assets/log2.jpg" alt="TL"></a>
+            <a href="../index.php"><img src="./assets/log2.jpg" alt="TL"></a>
         </div>
         
         <!-- Navigation Menu -->

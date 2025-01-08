@@ -9,7 +9,7 @@ include("config.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Liga</title>
+    <title>The Liga | Home</title>
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
@@ -19,7 +19,7 @@ include("config.php");
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Link to external CSS -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="assets/white TL logo.png" type="image/x-icon">
+    <link rel="icon" href="./assets/icon.png" type="image/x-icon">
 </head>
 
 <body>
@@ -136,8 +136,11 @@ include("config.php");
         </div>
 
         <!-- NEW ARRIVALS -->
+         <br>
         <div>
             <h1 class="products-list" style="font-weight: bold;">New Arrivals</h1>
+            <hr>
+            <br>
             <div class="scroll-container">
                 <button class="scroll-btn prev-btn">
                     <i class="fas fa-angle-left"></i>
@@ -157,7 +160,7 @@ include("config.php");
                                 </ul>
                             </div>
                             <div class="product-content">
-                                <div class="price">R661.99</div>
+                                <div class="price" style="font-weight: bold; font-size: 18px;">R661.99</div>
                                 <h3 class="title"><a href="#">Caps</a></h3>
                             </div>
                         </div>
@@ -176,7 +179,7 @@ include("config.php");
                                 </ul>
                             </div>
                             <div class="product-content">
-                                <div class="price">R799.99</div>
+                                <div class="price" style="font-weight: bold; font-size: 18px;">R799.99</div>
                                 <h3 class="title"><a href="#">T-shirt</a></h3>
                             </div>
                         </div>
@@ -195,7 +198,7 @@ include("config.php");
                                 </ul>
                             </div>
                             <div class="product-content">
-                                <div class="price">R799.99</div>
+                                <div class="price"  style="font-weight: bold; font-size: 18px;">R799.99</div>
                                 <h3 class="title"><a href="#">Bucket Hat</a></h3>
                             </div>
                         </div>
@@ -214,7 +217,7 @@ include("config.php");
                                 </ul>
                             </div>
                             <div class="product-content">
-                                <div class="price">R750.99</div>
+                                <div class="price" style="font-weight: bold; font-size: 18px;">R750.99</div>
                                 <h3 class="title"><a href="#">Bucket Hat</a></h3>
                             </div>
                         </div>
@@ -233,7 +236,7 @@ include("config.php");
                                 </ul>
                             </div>
                             <div class="product-content">
-                                <div class="price">R399.99</div>
+                                <div class="price" style="font-weight: bold; font-size: 18px;">R399.99</div>
                                 <h3 class="title"><a href="#">Two color Cap</a></h3>
                             </div>
                         </div>
@@ -249,6 +252,7 @@ include("config.php");
         <!-- THE LIGA X NETBALL SOUTH AFRICA -->
         <div>
             <h1 class="products-list" style="font-weight: bold;"> THE LIGA X NETBALL SOUTH AFRICA </h1>
+            <hr>
             <br>
             <div class="scroll-container">
                 <button class="scroll-btn prev-btn">
@@ -269,7 +273,7 @@ include("config.php");
                                 </ul>
                             </div>
                             <div class="product-content">
-                                <div class="price">R1.500</div>
+                                <div class="price" style="font-weight: bold; font-size: 18px;">R1.500</div>
                                 <h3 class="title"><a href="#">BE VERSATILE '25 HOODIE</a></h3>
                             </div>
                         </div>
@@ -288,7 +292,7 @@ include("config.php");
                                 </ul>
                             </div>
                             <div class="product-content">
-                                <div class="price">R1.200</div>
+                                <div class="price" style="font-weight: bold; font-size: 18px;">R1.200</div>
                                 <h3 class="title"><a href="#">BE VERSATILE '25 POLO SHIRT</a></h3>
                             </div>
                         </div>
@@ -307,7 +311,7 @@ include("config.php");
                                 </ul>
                             </div>
                             <div class="product-content">
-                                <div class="price">R850</div>
+                                <div class="price" style="font-weight: bold; font-size: 18px;">R850</div>
                                 <h3 class="title"><a href="#">BE VERSATILE '25 BASEBALL CAP</a></h3>
                             </div>
                         </div>
@@ -326,7 +330,7 @@ include("config.php");
                                 </ul>
                             </div>
                             <div class="product-content">
-                                <div class="price">R850</div>
+                                <div class="price" style="font-weight: bold; font-size: 18px;">R850</div>
                                 <h3 class="title"><a href="#">BE VERSATILE '25 BASEBALL CAP</a></h3>
                             </div>
                         </div>
@@ -341,6 +345,7 @@ include("config.php");
 
         <!--Why-Us section -->
         <h1 style="text-align: left; font-weight: 500; margin-left: 40px; font-size: 32px; font-weight: bold;">Our Promises</h1>
+        <hr>
         <div class="why-choose-us">
 
             <div class="why-card">
@@ -366,27 +371,28 @@ include("config.php");
         </div>
 
         <h1 class="explore-list" style="font-weight: bold;">EXPLORE</h1>
+        <hr>
         <br>
         <div class="row-products">
             <!-- Explore Item: Women -->
             <div class="col-md-3 col-sm-6">
                 <div class="explore-item">
                     <img src="assets/women1.png" alt="Women">
-                    <a href="pages/women.html" class="explore-btn">WOMEN <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="pages/women.php" class="explore-btn">WOMEN <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
             <!-- Explore Item: Men -->
             <div class="col-md-3 col-sm-6">
                 <div class="explore-item">
                     <img src="assets/men1.png" alt="Men">
-                    <a href="pages/men.html" class="explore-btn">MEN <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="pages/men.php" class="explore-btn">MEN <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
             <!-- Explore Item: Kids -->
             <div class="col-md-3 col-sm-6">
                 <div class="explore-item">
                     <img src="assets/kids1.png" alt="Kids">
-                    <a href="pages/kids.html" class="explore-btn">KIDS <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="pages/kids.php" class="explore-btn">KIDS <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
