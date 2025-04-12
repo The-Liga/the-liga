@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- link external  -->
     <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="../assets/icon.png" type="image/x-icon">
     <style>
         /* kids */
         /* Ensure body covers the whole screen width */
@@ -94,7 +96,7 @@
             align-items: center;
             justify-content: center;
             pointer-events: auto;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s ease;
         }
 
@@ -163,7 +165,7 @@
             left: 0;
             right: 0;
             padding: 2rem;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
             color: white;
         }
 
@@ -244,15 +246,15 @@
             .sizes-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .hero h1 {
                 font-size: 3rem;
             }
-            
+
             .slide {
                 width: calc(100% - 8px);
             }
-            
+
             .min-grid {
                 flex-direction: column;
                 align-items: center;
@@ -265,76 +267,9 @@
         }
     </style>
 </head>
+
 <body>
-    <header>
-        <!-- Add this right after the opening <body> tag, before the header -->
-        <div class="promo-banner">
-               <div class="promo-container">
-                   <div class="promo-slider">
-                       <div class="promo-slide">DRESS WATCH FLASH SALE | 40% OFF <a href="./pages/products.php" class=" shop-now-btn">SHOP NOW</a></div>
-                       <div class="promo-slide">FREE SHIPPING OVER R100 ZAR & EASY RETURNS </div>
-                       <div class="promo-slide">NEW ARRIVALS - SPRING COLLECTION <a href="./pages/products.php" class=" shop-now-btn">SHOP NOW</a></div>
-                   </div>
-                   <button class="promo-nav prev">&#10094;</button>
-                   <button class="promo-nav next">&#10095;</button>
-               </div>
-           </div>
-    
-           <br><br><br><br><br>
-       
-       <div class="nav-container">
-           <!-- Logo -->
-           <div class="logo">
-               <a href="../index.php"><img src="../assets/log2.jpg" alt="TL"></a>
-           </div>
-           
-           <!-- Navigation Menu -->
-           <nav class="main-nav">
-               <ul>
-                   <li><a href="men.html">Men</a></li>
-                   <li><a href="Women.html">Women</a></li>
-                   <li><a href="kids.html">Kids</a></li>
-                   <li><a href="shoes.html">Shoes</a></li>
-                   <li><a href="Our story.html">Brand</a></li>
-               </ul>
-           </nav>
-           
-           <!-- Icons and Profile -->
-           <div class="nav-icons">
-               <a href="#" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
-               <a href="#" id="cart-icon"><i class="fa-solid fa-cart-shopping"></i><span id="cart-count">0</span></a>
-               <a href="#" id="wishlist-icon"><i class="fa-solid fa-heart"></i><span id="wishlist-count">0</span></a>
-               <!-- Profile Dropdown -->
-                <div class="profile-dropdown">
-                    <a href="#" id="profile-link">Username <i class="fa fa-caret-down"></i></a>
-                    <div class="dropdown-menu" id="dropdown-menu">
-                        <a href="#"><i class="fa fa-user"></i> Profile</a>
-                        <a href="#"><i class="fa fa-list"></i> My Orders</a>
-                        <a href="#">Checkout</a>
-                        <a href="#"><i class="fa fa-sign-out"></i> Logout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-           </div>
-               
-               <!-- Hamburger Menu (moved here) -->
-               <div class="hamburger-menu" id="hamburger-menu">
-                   <span class="bar"></span>
-                   <span class="bar"></span>
-                   <span class="bar"></span>
-               </div>
-           </div>
-       </div>
-       
-                   
-            <!-- Search Bar (Initially hidden) -->
-            <div class="search-bar" id="search-bar" style="display:none;">
-                <input type="text" placeholder="Search for products..." />
-                <button type="button" id="search-btn">Search</button>
-            </div>
-        </header>
+    <?php include('../components/navbar.php'); ?>
 
     <section class="hero">
         <h1>VOMERO 5</h1>
@@ -514,147 +449,86 @@
             </div>
         </div>
     </min>
- 
+
 
     <!-- Footer -->
-    <div class="footer">
-        <div class="upper-footer">
-          <div class="newsletter">
-            <h6>Subscribe to our Newsletter</h6>
-            <div class="signup-newsletter">
-              <input placeholder="Enter your Email Address" />
-              <button class="footer-signup-btn">Sign Up</button>
-            </div>
-          </div>
-          <div class="flex justify-center space-x-4 mb-4">
-            <h6>Follow Us</h6>
-            <ul class="social-network social-circle">
-              <li><a href="#" class="icoEnvelope" title="Email"><i class="fa fa-envelope"></i></a></li>
-              <li><a href="https://www.linkedin.com/in/ripfumelo-nova-magomani/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#" class="icoTwitter" title="X (Twitter)"><i class="fa-brands fa-twitter"></i></a></li>
-              <li><a href="https://www.instagram.com/novacodings/" class="icoInstagram" title="Instagram"><i class="fa fa-instagram"></i></a></li>
-            </ul>
-          </div>
-        </div>
-        <hr>
-        <div class="middle-footer">
-            <div class="inner-footer-links">
-              <ul>
-                <li><a href="#">Shopping online</a></li>
-                <li><a href="#">Delivery & Returns</a></li>
-                <li><a href="../Size_Guide.html">Size Guide</a></li>
-              </ul>
-            </div>
-            <div class="inner-footer-links">
-              <ul>
-                <li><a href="#">Customer Services</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Track Your Order</a></li>
-                <li><a href="#">FAQ's</a></li>
-              </ul>
-            </div>
-            <div class="inner-footer-links">
-              <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="../pages/Our story.html">Brand Information</a></li>
-                <li><a href="#">Counterfeit</a></li>
-              </ul>
-            </div>
-            <div class="inner-footer-links">
-              <ul>
-                <li><a href="#">Stores & Loyalty Club</a></li>
-                <li><a href="#">Find a Store</a></li>
-                <li><a href="#">Rewards and Benefits</a></li>
-              </ul>
-            </div>
-          </div>
-          <hr>
-          <div class="lower-footer">
-            <a href="#">© 2024 The Liga. All Rights Reserved</a>
-            <div class="footer-payments">
-              <h6>Pay securely with </h6>
-              <li class="fa fa-cc-mastercard"></li>
-              <li class="fa fa-cc-visa"></li>
-            </div>
-          </div>
-      </div>
+    <?php include('../components/footer.php'); ?>
 
-      <script>
+    <script>
         /* kids functionality */
-/* Slider functionality */
-let latestPositionKids = 0;
-let iconsPositionKids = 0;
-let readsPositionKids = 0;
+        /* Slider functionality */
+        let latestPositionKids = 0;
+        let iconsPositionKids = 0;
+        let readsPositionKids = 0;
 
-function updateSliderPositionKids(sliderId, position) {
-    const slider = document.getElementById(sliderId);
-    if (slider) {
-        slider.style.transform = `translateX(${position}px)`;
-    }
-}
+        function updateSliderPositionKids(sliderId, position) {
+            const slider = document.getElementById(sliderId);
+            if (slider) {
+                slider.style.transform = `translateX(${position}px)`;
+            }
+        }
 
-function getSlideWidthKids(sliderId) {
-    const slider = document.getElementById(sliderId);
-    if (!slider) return 0;
-    const slide = slider.querySelector('.slide');
-    if (!slide) return 0;
-    return slide.offsetWidth + parseInt(getComputedStyle(slide).marginRight);
-}
+        function getSlideWidthKids(sliderId) {
+            const slider = document.getElementById(sliderId);
+            if (!slider) return 0;
+            const slide = slider.querySelector('.slide');
+            if (!slide) return 0;
+            return slide.offsetWidth + parseInt(getComputedStyle(slide).marginRight);
+        }
 
-function slideLatestKids(direction) {
-    const slideWidth = getSlideWidthKids('latestSliderKids');
-    const maxSlides = document.querySelectorAll('#latestSliderKids .slide').length;
-    const visibleSlides = 3;
-    const maxPosition = -(slideWidth * (maxSlides - visibleSlides));
+        function slideLatestKids(direction) {
+            const slideWidth = getSlideWidthKids('latestSliderKids');
+            const maxSlides = document.querySelectorAll('#latestSliderKids .slide').length;
+            const visibleSlides = 3;
+            const maxPosition = -(slideWidth * (maxSlides - visibleSlides));
 
-    latestPositionKids += direction * slideWidth;
-    if (latestPositionKids > 0) latestPositionKids = maxPosition;
-    if (latestPositionKids < maxPosition) latestPositionKids = 0;
+            latestPositionKids += direction * slideWidth;
+            if (latestPositionKids > 0) latestPositionKids = maxPosition;
+            if (latestPositionKids < maxPosition) latestPositionKids = 0;
 
-    updateSliderPositionKids('latestSliderKids', latestPositionKids);
-}
+            updateSliderPositionKids('latestSliderKids', latestPositionKids);
+        }
 
-function slideIconsKids(direction) {
-    const slideWidth = getSlideWidthKids('iconsSliderKids');
-    const maxSlides = document.querySelectorAll('#iconsSliderKids .slide').length;
-    const visibleSlides = 3;
-    const maxPosition = -(slideWidth * (maxSlides - visibleSlides));
+        function slideIconsKids(direction) {
+            const slideWidth = getSlideWidthKids('iconsSliderKids');
+            const maxSlides = document.querySelectorAll('#iconsSliderKids .slide').length;
+            const visibleSlides = 3;
+            const maxPosition = -(slideWidth * (maxSlides - visibleSlides));
 
-    iconsPositionKids += direction * slideWidth;
-    if (iconsPositionKids > 0) iconsPositionKids = maxPosition;
-    if (iconsPositionKids < maxPosition) iconsPositionKids = 0;
+            iconsPositionKids += direction * slideWidth;
+            if (iconsPositionKids > 0) iconsPositionKids = maxPosition;
+            if (iconsPositionKids < maxPosition) iconsPositionKids = 0;
 
-    updateSliderPositionKids('iconsSliderKids', iconsPositionKids);
-}
+            updateSliderPositionKids('iconsSliderKids', iconsPositionKids);
+        }
 
-function slideReadsKids(direction) {
-    const slideWidth = getSlideWidthKids('readsSliderKids');
-    const maxSlides = document.querySelectorAll('#readsSliderKids .slide').length;
-    const visibleSlides = 2;
-    const maxPosition = -(slideWidth * (maxSlides - visibleSlides));
+        function slideReadsKids(direction) {
+            const slideWidth = getSlideWidthKids('readsSliderKids');
+            const maxSlides = document.querySelectorAll('#readsSliderKids .slide').length;
+            const visibleSlides = 2;
+            const maxPosition = -(slideWidth * (maxSlides - visibleSlides));
 
-    readsPositionKids += direction * slideWidth;
-    if (readsPositionKids > 0) readsPositionKids = maxPosition;
-    if (readsPositionKids < maxPosition) readsPositionKids = 0;
+            readsPositionKids += direction * slideWidth;
+            if (readsPositionKids > 0) readsPositionKids = maxPosition;
+            if (readsPositionKids < maxPosition) readsPositionKids = 0;
 
-    updateSliderPositionKids('readsSliderKids', readsPositionKids);
-}
+            updateSliderPositionKids('readsSliderKids', readsPositionKids);
+        }
 
-// Initialize sliders and add window resize handler
-document.addEventListener('DOMContentLoaded', () => {
-    // Reset positions when window is resized
-    window.addEventListener('resize', () => {
-        latestPositionKids = 0;
-        iconsPositionKids = 0;
-        readsPositionKids = 0;
-        updateSliderPositionKids('latestSliderKids', 0);
-        updateSliderPositionKids('iconsSliderKids', 0);
-        updateSliderPositionKids('readsSliderKids', 0);
-    });
-});
-/* End kids functionality */
-      </script>
+        // Initialize sliders and add window resize handler
+        document.addEventListener('DOMContentLoaded', () => {
+            // Reset positions when window is resized
+            window.addEventListener('resize', () => {
+                latestPositionKids = 0;
+                iconsPositionKids = 0;
+                readsPositionKids = 0;
+                updateSliderPositionKids('latestSliderKids', 0);
+                updateSliderPositionKids('iconsSliderKids', 0);
+                updateSliderPositionKids('readsSliderKids', 0);
+            });
+        });
+        /* End kids functionality */
+    </script>
 </body>
+
 </html>

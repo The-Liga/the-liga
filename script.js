@@ -1,56 +1,56 @@
 //header functionality //
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const promoBanner = document.querySelector('.promo-banner');
     const header = document.querySelector('header');
     const promoSlider = document.querySelector('.promo-slider');
     const slides = document.querySelectorAll('.promo-slide');
     const prevBtn = document.querySelector('.promo-nav.prev');
     const nextBtn = document.querySelector('.promo-nav.next');
-    
+
     let currentSlide = 0;
     let lastScrollTop = 0;
     const slideCount = slides.length;
-    
+
     // Initialize slider
     updateSliderPosition();
-    
+
     function updateSliderPosition() {
         promoSlider.style.transform = `translateX(-${currentSlide * 33.333}%)`;
     }
-    
+
     function nextSlide() {
         currentSlide = (currentSlide + 1) % slideCount;
         updateSliderPosition();
     }
-    
+
     function prevSlide() {
         currentSlide = (currentSlide - 1 + slideCount) % slideCount;
         updateSliderPosition();
     }
-    
+
     // Event listeners for manual navigation
     prevBtn.addEventListener('click', () => {
         prevSlide();
         resetInterval();
     });
-    
+
     nextBtn.addEventListener('click', () => {
         nextSlide();
         resetInterval();
     });
-    
+
     // Auto slide functionality
     let slideInterval = setInterval(nextSlide, 4000);
-    
+
     function resetInterval() {
         clearInterval(slideInterval);
         slideInterval = setInterval(nextSlide, 4000);
     }
-    
+
     // Scroll behavior
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-        
+
         // Show banner only when at the very top
         if (currentScroll <= 0) {
             promoBanner.classList.remove('hidden');
@@ -61,28 +61,28 @@ document.addEventListener('DOMContentLoaded', function() {
             header.classList.add('nav-up');
             header.style.top = '0'; // Move header to top when banner is hidden
         }
-        
+
         // Additional check for scrolling up behavior for the header
         if (currentScroll < lastScrollTop && currentScroll > 36) {
             // Scrolling up but not at the top
             header.classList.remove('nav-up');
         }
-        
+
         lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     });
-    
+
     // Initial state check
     if (window.pageYOffset > 0) {
         promoBanner.classList.add('hidden');
         header.classList.add('nav-up');
         header.style.top = '0';
     }
-    
+
     // Pause auto-slide on hover
     promoSlider.addEventListener('mouseenter', () => {
         clearInterval(slideInterval);
     });
-    
+
     promoSlider.addEventListener('mouseleave', () => {
         slideInterval = setInterval(nextSlide, 4000);
     });
@@ -232,7 +232,7 @@ function initLanguage() {
 document.addEventListener('DOMContentLoaded', initLanguage);
 
 // Close popup if clicked outside
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
     const popup = document.getElementById('languagePopup');
     if (popup && !popup.contains(event.target) && popup.classList.contains('active')) {
         toggleLanguagePopup();
@@ -258,7 +258,7 @@ function createNotification(message, type) {
     notificationContainer.id = 'notification-container';
     notificationContainer.className = `notification ${type}`;
     notificationContainer.innerText = message;
-    
+
     // Add to body
     document.body.appendChild(notificationContainer);
 
@@ -280,7 +280,7 @@ function addToCart(button) {
     cart.push(product);
     updateCartCount();
     updateCartItems();
-    
+
     // Show notification
     createNotification(`${product.name} added to cart`, 'success');
 }
@@ -294,7 +294,7 @@ function addToWishlist(button) {
     };
 
     // Check if product is already in wishlist
-    const isDuplicate = wishlist.some(item => 
+    const isDuplicate = wishlist.some(item =>
         item.name === product.name && item.price === product.price
     );
 
@@ -302,11 +302,11 @@ function addToWishlist(button) {
         // Always add the product to wishlist
         wishlist.push(product);
         button.style.color = "red";
-        
+
         // Update wishlist count and items
         updateWishlistCount();
         updateWishlistItems();
-        
+
         // Show notification
         createNotification(`${product.name} added to wishlist`, 'success');
     }
@@ -353,7 +353,7 @@ function updateWishlistItems() {
                     <button class="remove-btn" onclick="removeFromWishlist(${index})">
                         <i class="fa-solid fa-trash"></i>
                     </button> 
-                    <button class="add-to-cart-btn" onclick="moveToCart(${index})">Add to Cart</button>
+                    <button class="add-to-cart-btn" onclick="moveToCart(${index})"><i class="fa-solid fa-cart-shopping"></i></button>
                 </div>
             </div>
             <hr/>
@@ -365,7 +365,7 @@ function updateWishlistItems() {
 // Update Cart Items Display
 function updateCartItems() {
     const cartItemsContainer = document.getElementById("cart-items");
-    cartItemsContainer.innerHTML = ''; 
+    cartItemsContainer.innerHTML = '';
     let total = 0;
 
     cart.forEach((item, index) => {
@@ -413,13 +413,13 @@ function moveToCart(index) {
         price: selectedGroup.price,
         image: selectedGroup.image
     });
-    
+
     // Find and reset the heart color for this item (multiple ways to select)
     const heartButtons = document.querySelectorAll(`[data-name="${selectedGroup.name}"][data-price="${selectedGroup.price}"]`);
     heartButtons.forEach(heartButton => {
         heartButton.style.color = "black";
     });
-    
+
     // Remove the corresponding item from wishlist
     wishlist.splice(selectedGroup.indices[0], 1);
 
@@ -427,7 +427,7 @@ function moveToCart(index) {
     updateCartItems();
     updateWishlistCount();
     updateCartCount();
-    
+
     // Show notification
     createNotification(`${selectedGroup.name} moved to cart`, 'success');
 }
@@ -438,7 +438,7 @@ function removeFromCart(index) {
     cart.splice(index, 1);
     updateCartItems();
     updateCartCount();
-    
+
     // Show notification
     createNotification(`${removedItem.name} removed from cart`, 'warning');
 }
@@ -463,13 +463,13 @@ function removeFromWishlist(index) {
     heartButtons.forEach(heartButton => {
         heartButton.style.color = "black";
     });
-    
+
     // Remove the corresponding item from wishlist
     wishlist.splice(selectedGroup.indices[0], 1);
 
     updateWishlistItems();
     updateWishlistCount();
-    
+
     // Show notification
     createNotification(`${selectedGroup.name} removed from wishlist`, 'warning');
 }
@@ -524,80 +524,80 @@ document.head.appendChild(style);
 function openQuickView(product) {
     // Get the parent product grid
     const productGrid = product.closest('.product-grid');
-    
+
     // Find elements within the product grid
     const imageElement = productGrid.querySelector('.product-image .img-1');
     const titleElement = productGrid.querySelector('.product-content .title a');
     const priceElement = productGrid.querySelector('.product-content .price');
-    
+
     // Extract the correct information
     const title = titleElement ? titleElement.innerText : 'Product';
     const price = priceElement ? priceElement.innerText.replace('R', '').trim() : '0.00';
     const image = imageElement ? imageElement.src : 'assets/';
-    
+
     // Update quick view modal with correct information
     document.getElementById('quick-view-title').innerText = title;
     document.getElementById('quick-view-price').innerText = `Price: R${price}`;
     document.getElementById('quick-view-image').src = image;
-    
+
     // You can customize the description or add more specific descriptions
     document.getElementById('quick-view-description').innerText = `Detailed description for ${title}`;
-    
+
     // Show the modal
     document.getElementById('quick-view-modal').style.display = 'block';
 }
 
 // Modal Close Functions
-document.getElementById("close-cart").onclick = function() {
+document.getElementById("close-cart").onclick = function () {
     document.getElementById("cart-modal").style.display = "none";
 };
 
-document.getElementById("close-wishlist").onclick = function() {
+document.getElementById("close-wishlist").onclick = function () {
     document.getElementById("wishlist-modal").style.display = "none";
 };
 
-document.getElementById("close-search").onclick = function() {
+document.getElementById("close-search").onclick = function () {
     document.getElementById("search-modal").style.display = "none";
 };
 
-document.getElementById('close-quick-view').onclick = function() {
+document.getElementById('close-quick-view').onclick = function () {
     document.getElementById('quick-view-modal').style.display = 'none';
 };
 
 // Modal Open Functions
-document.getElementById("cart-icon").onclick = function() {
+document.getElementById("cart-icon").onclick = function () {
     document.getElementById("cart-modal").style.display = "block";
 };
 
-document.getElementById("wishlist-icon").onclick = function() {
+document.getElementById("wishlist-icon").onclick = function () {
     document.getElementById("wishlist-modal").style.display = "block";
 };
 
-document.getElementById("search-icon").onclick = function() {
+document.getElementById("search-icon").onclick = function () {
     document.getElementById("search-modal").style.display = "block";
 };
 
 // Close modals when clicking outside
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target.classList.contains("modal")) {
         event.target.style.display = "none";
     }
 };
 
 // Add to cart from Quick View
-document.getElementById('add-to-cart-btn').onclick = function() {
+document.getElementById('add-to-cart-btn').onclick = function () {
     const productTitle = document.getElementById('quick-view-title').innerText;
     const productPrice = parseFloat(document.getElementById('quick-view-price').innerText.replace('Price: R', ''));
     const productImage = document.getElementById('quick-view-image').src;
 
-    addToCart({ 
+    addToCart({
         getAttribute: (attr) => {
             if (attr === "data-name") return productTitle;
             if (attr === "data-price") return productPrice;
             if (attr === "data-image") return productImage;
         }
     });
-    
+
     document.getElementById('quick-view-modal').style.display = 'none';
 };
 
@@ -676,7 +676,7 @@ function displaySearchResults(filteredProducts) {
 }
 
 // Initialize search when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('modal-search-input');
     const searchButton = document.getElementById('modal-search-btn');
     const clearButton = document.getElementById('clearSearch');
@@ -721,7 +721,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const prevBtn = container.querySelector('.prev-btn');
         const nextBtn = container.querySelector('.next-btn');
         const rowProducts = container.querySelector('.row-products');
-        
+
         // Calculate scroll amount based on product width plus gap
         // Using the width from your CSS (340px) plus margin (10px * 2) plus gap
         const scrollAmount = 370; // 340 + 20 + 10
@@ -769,10 +769,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update button states on scroll
         rowProducts.addEventListener('scroll', updateButtonStates);
-        
+
         // Update button states on window resize
         window.addEventListener('resize', updateButtonStates);
-        
+
         // Initial button state check
         updateButtonStates();
     });
@@ -780,7 +780,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // End Scroll functionality //
 
 //Hamburger Menu functionality//
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.getElementById('hamburger-menu');
     const mainNav = document.querySelector('.main-nav');
     const body = document.body;
@@ -808,9 +808,9 @@ document.addEventListener('DOMContentLoaded', function() {
     closeButton.addEventListener('click', closeMenu);
 
     // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!mainNav.contains(event.target) && 
-            !hamburger.contains(event.target) && 
+    document.addEventListener('click', function (event) {
+        if (!mainNav.contains(event.target) &&
+            !hamburger.contains(event.target) &&
             mainNav.classList.contains('active')) {
             closeMenu();
         }
@@ -818,12 +818,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close menu when clicking nav links
     const navLinks = document.querySelectorAll('.main-nav ul li a');
-    navLinks.forEach(function(link) {
+    navLinks.forEach(function (link) {
         link.addEventListener('click', closeMenu);
     });
 
     // Handle escape key
-    document.addEventListener('keydown', function(event) {
+    document.addEventListener('keydown', function (event) {
         if (event.key === 'Escape' && mainNav.classList.contains('active')) {
             closeMenu();
         }
@@ -854,14 +854,14 @@ window.addEventListener('click', (event) => {
 //End Welcome Pop-Up functionality //
 
 //Add the quick view functionality//
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const images = [
         '/assets/blackcap1.png',
         '/assets/Cap_Front_And_Back_View_UV1.png',
         '/assets/beanie-on-table-with-accessories-mockup-005.png',
         '/assets/hat.png'
     ];
-    
+
     let currentImageIndex = 0;
     const mainImage = document.getElementById('quick-view-image');
     const dots = document.querySelectorAll('.nav-dot');
@@ -870,7 +870,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateImage(index) {
         currentImageIndex = index;
         mainImage.src = images[index];
-        
+
         // Update active dot
         dots.forEach((dot, i) => {
             if (i === index) {
@@ -882,12 +882,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Navigation functions
-    window.plusDivs = function(n) {
+    window.plusDivs = function (n) {
         let newIndex = (currentImageIndex + n + images.length) % images.length;
         updateImage(newIndex);
     }
 
-    window.currentDiv = function(n) {
+    window.currentDiv = function (n) {
         updateImage(n - 1);
     }
 
@@ -902,41 +902,41 @@ document.addEventListener('DOMContentLoaded', function() {
 //End Quick View functionality//
 
 // size guide //
-        // Add an event listener to the "Learn more" button
-        document.querySelector('.learn-more').addEventListener('click', () => {
-            // Redirect to the size guide page in the same tab
-            window.location.href = 'Size_Guide.html';
-          });
+// Add an event listener to the "Learn more" button
+document.querySelector('.learn-more').addEventListener('click', () => {
+    // Redirect to the size guide page in the same tab
+    window.location.href = 'Size_Guide.html';
+});
 // End side guide //
 
 //Registrations functionality// 
-document.addEventListener('DOMContentLoaded', function() {
-            const signUpButton = document.getElementById('signUpButton');
-            const signInButton = document.getElementById('signInButton');
-            const flipContainer = document.querySelector('.flip-container');
+document.addEventListener('DOMContentLoaded', function () {
+    const signUpButton = document.getElementById('signUpButton');
+    const signInButton = document.getElementById('signInButton');
+    const flipContainer = document.querySelector('.flip-container');
 
-            // Set initial heights
-            function setContainerHeights() {
-                const signIn = document.getElementById('signIn');
-                const signUp = document.getElementById('signup');
-                const flipper = document.querySelector('.flipper');
-                const maxHeight = Math.max(signIn.offsetHeight, signUp.offsetHeight);
-                flipper.style.height = maxHeight + 'px';
-                flipContainer.style.height = maxHeight + 'px';
-            }
+    // Set initial heights
+    function setContainerHeights() {
+        const signIn = document.getElementById('signIn');
+        const signUp = document.getElementById('signup');
+        const flipper = document.querySelector('.flipper');
+        const maxHeight = Math.max(signIn.offsetHeight, signUp.offsetHeight);
+        flipper.style.height = maxHeight + 'px';
+        flipContainer.style.height = maxHeight + 'px';
+    }
 
-            // Set heights on load and window resize
-            window.addEventListener('load', setContainerHeights);
-            window.addEventListener('resize', setContainerHeights);
+    // Set heights on load and window resize
+    window.addEventListener('load', setContainerHeights);
+    window.addEventListener('resize', setContainerHeights);
 
-            signUpButton.addEventListener('click', function() {
-                flipContainer.classList.add('flipped');
-            });
+    signUpButton.addEventListener('click', function () {
+        flipContainer.classList.add('flipped');
+    });
 
-            signInButton.addEventListener('click', function() {
-                flipContainer.classList.remove('flipped');
-            });
-        });
+    signInButton.addEventListener('click', function () {
+        flipContainer.classList.remove('flipped');
+    });
+});
 
 /*End Registrations */
 
@@ -950,30 +950,33 @@ document.querySelectorAll('.explore-btn').forEach((button) => {
 /* End Explore section */
 
 /* Sales popup function */
-/* Sales popup function */
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const salesPopup = document.getElementById('sales-popup');
     const saleIcon = document.getElementById('sale-icon');
     const closeSales = document.querySelector('.close-sales');
     const addToCartButtons = document.querySelectorAll('.add-to-cart');
     const addToWishlistButtons = document.querySelectorAll('.add-to-wishlist');
 
-    // Function to show the sales popup
-    function showSalesPopup() {
+    // Show the popup after 5 seconds
+    setTimeout(function() {
         salesPopup.style.display = 'block';
         setTimeout(function () {
             salesPopup.style.left = '0';
         }, 10);
+    }, 5000);
 
-        // Animate sales items when the popup is shown
-        const salesItems = document.querySelectorAll('.sales-item');
-        salesItems.forEach((item, index) => {
-            item.style.animation = `fadeIn 0.5s ease-in-out ${index * 0.2}s`;
-            item.style.animationFillMode = 'forwards';
-        });
-    }
+    // Close the popup when clicking on the close button
+    closeSales.addEventListener('click', function() {
+        closeSalesPopup();
+    });
 
-    // Function to close the sales popup
+    // Close the popup when clicking outside of it
+    window.addEventListener('click', function(event) {
+        if (event.target == salesPopup) {
+            closeSalesPopup();
+        }
+    });
+
     function closeSalesPopup() {
         salesPopup.style.left = '-100%';
         setTimeout(function () {
@@ -1022,12 +1025,24 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add to Cart function
     function addToCart(button, name, price, image) {
         console.log(`Added to cart: ${name} - R${price}`);
+        
+        // Here we're using the existing addToCart function from your main script
+        // Make sure this function exists in your main script
+        window.addToCart(button);
+        
+        // You can add additional cart logic here if needed
         createNotification(`${name} added to cart`, 'success');
     }
 
     // Add to Wishlist function
     function addToWishlist(button, name, price, image) {
         console.log(`Added to wishlist: ${name} - R${price}`);
+        
+        // Here we're using the existing addToWishlist function from your main script
+        // Make sure this function exists in your main script
+        window.addToWishlist(button);
+        
+        // You can add additional wishlist logic here if needed
         createNotification(`${name} added to wishlist`, 'success');
     }
 
@@ -1067,23 +1082,23 @@ document.addEventListener('DOMContentLoaded', function () {
     const notificationIcon = document.querySelector('.notification-icon');
     const notificationContainer = document.querySelector('.notification-container');
     const notificationDropdown = document.querySelector('.notification-dropdown');
-  
+
     // Toggle dropdown and unread status on icon click
     notificationIcon.addEventListener('click', function (event) {
-      event.stopPropagation(); // Prevent event from bubbling to document
-      notificationContainer.classList.toggle('active');
-  
-      // Mark notifications as read and hide the red dot
-      if (notificationIcon.classList.contains('unread')) {
-        notificationIcon.classList.remove('unread');
-      }
+        event.stopPropagation(); // Prevent event from bubbling to document
+        notificationContainer.classList.toggle('active');
+
+        // Mark notifications as read and hide the red dot
+        if (notificationIcon.classList.contains('unread')) {
+            notificationIcon.classList.remove('unread');
+        }
     });
-  
+
     // Close the dropdown if clicking outside of it
     document.addEventListener('click', function (event) {
-      if (!notificationContainer.contains(event.target)) {
-        notificationContainer.classList.remove('active');
-      }
+        if (!notificationContainer.contains(event.target)) {
+            notificationContainer.classList.remove('active');
+        }
     });
-  });
-  /* END Admin Panel */
+});
+/* END Admin Panel */
