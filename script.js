@@ -516,6 +516,10 @@ document.head.appendChild(style);
 
 // End of cart & wishlist functionality//
 
+// Animation and Checkout Transition //
+
+// End Animation and Checkout Transition //
+
 // Quick View functionality
 function openQuickView(product) {
     // Get the parent product grid
@@ -946,42 +950,58 @@ document.querySelectorAll('.explore-btn').forEach((button) => {
 /* End Explore section */
 
 /* Sales popup function */
-document.addEventListener('DOMContentLoaded', function() {
+/* Sales popup function */
+document.addEventListener('DOMContentLoaded', function () {
     const salesPopup = document.getElementById('sales-popup');
+    const saleIcon = document.getElementById('sale-icon');
     const closeSales = document.querySelector('.close-sales');
     const addToCartButtons = document.querySelectorAll('.add-to-cart');
     const addToWishlistButtons = document.querySelectorAll('.add-to-wishlist');
 
-    // Show the popup after 5 seconds
-    setTimeout(function() {
+    // Function to show the sales popup
+    function showSalesPopup() {
         salesPopup.style.display = 'block';
-        setTimeout(function() {
+        setTimeout(function () {
             salesPopup.style.left = '0';
         }, 10);
-    }, 5000);
 
-    // Close the popup when clicking on the close button
-    closeSales.addEventListener('click', function() {
-        closeSalesPopup();
-    });
+        // Animate sales items when the popup is shown
+        const salesItems = document.querySelectorAll('.sales-item');
+        salesItems.forEach((item, index) => {
+            item.style.animation = `fadeIn 0.5s ease-in-out ${index * 0.2}s`;
+            item.style.animationFillMode = 'forwards';
+        });
+    }
 
-    // Close the popup when clicking outside of it
-    window.addEventListener('click', function(event) {
-        if (event.target == salesPopup) {
-            closeSalesPopup();
-        }
-    });
-
+    // Function to close the sales popup
     function closeSalesPopup() {
         salesPopup.style.left = '-100%';
-        setTimeout(function() {
+        setTimeout(function () {
             salesPopup.style.display = 'none';
         }, 500);
     }
 
+    // Event listener for GIF icon click
+    saleIcon.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent default link behavior
+        showSalesPopup();
+    });
+
+    // Close the popup when clicking on the close button
+    closeSales.addEventListener('click', function () {
+        closeSalesPopup();
+    });
+
+    // Close the popup when clicking outside of it
+    window.addEventListener('click', function (event) {
+        if (event.target === salesPopup) {
+            closeSalesPopup();
+        }
+    });
+
     // Add to Cart functionality
     addToCartButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const name = this.getAttribute('data-name');
             const price = this.getAttribute('data-price');
             const image = this.getAttribute('data-image');
@@ -991,7 +1011,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add to Wishlist functionality
     addToWishlistButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const name = this.getAttribute('data-name');
             const price = this.getAttribute('data-price');
             const image = this.getAttribute('data-image');
@@ -999,31 +1019,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Add to Cart function
     function addToCart(button, name, price, image) {
-        // This function adds the item to the cart
         console.log(`Added to cart: ${name} - R${price}`);
-        
-        // Here we're using the existing addToCart function from your main script
-        // Make sure this function exists in your main script
-        window.addToCart(button);
-        
-        // You can add additional cart logic here if needed
         createNotification(`${name} added to cart`, 'success');
     }
 
+    // Add to Wishlist function
     function addToWishlist(button, name, price, image) {
-        // This function adds the item to the wishlist
         console.log(`Added to wishlist: ${name} - R${price}`);
-        
-        // Here we're using the existing addToWishlist function from your main script
-        // Make sure this function exists in your main script
-        window.addToWishlist(button);
-        
-        // You can add additional wishlist logic here if needed
         createNotification(`${name} added to wishlist`, 'success');
     }
 
-    // Notification function (make sure this exists in your main script or add it here)
+    // Notification function
     function createNotification(message, type) {
         const existingNotifications = document.getElementById('notification-container');
         if (existingNotifications) {
@@ -1034,7 +1042,7 @@ document.addEventListener('DOMContentLoaded', function() {
         notificationContainer.id = 'notification-container';
         notificationContainer.className = `notification ${type}`;
         notificationContainer.innerText = message;
-        
+
         document.body.appendChild(notificationContainer);
 
         setTimeout(() => {
@@ -1044,6 +1052,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
 });
+
+/* End Sales popup */
+
+
 /* End Sales popup */
 
 /* story */

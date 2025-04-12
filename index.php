@@ -30,7 +30,7 @@ include("config.php");
 <div id="search-modal" class="modal">
     <div class="modal-content">
         <span class="close" id="close-search">&times;</span>
-        <h2>Search Products</h2>
+        <h2 style="font-size:1.5rem">Search Products</h2>
         <input type="text" placeholder="Search for products..." id="modal-search-input">
         
         <!-- Search Button on the left and Clear Button on the right -->
@@ -43,7 +43,7 @@ include("config.php");
     <div id="cart-modal" class="modal">
         <div class="modal-content">
             <span class="close" id="close-cart" style="color: red;">&times;</span>
-            <h1 style="text-align: center;">Your Cart</h1>
+            <h1 style="text-align: center; font-size:2rem">Your Cart</h1>
             <hr style="border: 1px solid #000; margin-bottom: 15px;" />
             <div id="cart-items" class="cart-items"></div>
             <div class="checkout-button-container">
@@ -59,7 +59,7 @@ include("config.php");
       <div id="wishlist-modal" class="modal">
     <div class="modal-content">
         <span class="close" id="close-wishlist" style="color: red;">&times;</span>
-        <h1 style="text-align: center;">Your Wishlist</h1>
+        <h1 style="text-align: center; font-size:2rem">Your Wishlist</h1>
         <hr style="border: 1px solid #000; margin-bottom: 15px;"/>
         <div id="wishlist-items" class="wishlist-items">
             <!-- Items will be dynamically added here -->
@@ -130,10 +130,7 @@ include("config.php");
     <div class="home">
         <div class="inner-container" style="background-image: url('assets/Banner_hero.png');">
             <p><strong>"FOR THE BOLD"</strong></p>
-            <a class="shop-btn" href="./pages/products.php">
-                <span class="shop-text">SHOP</span>
-                <img src="./assets/shopping.png" alt="Shop icon" class="shop-icon">
-            </a>
+            <a class="shop-btn" href="./pages/products.php"><i class="shop-icon">🛒</i> Shop</a>
         </div>
 
         <!-- NEW ARRIVALS -->
@@ -187,12 +184,12 @@ include("config.php");
                     <div class="product-grid">
                         <div class="product-image">
                             <a href="./pages/products.html" class="image">
-                                <img class="img-1" src="assets/bucket_ha1.png" alt="Bucket Hat">
+                                <img class="img-1" src="assets/Bucket_hat1.png" alt="Bucket Hat">
                             </a>
                             <ul class="product-links">
-                                <li><a href="#" class="fas fa-shopping-cart" onclick="addToCart(this)" data-name="Bucket Hat" data-price="799.99" data-image="assets/bucket_ha1.png"></a></li>
-                                <li><a href="#" class="fas fa-heart" onclick="addToWishlist(this)" data-name="Bucket Hat" data-price="799.99" data-image="assets/bucket_ha1.png"></a></li>
-                                <li><a href="#" class="fas fa-eye" onclick="openQuickView(this)" data-name="Bucket Hat" data-price="799.99" data-image="assets/bucket_ha1.png"></a></li>
+                                <li><a href="#" class="fas fa-shopping-cart" onclick="addToCart(this)" data-name="Bucket Hat" data-price="799.99" data-image="assets/Bucket_hat1.png"></a></li>
+                                <li><a href="#" class="fas fa-heart" onclick="addToWishlist(this)" data-name="Bucket Hat" data-price="799.99" data-image="assets/Bucket_hat1.png"></a></li>
+                                <li><a href="#" class="fas fa-eye" onclick="openQuickView(this)" data-name="Bucket Hat" data-price="799.99" data-image="assets/Bucket_hat1.png"></a></li>
                             </ul>
                         </div>
                         <div class="product-content">
@@ -216,7 +213,7 @@ include("config.php");
                         </div>
                         <div class="product-content">
                             <div class="price">R750.99</div>
-                            <h3 class="title"><a href="#">Bucket Hat</a></h3>
+                            <h3 class="title"><a href="#">Hoodie</a></h3>
                         </div>
                     </div>
                 </div>
@@ -400,21 +397,22 @@ include("config.php");
             <div class="sales-item">
                 <img src="assets/leather_jacket1.png" alt="Leather Jacket">
                 <h3>Leather Jacket</h3>
-                <p>Now: R1299.99 <span>Was: R1499.99</span></p>
+                <p>Now: R1299.99 <br><span>Was: R1499.99</span></p>
             </div>
             <div class="sales-item">
                 <img src="assets/sneakers1.png" alt="Sneakers">
                 <h3>Sneakers</h3>
-                <p>Now: R1799.99 <span>Was: R2199.99</span></p>
+                <p>Now: R1799.99 <br><span>Was: R2199.99</span></p>
             </div>
             <div class="sales-item">
                 <img src="assets/Daffle_Bag1.png" alt="Duffle Bag">
                 <h3>Duffle Bag</h3>
-                <p>Now: R1200.00 <span>Was: R1499.99</span></p>
+                <p>Now: R1200.00 <br><span>Was: R1499.99</span></p>
             </div>
         </div>
     </div>
 </div>
+
           <!-- Quick-view -->
           <div id="quick-view-modal" class="quickview-modal">
     <div class="quickview-modal-content">

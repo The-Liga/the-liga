@@ -44,47 +44,66 @@
         </nav>
         
         <!-- Icons and Profile -->
-        <div class="nav-icons">
-            <a href="#" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
-            <a href="#" id="cart-icon"><i class="fa-solid fa-cart-shopping"></i><span id="cart-count">0</span></a>
-            <a href="#" id="wishlist-icon"><i class="fa-solid fa-heart"></i><span id="wishlist-count">0</span></a>
-            <!-- Profile Dropdown -->
-            <div class="profile-dropdown">
-            <a href="#" id="profile-link">
-                        <?php
-                        // Display profile icon
-                        echo '<i class="fa-solid fa-user"></i>';
-                        ?>
-                    </a>
-                    <?php
-                    // Check if the user is logged in
-                    if (isset($_SESSION['email'])) {
-                        $email = $_SESSION['email'];
-                        $query = mysqli_query($conn, "SELECT users.* FROM `users` WHERE users.email='$email'");
-                        if ($row = mysqli_fetch_array($query)) {
-                    ?>
-                            <!-- Dropdown menu for logged-in users -->
-                            <div class="dropdown-menu" id="dropdown-menu">
-                                <!-- <h3 style="text-align: center; margin-bottom: 10px;">Welcome, <?php echo $row['username']; ?></h3> -->
-                                <a><i class="fa fa-user"></i> <?php echo $row['username']; ?></a>
-                                <a><i class="fa fa-list"></i> My Orders</a>
-                                <a><i class="fa-solid fa-bag-shopping"></i> Checkout</a>
-                                <a href="./pages/logout.php"><i class="fa fa-sign-out"></i> Logout</a>
-                            </div>
-                        <?php
-                        }
-                    } else {
-                        ?>
-                        <!-- Signup and login buttons for guests -->
-                        <div class="dropdown-menu" id="dropdown-menu">
-                            <a class="for-btn" href="./pages/registers.php" ><button class="btn" >SignUp</button></a>
-                            <a class="for-btn"href="./pages/login.php" ><button class="login">LogIn</button></a>
-                        </div>
-                    <?php
-                    }
-                    ?>
+<div class="nav-icons">
+   <!-- Sale GIF Icon -->
+<a href="#" id="sale-icon">
+    <img src="./assets/sale.gif" alt="Sale Icon" class="gif-icon">
+</a>
+    
+    <!-- Search Icon -->
+    <a href="#" id="search-icon">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </a>
+    
+    <!-- Cart Icon -->
+    <a href="#" id="cart-icon">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cart-count">0</span>
+    </a>
+    
+    <!-- Wishlist Icon -->
+    <a href="#" id="wishlist-icon">
+        <i class="fa-solid fa-heart"></i>
+        <span id="wishlist-count">0</span>
+    </a>
+    
+    <!-- Profile Dropdown -->
+    <div class="profile-dropdown">
+        <a href="#" id="profile-link">
+            <?php
+            echo '<i class="fa-solid fa-user"></i>';
+            ?>
+        </a>
+        <?php
+        if (isset($_SESSION['email'])) {
+            $email = $_SESSION['email'];
+            $query = mysqli_query($conn, "SELECT users.* FROM `users` WHERE users.email='$email'");
+            if ($row = mysqli_fetch_array($query)) {
+        ?>
+            <div class="dropdown-menu" id="dropdown-menu">
+                <a><i class="fa fa-user"></i> <?php echo $row['username']; ?></a>
+                <a><i class="fa fa-list"></i> My Orders</a>
+                <a><i class="fa-solid fa-bag-shopping"></i> Checkout</a>
+                <a href="./pages/logout.php"><i class="fa fa-sign-out"></i> Logout</a>
             </div>
-        </div>
+        <?php
+            }
+        } else {
+        ?>
+            <div class="dropdown-menu" id="dropdown-menu">
+                <a class="for-btn" href="./pages/registers.php">
+                    <button class="btn">SignUp</button>
+                </a>
+                <a class="for-btn" href="./pages/login.php">
+                    <button class="login">LogIn</button>
+                </a>
+            </div>
+        <?php
+        }
+        ?>
+    </div>
+</div>
+
             
             <!-- Hamburger Menu (moved here) -->
             <div class="hamburger-menu" id="hamburger-menu">
