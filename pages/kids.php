@@ -23,10 +23,18 @@
 
         /* Hero Section */
         .hero {
-            background-color: black;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/Sneaker1.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             color: white;
             padding: 4rem 1rem;
             text-align: center;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .hero h1 {
@@ -272,9 +280,9 @@
     <?php include('../components/navbar.php'); ?>
 
     <section class="hero">
-        <h1>VOMERO 5</h1>
-        <p>Rooted in Running. Remastered for Style.</p>
-        <button class="shop-btn" href="products.php">Shop</button>
+        <h1>KIDS COLLECTION</h1>
+        <p>Style and Comfort for Every Adventure</p>
+        <button class="shop-btn" href="products.php">Shop Now</button>
     </section>
 
     <!-- Latest & Greatest Section -->
@@ -356,20 +364,20 @@
             <h2 class="slider-title">Icons For Them</h2>
             <div class="slider" id="iconsSliderKids">
                 <div class="slide">
-                    <img src="../assets/sneakers1.png" alt="Revolution">
-                    <h3>Revolution</h3>
+                    <img src="../assets/sneakers1.png" alt="Kids Comfort Sneakers">
+                    <h3>TL Sport Sneakers</h3>
                 </div>
                 <div class="slide">
-                    <img src="../assets/sandals_girls.png" alt="Jordan">
-                    <h3>Jordan</h3>
+                    <img src="../assets/sandals_girls.png" alt="Kids Summer Sandals">
+                    <h3>Summer Breeze Sandals</h3>
                 </div>
                 <div class="slide">
-                    <img src="../assets/kidsbeanie.jpg" alt="Dunk">
-                    <h3>Dunk</h3>
+                    <img src="../assets/kidsbeanie.jpg" alt="Kids Winter Beanie">
+                    <h3>Cozy Winter Beanie</h3>
                 </div>
                 <div class="slide">
-                    <img src="/api/placeholder/400/400" alt="Air Force 1">
-                    <h3>Air Force 1</h3>
+                    <img src="../assets/Sneaker1.png" alt="Kids Fashion Sneakers">
+                    <h3>Urban Style Kicks</h3>
                 </div>
             </div>
             <div class="slider-nav">

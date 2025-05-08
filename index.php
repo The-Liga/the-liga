@@ -189,7 +189,7 @@ include("config.php");
                     <div class="product-grid">
                         <div class="product-image">
                             <a href="./pages/products.html" class="image">
-                                <img class="img-1" src="assets/bucket_ha1.png" alt="Bucket Hat">
+                                <img class="img-1" src="assets/bucket_hat1.png" alt="Bucket Hat">
                             </a>
                             <ul class="product-links">
                                 <li><a href="#" class="fas fa-shopping-cart" onclick="addToCart(this)" data-name="Bucket Hat" data-price="799.99" data-image="assets/bucket_ha1.png"></a></li>
